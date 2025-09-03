@@ -1,0 +1,1420 @@
+Выполнил Матвеев Никита Сергеевич гр.3383
+
+nikita@nikita-Nitro-AN515-55:~$ date
+Вс 02 мар 2025 13:29:11 MSK
+nikita@nikita-Nitro-AN515-55:~$ who
+nikita   tty2         2025-03-02 12:13 (tty2)
+nikita@nikita-Nitro-AN515-55:~$ uname -a
+Linux nikita-Nitro-AN515-55 6.8.0-52-generic #53~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Jan 15 19:18:46 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+nikita@nikita-Nitro-AN515-55:~$ tty
+/dev/pts/0
+nikita@nikita-Nitro-AN515-55:~$ lscpu
+Архитектура:              x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Порядок байт:           Little Endian
+CPU(s):                   8
+  On-line CPU(s) list:    0-7
+ID прроизводителя:        GenuineIntel
+  Имя модели:             Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+    Семейство ЦПУ:        6
+    Модель:               165
+    Потоков на ядро:      2
+    Ядер на сокет:        4
+    Сокетов:              1
+    Степпинг:             2
+    CPU max MHz:          4500,0000
+    CPU min MHz:          800,0000
+    BogoMIPS:             4999.90
+    Флаги:                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon
+                           pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcn
+                          t tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_a
+                          djust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi p
+                          ku ospke md_clear flush_l1d arch_capabilities
+Virtualization features:  
+  Виртуализация:          VT-x
+Caches (sum of all):      
+  L1d:                    128 KiB (4 instances)
+  L1i:                    128 KiB (4 instances)
+  L2:                     1 MiB (4 instances)
+  L3:                     8 MiB (1 instance)
+NUMA:                     
+  NUMA node(s):           1
+  NUMA node0 CPU(s):      0-7
+Vulnerabilities:          
+  Gather data sampling:   Mitigation; Microcode
+  Itlb multihit:          KVM: Mitigation: VMX disabled
+  L1tf:                   Not affected
+  Mds:                    Not affected
+  Meltdown:               Not affected
+  Mmio stale data:        Mitigation; Clear CPU buffers; SMT vulnerable
+  Reg file data sampling: Not affected
+  Retbleed:               Mitigation; Enhanced IBRS
+  Spec rstack overflow:   Not affected
+  Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:             Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+  Srbds:                  Mitigation; Microcode
+  Tsx async abort:        Not affected
+nikita@nikita-Nitro-AN515-55:~$ sudo lshw -short
+H/W path         Устройство  Класс     Описание
+======================================================================
+                                       system         Nitro AN515-55 (0000000000000000)
+/0                                     bus            Stonic_CMS
+/0/0                                   memory         128KiB BIOS
+/0/4                                   processor      Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+/0/4/5                                 memory         256KiB L1 кэш
+/0/4/6                                 memory         1MiB L2 кэш
+/0/4/7                                 memory         8MiB L3 кэш
+/0/d                                   memory         8GiB Системная память
+/0/d/0                                 memory         Project-Id-Version: lshwReport-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>PO-Revision-Date: 2015-01-21 09:55+0000Last-Translator: Aleksey Kabanov <Unknow
+/0/d/1                                 memory         8GiB SO-DIMM DDR4 Синхронная 3200 MHz (0,3 ns)
+/0/100                                 bridge         10th Gen Core Processor Host Bridge/DRAM Registers
+/0/100/1                               bridge         6th-10th Gen Core Processor PCIe Controller (x16)
+/0/100/1/0       /dev/fb0              display        GA107M [GeForce RTX 3050 Mobile]
+/0/100/1/0.1     card0                 multimedia     NVIDIA Corporation
+/0/100/1/0.1/0   input17               input          HDA NVidia HDMI/DP,pcm=3
+/0/100/1/0.1/1   input18               input          HDA NVidia HDMI/DP,pcm=7
+/0/100/1/0.1/2   input19               input          HDA NVidia HDMI/DP,pcm=8
+/0/100/1/0.1/3   input20               input          HDA NVidia HDMI/DP,pcm=9
+/0/100/2         /dev/fb0              display        CometLake-H GT2 [UHD Graphics]
+/0/100/4                               generic        Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Thermal Subsystem
+/0/100/8                               generic        Xeon E3-1200 v5/v6 / E3-1500 v5 / 6th/7th/8th Gen Core Processor Gaussian Mixture Model
+/0/100/12                              generic        Comet Lake PCH Thermal Controller
+/0/100/14                              bus            Comet Lake USB 3.1 xHCI Host Controller
+/0/100/14/0      usb1                  bus            xHCI Host Controller
+/0/100/14/0/3    input8                input          Logitech G102 LIGHTSYNC Gaming Mouse Keyboard
+/0/100/14/0/5                          multimedia     HD User Facing
+/0/100/14/0/e                          communication  AX201 Bluetooth
+/0/100/14/1      usb2                  bus            xHCI Host Controller
+/0/100/14.2                            memory         RAM memory
+/0/100/14.3      wlp0s20f3             network        Comet Lake PCH CNVi WiFi
+/0/100/15                              bus            Comet Lake PCH Serial IO I2C Controller #0
+/0/100/15.1                            bus            Comet Lake PCH Serial IO I2C Controller #1
+/0/100/16                              communication  Comet Lake HECI Controller
+/0/100/17                              storage        Intel Corporation
+/0/100/1b                              bridge         Comet Lake PCI Express Root Port #21
+/0/100/1b/0      /dev/nvme0            storage        WDC PC SN530 SDBPNPZ-512G-1114
+/0/100/1b/0/0    hwmon2                disk           NVMe disk
+/0/100/1b/0/2    /dev/ng0n1            disk           NVMe disk
+/0/100/1b/0/1    /dev/nvme0n1          disk           512GB NVMe disk
+/0/100/1b/0/1/1  /dev/nvme0n1p1        volume         99MiB Windows FAT volume
+/0/100/1b/0/1/2  /dev/nvme0n1p2        volume         15MiB reserved partition
+/0/100/1b/0/1/3  /dev/nvme0n1p3        volume         402GiB Windows NTFS volume
+/0/100/1b/0/1/4  /dev/nvme0n1p4        volume         1023MiB Windows NTFS volume
+/0/100/1b/0/1/5  /dev/nvme0n1p5        volume         73GiB Том EXT4
+/0/100/1d                              bridge         Intel Corporation
+/0/100/1d/0      enp7s0                network        Realtek Semiconductor Co., Ltd.
+/0/100/1f                              bridge         Comet Lake LPC Controller
+/0/100/1f/0                            system         PnP device PNP0c02
+/0/100/1f/1                            system         PnP device PNP0c02
+/0/100/1f/2                            system         PnP device PNP0c02
+/0/100/1f/3                            system         PnP device PNP0b00
+/0/100/1f/4                            generic        PnP device INT3f0d
+/0/100/1f/5                            input          PnP device PNP0303
+/0/100/1f/6                            system         PnP device PNP0c02
+/0/100/1f/7                            system         PnP device PNP0c02
+/0/100/1f.3      card1                 multimedia     Comet Lake PCH cAVS
+/0/100/1f.3/0    input22               input          HDA Intel PCH Headphone
+/0/100/1f.3/1    input23               input          HDA Intel PCH HDMI/DP,pcm=3
+/0/100/1f.3/2    input24               input          HDA Intel PCH HDMI/DP,pcm=7
+/0/100/1f.3/3    input25               input          HDA Intel PCH HDMI/DP,pcm=8
+/0/100/1f.4                            bus            Comet Lake PCH SMBus Controller
+/0/100/1f.5                            bus            Comet Lake PCH SPI Controller
+/1               input0                input          Lid Switch
+/2               input1                input          Sleep Button
+/3               input12               input          Acer Wireless Radio Control
+/4               input13               input          ELAN050A:01 04F3:3158 Mouse
+/5               input15               input          ELAN050A:01 04F3:3158 Touchpad
+/6               input16               input          Acer WMI hotkeys
+/7               input2                input          Power Button
+/8               input21               input          Video Bus
+/9               input3                input          Power Button
+/a               input4                input          AT Translated Set 2 keyboard
+
+
+Пункт 1
+nikita@nikita-Nitro-AN515-55:~$ pwd
+/home/nikita
+nikita@nikita-Nitro-AN515-55:~$ ls -lR / 2>/dev/null | grep "^-" -m 1 >> output.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -lR / 2>/dev/null | grep "^d" -m 1 >> output.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -lR / 2>/dev/null | grep "^b" -m 1 >> output.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -lR / 2>/dev/null | grep "^c" -m 1 >> output.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -lR / 2>/dev/null | grep "^l" -m 1 >> output.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -lR / 2>/dev/null | grep "^p" -m 1 >> output.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -lR / 2>/dev/null | grep "^s" -m 1 >> output.txt
+nikita@nikita-Nitro-AN515-55:~$ cat output.txt
+-rw-------   1 root root 2147483648 сен 10  2023 swapfile
+drwxr-xr-x   4 root root       4096 мар  2 12:47 boot
+brw-rw----   1 root   disk      7,     0 мар  5 12:21 loop0
+crw-------   1 root   root     10,   122 мар  5 12:21 acpi_thermal_rel
+lrwxrwxrwx   1 root root          7 сен 10  2023 bin -> usr/bin
+prw-rw-r--  1 nikita nikita          0 фев 28 18:04 myfifo
+srwxrwxr-x  1 nikita nikita          0 фев 28 18:08 mysocket.sock
+nikita@nikita-Nitro-AN515-55:~$ find / 2>/dev/null -name "swapfile" -printf '%y\t%p\n' -quit
+f	/snap/core20/2496/etc/default/swapfile
+nikita@nikita-Nitro-AN515-55:~$ find / 2>/dev/null -name "boot" -printf '%y\t%p\n' -quit
+d	/boot
+nikita@nikita-Nitro-AN515-55:~$ find / 2>/dev/null -name "loop0" -printf '%y\t%p\n' -quit
+b	/dev/loop0
+nikita@nikita-Nitro-AN515-55:~$ find / 2>/dev/null -name "acpi_thermal_rel" -printf '%y\t%p\n' -quit
+c	/dev/acpi_thermal_rel
+nikita@nikita-Nitro-AN515-55:~$ find / 2>/dev/null -type l -name "bin" -printf '%y\t%p\n' -quit
+l	/snap/core20/2496/bin
+nikita@nikita-Nitro-AN515-55:~$ find / 2>/dev/null -name "myfifo" -printf '%y\t%p\n' -quit
+p	/home/nikita/myfifo
+nikita@nikita-Nitro-AN515-55:~$ find / 2>/dev/null -name "mysocket.sock" -printf '%y\t%p\n' -quit
+s	/home/nikita/mysocket.sock
+
+Используя bash-script:
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ chmod +x ./script1.sh
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ ./script1.sh newbashoutput1.txt
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ cat newbashoutput1.txt
+-rw------- 1 root root 2147483648 сен 10 2023 /snap/core20/2496/etc/default/swapfile
+drwxr-xr-x 4 root root 4096 мар 2 12:47 /boot
+brw-rw---- 1 root disk 7, 0 мар 5 12:21 /dev/loop0
+crw------- 1 root root 10, 122 мар 5 12:21 /dev/acpi_thermal_rel
+prw-rw-r-- 1 nikita nikita 0 фев 28 18:04 /home/nikita/myfifo
+srwxrwxr-x 1 nikita nikita 0 фев 28 18:08 /home/nikita/mysocket.sock
+lrwxrwxrwx 1 root root 7 сен 10 2023 bin -> /snap/core20/2496/bin
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ 
+
+
+Пункт 2
+nikita@nikita-Nitro-AN515-55:~$ ln  /home/nikita/OS/lb1/bashoutput1.txt hardlink1
+nikita@nikita-Nitro-AN515-55:~$ cd cw
+nikita@nikita-Nitro-AN515-55:~/cw$ ln  /home/nikita/OS/lb1/bashoutput1.txt hardlink2
+nikita@nikita-Nitro-AN515-55:~/cw$ cd ..
+nikita@nikita-Nitro-AN515-55:~$ cd test
+nikita@nikita-Nitro-AN515-55:~/test$ ln  /home/nikita/OS/lb1/bashoutput1.txt hardlink3
+nikita@nikita-Nitro-AN515-55:~/test$ mkdir 1
+nikita@nikita-Nitro-AN515-55:~/test$ cd 1
+nikita@nikita-Nitro-AN515-55:~/test/1$ ln  /home/nikita/OS/lb1/bashoutput1.txt hardlink4
+
+Используя bash-script:
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ chmod +x ./script2.sh
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ ./script2.sh bashoutput1.txt
+1196316 -rw-rw-r--  5 nikita nikita     434 мар  2 15:54 hardlink1
+1196316 -rw-rw-r-- 5 nikita nikita   434 мар  2 15:54 hardlink2
+1196316 -rw-rw-r-- 5 nikita nikita   434 мар  2 15:54 bashoutput1.txt
+1196316 -rw-rw-r-- 5 nikita nikita  434 мар  2 15:54 hardlink3
+1196316 -rw-rw-r-- 5 nikita nikita 434 мар  2 15:54 hardlink4
+
+
+Пункт 3
+nikita@nikita-Nitro-AN515-55:~$ ln -s /home/nikita/OS/lb1/bashoutput1.txt softlink1
+nikita@nikita-Nitro-AN515-55:~$ cd cw
+nikita@nikita-Nitro-AN515-55:~/cw$ cp -s /home/nikita/OS/lb1/bashoutput1.txt softlink2
+nikita@nikita-Nitro-AN515-55:~/cw$ cd /home/nikita/test
+nikita@nikita-Nitro-AN515-55:~/test$ cp -s /home/nikita/OS/lb1/bashoutput1.txt softlink3
+nikita@nikita-Nitro-AN515-55:~/test$ cd /home/nikita/rooty
+nikita@nikita-Nitro-AN515-55:~/rooty$ mkdir 5
+nikita@nikita-Nitro-AN515-55:~/rooty$ cd 5
+nikita@nikita-Nitro-AN515-55:~/rooty/5$ ln -s /home/nikita/OS/lb1/bashoutput1.txt softlink4
+
+Используя bash-script:
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ chmod +x ./script3.sh
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ ./script3.sh bashoutput1.txt
+lrwxrwxrwx  1 nikita nikita      35 мар  2 16:10 softlink1 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita    35 мар  2 16:37 softlink2 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita 35 мар  2 16:43 softlink4 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita   35 мар  2 16:40 softlink3 -> /home/nikita/OS/lb1/bashoutput1.txt
+
+
+Пункт 4
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ ls -lR /home  | grep "^l.*-> .*bashoutput1.txt$"
+lrwxrwxrwx  1 nikita nikita      35 мар  2 16:10 softlink1 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita    35 мар  2 16:37 softlink2 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita 35 мар  2 16:43 softlink4 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita   35 мар  2 16:40 softlink3 -> /home/nikita/OS/lb1/bashoutput1.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -lR /home | grep "^l" | awk '$11 ~ "bashoutput1.txt"'
+lrwxrwxrwx  1 nikita nikita      35 мар  2 16:10 softlink1 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita    35 мар  2 16:37 softlink2 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita 35 мар  2 16:43 softlink4 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita   35 мар  2 16:40 softlink3 -> /home/nikita/OS/lb1/bashoutput1.txt
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ find /home -lname /home/nikita/OS/lb1/bashoutput1.txt -print0 | xargs -0 ls -l
+lrwxrwxrwx 1 nikita nikita 35 мар  2 16:37 /home/nikita/cw/softlink2 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita 35 мар  2 16:43 /home/nikita/rooty/5/softlink4 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita 35 мар  2 16:10 /home/nikita/softlink1 -> /home/nikita/OS/lb1/bashoutput1.txt
+lrwxrwxrwx 1 nikita nikita 35 мар  2 16:40 /home/nikita/test/softlink3 -> /home/nikita/OS/lb1/bashoutput1.txt
+
+
+Пункт 5
+nikita@nikita-Nitro-AN515-55:~$  find / -type f 2>/dev/null | head -n 2 | xargs ls -l
+-rw------- 1 root root 8667805 дек  9 13:10 /boot/System.map-6.8.0-51-generic
+-rw------- 1 root root 8667805 янв 15 19:27 /boot/System.map-6.8.0-52-generic
+nikita@nikita-Nitro-AN515-55:~$ find / -type b 2>/dev/null | head -n 2 | xargs ls -l
+brw-rw---- 1 root disk 7, 0 мар  2 12:13 /dev/loop0
+brw-rw---- 1 root disk 7, 1 мар  2 12:13 /dev/loop1
+nikita@nikita-Nitro-AN515-55:~$ find / -type c 2>/dev/null | head -n 2 | xargs ls -l
+crw-rw-r--+ 1 root root 10, 242 мар  2 12:13 /dev/rfkill
+crw-------  1 root root 10, 127 мар  2 12:13 /dev/vga_arbiter
+nikita@nikita-Nitro-AN515-55:~$ find / -type l 2>/dev/null | head -n 2 | xargs ls -l
+lrwxrwxrwx 1 root root 27 фев 17 10:56 /boot/initrd.img -> initrd.img-6.8.0-52-generic
+lrwxrwxrwx 1 root root 27 фев 17 10:56 /boot/initrd.img.old -> initrd.img-6.8.0-51-generic
+nikita@nikita-Nitro-AN515-55:~$ find / -type p 2>/dev/null | head -n 2 | xargs ls -l
+p--------- 1 root root 0 мар  2 12:13 /run/systemd/inaccessible/fifo
+prw------- 1 root root 0 мар  2 12:13 /run/systemd/sessions/1.ref
+nikita@nikita-Nitro-AN515-55:~$ find / -type s 2>/dev/null | head -n 2 | xargs ls -l
+srwxrwxrwx 1 nikita nikita 0 мар  2 12:13 /tmp/.ICE-unix/1216
+srwxrwxr-x 1 nikita nikita 0 мар  2 12:13 /tmp/.X11-unix/X0
+nikita@nikita-Nitro-AN515-55:~$ find /home -type d 2>/dev/null | head -n 2 | xargs ls -ld
+drwxr-xr-x  3 root   root   4096 сен 10  2023 /home
+drwxr-x--- 49 nikita nikita 4096 мар  2 20:00 /home/nikita
+
+Вложенные команды:
+nikita@nikita-Nitro-AN515-55:~$ find /home -size +200000000c -type f -ls
+1187041 202456 -rw-rw-r--   1 nikita   nikita   207310562 ноя 15 20:34 /home/nikita/\320\227\320\260\320\263\321\200\321\203\320\267\320\272\320\270/zoom_amd644.deb
+1322683 229380 -rw-rw-r--   1 nikita   nikita   234881024 мар  2 17:09 /home/nikita/.cache/JetBrains/CLion2024.1/caches/attributes.dat
+nikita@nikita-Nitro-AN515-55:~/findFiles$ ls
+game1.txt  game_mode.txt  game.txt  garry
+nikita@nikita-Nitro-AN515-55:~/findFiles$ find . -name "game*" -type f -exec rm {} \;
+nikita@nikita-Nitro-AN515-55:~/findFiles$ ls
+garry
+nikita@nikita-Nitro-AN515-55:~/findFiles$ ls
+gameIslife.txt  gamer  garry  larry.txt
+nikita@nikita-Nitro-AN515-55:~/findFiles$ find . -name "game*" -type f -exec mv {} new_name \;
+nikita@nikita-Nitro-AN515-55:~/findFiles$ ls
+garry  larry.txt  new_name
+nikita@nikita-Nitro-AN515-55:~/findFiles$ 
+nikita@nikita-Nitro-AN515-55:~/findFiles$ ls
+garry  larry.txt  new_name
+nikita@nikita-Nitro-AN515-55:~/findFiles$ find . -type f -exec grep -H "bonus" {} \;
+./garry:bonus
+./larry.txt:bonus
+
+
+Пункт 6
+nikita@nikita-Nitro-AN515-55:~$ od -tx1 -tc -Ax text.txt
+000000  48  65  6c  6c  6f  2c  20  57  6f  72  6c  64  21  0a
+         H   e   l   l   o   ,       W   o   r   l   d   !  \n
+00000e
+nikita@nikita-Nitro-AN515-55:~$ od -tx1 -tc -Ao text.txt
+0000000  48  65  6c  6c  6f  2c  20  57  6f  72  6c  64  21  0a
+          H   e   l   l   o   ,       W   o   r   l   d   !  \n
+0000016
+nikita@nikita-Nitro-AN515-55:~$ hexdump -C pai1.png | head -n 2
+00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
+00000010  00 00 01 f4 00 00 01 0a  08 02 00 00 00 6b 2c 30  |.............k,0|
+nikita@nikita-Nitro-AN515-55:~$ od -tx1 -tc -Ao softlink1 |head -n 6
+0000000  2d  72  77  2d  2d  2d  2d  2d  2d  2d  20  20  20  31  20  72
+          -   r   w   -   -   -   -   -   -   -               1       r
+0000020  6f  6f  74  20  72  6f  6f  74  20  32  31  34  37  34  38  33
+          o   o   t       r   o   o   t       2   1   4   7   4   8   3
+0000040  36  34  38  20  d1  81  d0  b5  d0  bd  20  31  30  20  20  32
+          6   4   8     321 201 320 265 320 275       1   0           2
+nikita@nikita-Nitro-AN515-55:~$ od -tx1 -tc -Ao myblockdev |head -n 6
+0000000  68  73  71  73  1d  00  00  00  8b  3c  78  59  00  00  02  00
+          h   s   q   s 035  \0  \0  \0 213   <   x   Y  \0  \0 002  \0
+0000020  01  00  00  00  04  00  11  00  c0  02  01  00  04  00  00  00
+        001  \0  \0  \0 004  \0 021  \0 300 002 001  \0 004  \0  \0  \0
+0000040  80  03  00  00  00  00  00  00  b8  03  00  00  00  00  00  00
+        200 003  \0  \0  \0  \0  \0  \0 270 003  \0  \0  \0  \0  \0  \0
+        
+nikita@nikita-Nitro-AN515-55:~$ stat findFiles > info.txt
+nikita@nikita-Nitro-AN515-55:~$ cd findFiles
+nikita@nikita-Nitro-AN515-55:~/findFiles$ ls
+larry.txt  new_name
+nikita@nikita-Nitro-AN515-55:~/findFiles$ cat ../info.txt
+  Файл: findFiles
+  Размер: 4096      	Блоков: 8          Блок В/В: 4096   каталог
+Устройство: 10305h/66309d	Инода: 1576955     Ссылки: 2
+Доступ: (0775/drwxrwxr-x)  Uid: ( 1000/  nikita)   Gid: ( 1000/  nikita)
+Доступ:        2025-03-02 22:24:00.960084792 +0300
+Модифицирован: 2025-03-02 22:24:15.169217118 +0300
+Изменён:       2025-03-02 22:24:15.169217118 +0300
+Создан:        2025-03-02 20:56:44.122778711 +0300
+nikita@nikita-Nitro-AN515-55:~/findFiles$ mkdir 123
+nikita@nikita-Nitro-AN515-55:~/findFiles$ touch hello.txt
+nikita@nikita-Nitro-AN515-55:~/findFiles$ echo "Hello, World! Hello, World! Hello, World!" >hello.txt
+nikita@nikita-Nitro-AN515-55:~/findFiles$ touch 123/43.txt
+nikita@nikita-Nitro-AN515-55:~/findFiles$ cd ..
+nikita@nikita-Nitro-AN515-55:~$ stat findFiles > info2.txt
+nikita@nikita-Nitro-AN515-55:~$ cat info2.txt
+  Файл: findFiles
+  Размер: 4096      	Блоков: 8          Блок В/В: 4096   каталог
+Устройство: 10305h/66309d	Инода: 1576955     Ссылки: 3
+Доступ: (0775/drwxrwxr-x)  Uid: ( 1000/  nikita)   Gid: ( 1000/  nikita)
+Доступ:        2025-03-02 22:24:43.342478852 +0300
+Модифицирован: 2025-03-02 22:25:24.310858029 +0300
+Изменён:       2025-03-02 22:25:24.310858029 +0300
+Создан:        2025-03-02 20:56:44.122778711 +0300
+nikita@nikita-Nitro-AN515-55:~$ diff info.txt info2.txt
+3c3
+< Устройство: 10305h/66309d	Инода: 1576955     Ссылки: 2
+---
+> Устройство: 10305h/66309d	Инода: 1576955     Ссылки: 3
+5,7c5,7
+< Доступ:        2025-03-02 22:24:00.960084792 +0300
+< Модифицирован: 2025-03-02 22:24:15.169217118 +0300
+< Изменён:       2025-03-02 22:24:15.169217118 +0300
+---
+> Доступ:        2025-03-02 22:24:43.342478852 +0300
+> Модифицирован: 2025-03-02 22:25:24.310858029 +0300
+> Изменён:       2025-03-02 22:25:24.310858029 +0300
+
+
+Пункт 7
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ chmod +x ./script7.sh
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ ./script7.sh
+Размер каталога после создания: 4096 байт
+Размер содержимого каталога после создания: 4,0K
+Добавляем 500 папок
+Размер каталога: 16384 байт
+Размер содержимого каталога: 2,0M
+Добавляем 500 файлов
+Размер каталога: 36864 байт
+Размер содержимого каталога: 2,0M
+Добавляем большой файл(20 МБ)
+Размер каталога: 36864 байт
+Размер содержимого каталога: 22M
+Удаляем все папки
+Размер каталога: 36864 байт
+Размер содержимого каталога: 21M
+Удаляем все файлы
+Размер каталога: 36864 байт
+Размер содержимого каталога: 36K
+Каталог удалён
+
+
+Пункт 8
+/etc/passwd — этот файл содержит информацию для всех учётных записей пользователей в системе. Каждая строка представляет собой запись о пользователе: имя пользователя, пароль, уникальный идентификатор пользователя, идентификатор группы, к которой принадлежит пользователь, дополнительная информация о пользователе (например, полное имя), домашний каталог пользователя, оболочка, которая будет использоваться при входе в систему.
+/etc/shadow — этот файл хранит зашифрованные пароли пользователей и другую информацию, связанную с безопасностью. Формат записи: имя пользователя, зашифрованный пароль, дата последнего изменения пароля, минимальное количество дней между изменениями пароля, максимальное количество дней, после которого пароль должен быть изменён, количество дней до истечения срока действия пароля, когда пользователь будет предупреждён, количество дней после истечения срока действия пароля, когда аккаунт будет отключён, дата истечения срока действия аккаунта, зарезервированное поле для будущего использования.
+Утилита passwd используется для изменения паролей пользователей. Она может быть использована как пользователем для изменения своего пароля, так и администратором для изменения паролей других пользователей. 
+nikita@nikita-Nitro-AN515-55:~$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:113:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:116::/run/uuidd:/usr/sbin/nologin
+systemd-oom:x:108:117:systemd Userspace OOM Killer,,,:/run/systemd:/usr/sbin/nologin
+tcpdump:x:109:118::/nonexistent:/usr/sbin/nologin
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+avahi:x:114:121:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+cups-pk-helper:x:115:122:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+rtkit:x:116:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+whoopsie:x:117:124::/nonexistent:/bin/false
+sssd:x:118:125:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+speech-dispatcher:x:119:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+fwupd-refresh:x:120:126:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+nm-openvpn:x:121:127:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+saned:x:122:129::/var/lib/saned:/usr/sbin/nologin
+colord:x:123:130:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+geoclue:x:124:131::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:125:132:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:126:65534::/run/gnome-initial-setup/:/bin/false
+hplip:x:127:7:HPLIP system user,,,:/run/hplip:/bin/false
+gdm:x:128:134:Gnome Display Manager:/var/lib/gdm3:/bin/false
+nikita:x:1000:1000:Nikita,,,:/home/nikita:/bin/bash
+
+nikita@nikita-Nitro-AN515-55:~$ sudo cat /etc/shadow
+[sudo] пароль для nikita: 
+root:!:19610:0:99999:7:::
+daemon:*:19576:0:99999:7:::
+bin:*:19576:0:99999:7:::
+sys:*:19576:0:99999:7:::
+sync:*:19576:0:99999:7:::
+games:*:19576:0:99999:7:::
+man:*:19576:0:99999:7:::
+lp:*:19576:0:99999:7:::
+mail:*:19576:0:99999:7:::
+news:*:19576:0:99999:7:::
+uucp:*:19576:0:99999:7:::
+proxy:*:19576:0:99999:7:::
+www-data:*:19576:0:99999:7:::
+backup:*:19576:0:99999:7:::
+list:*:19576:0:99999:7:::
+irc:*:19576:0:99999:7:::
+gnats:*:19576:0:99999:7:::
+nobody:*:19576:0:99999:7:::
+systemd-network:*:19576:0:99999:7:::
+systemd-resolve:*:19576:0:99999:7:::
+messagebus:*:19576:0:99999:7:::
+systemd-timesync:*:19576:0:99999:7:::
+syslog:*:19576:0:99999:7:::
+_apt:*:19576:0:99999:7:::
+tss:*:19576:0:99999:7:::
+uuidd:*:19576:0:99999:7:::
+systemd-oom:*:19576:0:99999:7:::
+tcpdump:*:19576:0:99999:7:::
+avahi-autoipd:*:19576:0:99999:7:::
+usbmux:*:19576:0:99999:7:::
+dnsmasq:*:19576:0:99999:7:::
+kernoops:*:19576:0:99999:7:::
+avahi:*:19576:0:99999:7:::
+cups-pk-helper:*:19576:0:99999:7:::
+rtkit:*:19576:0:99999:7:::
+whoopsie:*:19576:0:99999:7:::
+sssd:*:19576:0:99999:7:::
+speech-dispatcher:!:19576:0:99999:7:::
+fwupd-refresh:*:19576:0:99999:7:::
+nm-openvpn:*:19576:0:99999:7:::
+saned:*:19576:0:99999:7:::
+colord:*:19576:0:99999:7:::
+geoclue:*:19576:0:99999:7:::
+pulse:*:19576:0:99999:7:::
+gnome-initial-setup:*:19576:0:99999:7:::
+hplip:*:19576:0:99999:7:::
+gdm:*:19576:0:99999:7:::
+nikita:$y$j9T$eRFnDVrL49onOeN.ykNZE/$.H2aZLXIRpw38Y5xGGc18521a8qELwpGdEX0O0Q1v/B:19610:0:99999:7:::
+
+nikita@nikita-Nitro-AN515-55:~$ ls -l /etc/passwd
+-rw-r--r-- 1 root root 2890 сен 10  2023 /etc/passwd
+Владелец (root) может читать и редактировать файл. Группа и остальные пользователи — только читать.
+nikita@nikita-Nitro-AN515-55:~$ ls -l /etc/shadow
+-rw-r----- 1 root shadow 1465 сен 10  2023 /etc/shadow
+Владелец (root) может читать и редактировать. Группа имеет только чтение. Остальные пользователи — доступ запрещен.
+nikita@nikita-Nitro-AN515-55:~$ ls -l /usr/bin/passwd
+-rwsr-xr-x 1 root root 59976 фев  6  2024 /usr/bin/passwd
+Владелец (root) может читать и редактировать файл, SUID-бит позволяет запускать утилиту с правами владельца (root). Группа и остальные пользователи — могут читать и запускать.
+
+
+Пункт 9
+nikita@nikita-Nitro-AN515-55:~$ mkdir test_dir && cd test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ touch file1.txt file2.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ mkdir in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ touch in_test_dir/file3.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -lR
+.:
+итого 4
+-rw-rw-r-- 1 nikita nikita    0 мар  3 13:37 file1.txt
+-rw-rw-r-- 1 nikita nikita    0 мар  3 13:37 file2.txt
+drwxrwxr-x 2 nikita nikita 4096 мар  3 13:38 in_test_dir
+
+./in_test_dir:
+итого 0
+-rw-rw-r-- 1 nikita nikita 0 мар  3 13:38 file3.txt
+Пункт 9.1 
+применение chmod:
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod 755 file1.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file1.txt
+-rwxr-xr-x 1 nikita nikita 0 мар  3 13:37 file1.txt
+
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod o+w file2.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file2.txt
+-rw-rw-rw- 1 nikita nikita 0 мар  3 13:37 file2.txt
+
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod o-r in_test_dir/file3.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l in_test_dir/file3.txt
+-rw-rw---- 1 nikita nikita 0 мар  3 13:38 in_test_dir/file3.txt
+
+nikita@nikita-Nitro-AN515-55:~/test_dir$ touch file0.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -lR
+.:
+итого 4
+-rw-rw-r-- 1 nikita nikita    0 мар  3 13:47 file0.txt
+-rwxr-xr-x 1 nikita nikita    0 мар  3 13:37 file1.txt
+-rw-rw-rw- 1 nikita nikita    0 мар  3 13:37 file2.txt
+drwxrwxr-x 2 nikita nikita 4096 мар  3 13:38 in_test_dir
+./in_test_dir:
+итого 0
+-rw-rw---- 1 nikita nikita 0 мар  3 13:38 file3.txt
+
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod 000 file0.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file0.txt
+---------- 1 nikita nikita 0 мар  3 13:47 file0.txt
+
+применение chown:
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file1.txt
+-rwxr-xr-x 1 nikita nikita 0 мар  3 13:37 file1.txtна
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sudo chown root file1.txt
+[sudo] пароль для nikita: 
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file1.txt
+-rwxr-xr-x 1 root nikita 0 мар  3 13:37 file1.txt
+
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file2.txt
+-rw-rw-rw- 1 nikita nikita 0 мар  3 13:37 file2.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sudo chown nobody:nogroup file2.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file2.txt
+-rw-rw-rw- 1 nobody nogroup 0 мар  3 13:37 file2.txt
+
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -ld in_test_dir
+drwxrwxr-x 2 nikita nikita 4096 мар  3 13:38 in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sudo chown root in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -ld in_test_dir
+drwxrwxr-x 2 root nikita 4096 мар  3 13:38 in_test_dir
+
+Пункт 9.2
+Бит смены владельца или SUID (Set User ID) — это разрешение файловой системы Linux, которое позволяет запустить исполняемый файл от имени его владельца.
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l in_test_dir/file3.txt
+-rw-rw---- 1 nikita nikita 0 мар  3 13:38 in_test_dir/file3.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod u+s in_test_dir/file3.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l in_test_dir/file3.txt
+-rwSrw---- 1 nikita nikita 0 мар  3 13:38 in_test_dir/file3.txt
+
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file0.txt
+---------- 1 nikita nikita 0 мар  3 13:47 file0.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod 4700 file0.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file0.txt
+-rws------ 1 nikita nikita 0 мар  3 13:47 file0.txt
+
+Пункт 9.3
+nikita@nikita-Nitro-AN515-55:~$ sudo adduser user1
+Добавляется пользователь «user1» ...
+Добавляется новая группа «user1» (1001) ...
+Добавляется новый пользователь «user1» (1001) в группу «user1» ...
+Создаётся домашний каталог «/home/user1» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль: 
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль должен содержать не менее 8 символов
+Повторите ввод нового пароля: 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user1
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] 
+nikita@nikita-Nitro-AN515-55:~$ sudo addgroup testgroup
+Добавляется группа «testgroup» (GID 1002) ...
+Готово.
+nikita@nikita-Nitro-AN515-55:~$ sudo usermod -aG testgroup user1
+nikita@nikita-Nitro-AN515-55:~$ touch file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ sudo chown :testgroup file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -l file9_3.txt
+-rw-rw-r-- 1 nikita testgroup 0 мар  4 14:59 file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ sudo chmod 740 file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -l file9_3.txt
+-rwxr----- 1 nikita testgroup 15 мар  4 14:59 file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ echo "hello world" >> file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ cat file9_3.txt
+hello world
+nikita@nikita-Nitro-AN515-55:~$ ./file9_3.txt
+./file9_3.txt: строка 1: hello: команда не найдена
+
+nikita@nikita-Nitro-AN515-55:~$ su user1
+Пароль: 
+user1@nikita-Nitro-AN515-55:/home/nikita$ cat file9_3.txt
+hello world
+user1@nikita-Nitro-AN515-55:/home/nikita$ echo "hello!" > file9_3.txt
+bash: file9_3.txt: Отказано в доступе
+user1@nikita-Nitro-AN515-55:/home/nikita$ ./file9_3.txt
+bash: ./file9_3.txt: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ su nikita
+Пароль: 
+nikita@nikita-Nitro-AN515-55:~$ sudo chmod g-r file9_3.txt
+[sudo] пароль для nikita: 
+nikita@nikita-Nitro-AN515-55:~$ ls -l file9_3.txt
+-rwx------ 1 nikita testgroup 12 мар  4 15:10 file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ su user1
+Пароль: 
+user1@nikita-Nitro-AN515-55:/home/nikita$ cat file9_3.txt
+cat: file9_3.txt: Отказано в доступе
+
+user1@nikita-Nitro-AN515-55:/home/nikita$ su nikita
+Пароль: 
+nikita@nikita-Nitro-AN515-55:~$ chown user1 file9_3.txt
+chown: изменение владельца 'file9_3.txt': Операция не позволена
+nikita@nikita-Nitro-AN515-55:~$ sudo chown user1 file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -l file9_3.txt
+-rwx------ 1 user1 testgroup 12 мар  4 15:10 file9_3.txt
+nikita@nikita-Nitro-AN515-55:~$ cat file9_3.txt
+cat: file9_3.txt: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ su user1
+Пароль: 
+user1@nikita-Nitro-AN515-55:/home/nikita$ cat file9_3.txt
+hello world
+user1@nikita-Nitro-AN515-55:/home/nikita$ echo "from user1" >> file9_3.txt
+user1@nikita-Nitro-AN515-55:/home/nikita$ cat file9_3.txt
+hello world
+from user1
+user1@nikita-Nitro-AN515-55:/home/nikita$ ./file9_3.txt
+./file9_3.txt: строка 1: hello: команда не найдена
+./file9_3.txt: строка 2: from: команда не найдена
+
+user1@nikita-Nitro-AN515-55:/home/nikita$ chmod o+r file9_3.txt
+user1@nikita-Nitro-AN515-55:/home/nikita$ ls -l file9_3.txt
+-rwx---r-- 1 user1 testgroup 23 мар  4 18:54 file9_3.txt
+user1@nikita-Nitro-AN515-55:/home/nikita$ su nikita
+Пароль: 
+nikita@nikita-Nitro-AN515-55:~$ cat file9_3.txt
+hello world
+from user1
+nikita@nikita-Nitro-AN515-55:~$ echo "from nikita" >> file9_3.txt
+bash: file9_3.txt: Отказано в доступе
+
+
+Задание с защиты:
+1) как права доступа каталога влияют на исполняемый файл внутри каталога
+nikita@nikita-Nitro-AN515-55:~$ date
+Пн 10 мар 2025 11:06:23 MSK
+nikita@nikita-Nitro-AN515-55:~$ mkdir def
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+drwxrwxr-x 2 nikita nikita 4096 мар 10 11:06 def
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+итого 4
+-rwxrwxr-x 1 nikita nikita 90 мар 10 09:33 script2.sh
+нет прав:
+nikita@nikita-Nitro-AN515-55:~$ sudo chmod 000 def
+[sudo] пароль для nikita: 
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+d--------- 2 nikita nikita 4096 мар 10 11:06 def
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+ls: невозможно открыть каталог 'def': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ cd def
+nikita@nikita-Nitro-AN515-55:~$ def/script2.sh out.txt
+bash: def/script2.sh: Отказано в доступе
+только чтение:
+nikita@nikita-Nitro-AN515-55:~$ chmod 444 def
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+dr--r--r-- 2 nikita nikita 4096 мар 10 11:06 def
+nikita@nikita-Nitro-AN515-55:~$ cd def
+bash: cd: def: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+ls: невозможно получить доступ к 'def/script2.sh': Отказано в доступе
+итого 0
+-????????? ? ? ? ?            ? script2.sh
+nikita@nikita-Nitro-AN515-55:~$ chmod +x def/script2.sh
+chmod: невозможно получить доступ к 'def/script2.sh': Отказано в доступе
+только запись:
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+d-w--w---- 2 nikita nikita 4096 мар 10 12:24 def
+nikita@nikita-Nitro-AN515-55:~$ cd def
+bash: cd: def: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+ls: невозможно открыть каталог 'def': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ def/script2.sh out.txt
+bash: def/script2.sh: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ touch def/newfile.txt
+touch: невозможно выполнить touch для 'def/newfile.txt': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ cat def/script2.sh
+cat: def/script2.sh: Отказано в доступе
+только выполнение:
+nikita@nikita-Nitro-AN515-55:~$ chmod -r+x def
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+d--x--x--x 2 nikita nikita 4096 мар 10 11:06 def
+nikita@nikita-Nitro-AN515-55:~$ cd def
+nikita@nikita-Nitro-AN515-55:~/def$ cd ..
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+ls: невозможно открыть каталог 'def': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ cd def
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l
+ls: невозможно открыть каталог '.': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/def$ cd ..
+ikita@nikita-Nitro-AN515-55:~$ touch def/file99.txt
+touch: невозможно выполнить touch для 'def/file99.txt': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ chmod +x def/script2.sh
+nikita@nikita-Nitro-AN515-55:~$ def/script2.sh out.txt
+1213723 -rw-rw-r--  1 nikita nikita        493 мар  5 17:37 out.txt
+чтение и запись:
+nikita@nikita-Nitro-AN515-55:~$ chmod +w def
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+drw-rw-r-- 2 nikita nikita 4096 мар 10 11:06 def
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+ls: невозможно получить доступ к 'def/script2.sh': Отказано в доступе
+итого 0
+-????????? ? ? ? ?            ? script2.sh
+nikita@nikita-Nitro-AN515-55:~$ cd def
+bash: cd: def: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ def/script2.sh out.txt
+bash: def/script2.sh: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ touch def/file999.txt
+touch: невозможно выполнить touch для 'def/file999.txt': Отказано в доступе
+чтение и выполнение:
+nikita@nikita-Nitro-AN515-55:~$ chmod -w+x def
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+dr-xr-xr-x 2 nikita nikita 4096 мар 10 11:06 def
+nikita@nikita-Nitro-AN515-55:~$ cd def
+nikita@nikita-Nitro-AN515-55:~/def$ cd ..
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+итого 4
+-rwxrwxr-x 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~$ chmod +x def/script2.sh
+nikita@nikita-Nitro-AN515-55:~$ def/script2.sh out.txt
+1213723 -rw-rw-r--  1 nikita nikita        493 мар  5 17:37 out.txt
+nikita@nikita-Nitro-AN515-55:~$ touch def/file1.txt
+touch: невозможно выполнить touch для 'def/file1.txt': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ chmod +w def
+nikita@nikita-Nitro-AN515-55:~$ touch def/file1.txt
+nikita@nikita-Nitro-AN515-55:~$ chmod -w def
+nikita@nikita-Nitro-AN515-55:~$ echo "file" >> def/file1.txt
+nikita@nikita-Nitro-AN515-55:~$ cat def/file1.txt
+file
+запись и выполнение:
+nikita@nikita-Nitro-AN515-55:~$ chmod +w-r def
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+d-wx-wx--x 2 nikita nikita 4096 мар 10 11:06 def
+nikita@nikita-Nitro-AN515-55:~$ cd def
+nikita@nikita-Nitro-AN515-55:~/def$ cd ..
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+ls: невозможно открыть каталог 'def': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~$ touch def/file999.txt
+nikita@nikita-Nitro-AN515-55:~$ cd def
+nikita@nikita-Nitro-AN515-55:~/def$ ls
+nikita@nikita-Nitro-AN515-55:~/def$ chmod +x ./script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ cd ..
+nikita@nikita-Nitro-AN515-55:~$ def/script2.sh out.txt
+1213723 -rw-rw-r--  1 nikita nikita        493 мар  5 17:37 out.txt
+nikita@nikita-Nitro-AN515-55:~$ echo "hi" > def/file999.txt
+nikita@nikita-Nitro-AN515-55:~$ cat def/file999.txt
+hi
+чтение, запись и выполнение:
+nikita@nikita-Nitro-AN515-55:~$ chmod +r def
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+drwxrwxr-x 2 nikita nikita 4096 мар 10 12:14 def
+nikita@nikita-Nitro-AN515-55:~$ cd def
+nikita@nikita-Nitro-AN515-55:~/def$ cd ..
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+итого 8
+-rw-rw-r-- 1 nikita nikita  3 мар 10 12:16 file999.txt
+-rwxrwxr-x 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~$ chmod +x def/script2.sh
+nikita@nikita-Nitro-AN515-55:~$ def/script2.sh out.txt
+1213723 -rw-rw-r--  1 nikita nikita        493 мар  5 17:37 out.txt
+nikita@nikita-Nitro-AN515-55:~$ cat def/file999.txt
+hi
+nikita@nikita-Nitro-AN515-55:~$ echo " world" >> def/file999.txt
+nikita@nikita-Nitro-AN515-55:~$ cat def/file999.txt
+hi
+ world
+nikita@nikita-Nitro-AN515-55:~$ touch def/file_zero.txt
+nikita@nikita-Nitro-AN515-55:~$ ls -l def
+итого 8
+-rw-rw-r-- 1 nikita nikita 10 мар 10 12:20 file999.txt
+-rw-rw-r-- 1 nikita nikita  0 мар 10 12:24 file_zero.txt
+-rwxrwxr-x 1 nikita nikita 90 мар 10 09:33 script2.sh
+
+Итог:
+нет прав: нельзя никак взаимодействовать
+только чтение: чтение имён файлов, выполнение исполняемго файла - запрещено
+только запись: нельзя никак взаимодействовать
+только выполнение: можно заходить в каталог и выполнять исполняемый файл
+чтение и запись: чтение имён файлов, выполнение исполняемго файла - запрещено
+чтение и выполнение: доступ на чтение файлов и выполнение исполняемого файла, нельзя добавлять/удалять файлы и подкаталоги
+запись и выполнение: любое взаимодействие, кроме получения имени файлов
+чтение, запись, выполнение: любое взаимодействие
+
+2) как права доступа влияют на исполняемый файл
+nikita@nikita-Nitro-AN515-55:~$ ls -ld def
+drwxrwxr-x 2 nikita nikita 4096 мар 10 12:46 def
+nikita@nikita-Nitro-AN515-55:~$ cd def
+чтение, запись и выполнение:
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l ./script2.sh
+-rwxrwxr-x 1 nikita nikita 90 мар 10 09:33 ./script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ./script2.sh file999.txt
+1580673 -rw-rw-r-- 1 nikita nikita 15 мар 10 12:45 file999.txt
+чтение и выполнение:
+nikita@nikita-Nitro-AN515-55:~/def$ chmod -w script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l script2.sh
+-r-xr-xr-x 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ./script2.sh file999.txt
+1580673 -rw-rw-r-- 1 nikita nikita 15 мар 10 12:45 file999.txt
+чтение и запись:
+nikita@nikita-Nitro-AN515-55:~/def$ chmod -x+w script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l script2.sh
+-rw-rw-r-- 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ./script2.sh file999.txt
+bash: ./script2.sh: Отказано в доступе
+запись и выполнение:
+nikita@nikita-Nitro-AN515-55:~/def$ chmod -r+x script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l script2.sh
+--wx-wx--x 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ./script2.sh file999.txt
+/bin/bash: ./script2.sh: Отказано в доступе
+только чтение:
+nikita@nikita-Nitro-AN515-55:~/def$ chmod -x+r script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l script2.sh
+-r--r--r-- 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ./script2.sh file999.txt
+bash: ./script2.sh: Отказано в доступе
+только запись:
+nikita@nikita-Nitro-AN515-55:~/def$ chmod -r+w script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l script2.sh
+--w--w---- 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ./script2.sh file999.txt
+bash: ./script2.sh: Отказано в доступе
+только выполнение:
+nikita@nikita-Nitro-AN515-55:~/def$ chmod -w+x script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ls -l script2.sh
+---x--x--x 1 nikita nikita 90 мар 10 09:33 script2.sh
+nikita@nikita-Nitro-AN515-55:~/def$ ./script2.sh file999.txt
+/bin/bash: ./script2.sh: Отказано в доступе
+
+Итог:
+Файл можно запускать когда точно есть право на чтение и исполнение.
+Проверка бита suid происходит в 10м задании.
+
+
+Пункт 9.4
+Файл:
+nikita@nikita-Nitro-AN515-55:/home$ cd nikita/test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls
+file0.txt  file1.txt  file2.txt  in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ touch file66.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file66.txt
+-rw-rw-r-- 1 nikita nikita 0 мар  4 19:56 file66.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod -rw file66.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l file66.txt
+---------- 1 nikita nikita 0 мар  4 19:56 file66.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ cat file66.txt
+cat: file66.txt: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ file file66.txt
+file66.txt: empty
+ikita@nikita-Nitro-AN515-55:~/test_dir$ rm file66.txt
+rm: удалить защищённый от записи пустой обычный файл 'file66.txt'? n
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls
+file0.txt  file1.txt  file2.txt  file66.txt  in_test_di
+nikita@nikita-Nitro-AN515-55:~/test_dir$ wc file66.txt
+wc: file66.txt: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ mv file66.txt file77.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls
+file0.txt  file1.txt  file2.txt  file77.txt  in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ du -h file77.txt
+0	file77.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ more file77.txt
+more: невозможно открыть file77.txt: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sort file77.txt
+sort: не удалось прочитать: file77.txt: Отказано в доступе
+Каталог:
+nikita@nikita-Nitro-AN515-55:~/test_dir$ mkdir dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls
+dir66  file0.txt  file1.txt  file2.txt  file77.txt  in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ mkdir dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls
+dir66  file0.txt  file1.txt  file2.txt  file77.txt  in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ touch dir66/file00.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod -w dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -ld dir66
+dr-xr-xr-x 2 nikita nikita 4096 мар  4 22:57 dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ touch dir66/file1.txt
+touch: невозможно выполнить touch для 'dir66/file1.txt': Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ mkdir dir66/dir33
+mkdir: невозможно создать каталог «dir66/dir33»: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod -x dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -ld dir66
+dr--r--r-- 2 nikita nikita 4096 мар  4 22:57 dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ cd dir66
+bash: cd: dir66: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l dir66
+ls: невозможно получить доступ к 'dir66/file00.txt': Отказано в доступе
+итого 0
+-????????? ? ? ? ?            ? file00.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ cat dir66/file00.txt
+cat: dir66/file00.txt: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ rm -r dir66
+rm: спуститься в защищённый от записи каталог 'dir66'? y
+rm: невозможно удалить 'dir66/file00.txt': Отказано в доступе
+rm: удалить защищённый от записи каталог 'dir66'? y
+rm: невозможно удалить 'dir66': Каталог не пуст
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod -r dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -ld dir66
+d--------- 2 nikita nikita 4096 мар  4 22:57 dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ cd dir66
+bash: cd: dir66: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -ld dir66
+d--------- 2 nikita nikita 4096 мар  4 22:57 dir66
+nikita@nikita-Nitro-AN515-55:~/test_dir$ mv dir66 dir99
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls
+dir99  file0.txt  file1.txt  file2.txt  file77.txt  in_test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ find dir99
+dir99
+find: ‘dir99’: Отказано в доступе
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod +r dir99
+nikita@nikita-Nitro-AN515-55:~/test_dir$ find dir99
+dir99
+dir99/file00.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ chmod -r dir99
+nikita@nikita-Nitro-AN515-55:~/test_dir$ du -h dir99
+du: невозможно прочитать каталог 'dir99': Отказано в доступе
+4,0K	dir99
+
+
+Пункт 10
+nikita@nikita-Nitro-AN515-55:~$ date
+Ср 05 мар 2025 12:31:27 MSK
+nikita@nikita-Nitro-AN515-55:~$ cd test_dir
+nikita@nikita-Nitro-AN515-55:~/test_dir$ touch secret.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ echo "Hello world" >> secret.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ cat secret.txt
+Hello world
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l secret.txt
+-rw-rw-r-- 1 nikita nikita 12 мар  5 13:22 secret.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sudo adduser owner
+[sudo] пароль для nikita: 
+Добавляется пользователь «owner» ...
+Добавляется новая группа «owner» (1003) ...
+Добавляется новый пользователь «owner» (1002) в группу «owner» ...
+Создаётся домашний каталог «/home/owner» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль: 
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль должен содержать не менее 8 символов
+Повторите ввод нового пароля: 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе owner
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sudo adduser robber
+Добавляется пользователь «robber» ...
+Добавляется новая группа «robber» (1004) ...
+Добавляется новый пользователь «robber» (1003) в группу «robber» ...
+Создаётся домашний каталог «/home/robber» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль: 
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль должен содержать не менее 8 символов
+Повторите ввод нового пароля: 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе robber
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l /home/nikita/OS/lb1/programm10.cpp
+-rw-rw-r-- 1 nikita nikita 452 мар  5 13:48 /home/nikita/OS/lb1/programm10.cpp
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sudo chown owner:owner secret.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ ls -l secret.txt
+-rw-rw-r-- 1 owner owner 12 мар  5 13:22 secret.txt
+nikita@nikita-Nitro-AN515-55:~/test_dir$ su owner
+Пароль: 
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ cat secret.txt
+Hello world
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ su robber
+Пароль: 
+robber@nikita-Nitro-AN515-55:/home/nikita/test_dir$ cat secret.txt
+Hello world
+
+В разных группах и есть бит SUID у обычного файла:
+robber@nikita-Nitro-AN515-55:/home/nikita/test_dir$ su owner
+Пароль: 
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ chmod 4740 secret.txt
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ ls -l secret.txt
+-rwsr----- 1 owner owner 12 мар  5 13:22 secret.txt
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ cat secret.txt
+Hello world
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ su robber
+Пароль: 
+robber@nikita-Nitro-AN515-55:/home/nikita/test_dir$ cat secret.txt
+cat: secret.txt: Отказано в доступе
+robber@nikita-Nitro-AN515-55:/home/nikita/test_dir$ ./secret.txt
+bash: ./secret.txt: Отказано в доступе
+
+В одной группе и группа может читать файл:
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ chmod 4740 secret.txt
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ ls -l secret.txt
+-rwsr----- 1 owner owner 12 мар  5 13:22 secret.txt
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ su nikita
+Пароль: 
+nikita@nikita-Nitro-AN515-55:~/test_dir$ sudo usermod -aG owner robber
+nikita@nikita-Nitro-AN515-55:~/test_dir$ su robber
+Пароль: 
+robber@nikita-Nitro-AN515-55:/home/nikita/test_dir$ cat secret.txt
+Hello world
+robber@nikita-Nitro-AN515-55:/home/nikita/test_dir$ ./secret.txt
+bash: ./secret.txt: Отказано в доступе
+robber@nikita-Nitro-AN515-55:/home/nikita/test_dir$ su owner
+Пароль: 
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ chmod g-r secret.txt
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ ls -l secret.txt
+-rws------ 1 owner owner 12 мар  5 13:22 secret.txt
+owner@nikita-Nitro-AN515-55:/home/nikita/test_dir$ ls -l /home/nikita/OS/lb1/programm10.cpp
+-rw-rw-r-- 1 nikita nikita 452 мар  5 13:48 /home/nikita/OS/lb1/programm10.cpp
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ su nikita
+Пароль: 
+nikita@nikita-Nitro-AN515-55:~/OS$ chmod o+w lb1
+nikita@nikita-Nitro-AN515-55:~/OS$ ls -ld lb1
+drwxrwxrwx 2 nikita nikita 4096 мар  5 14:24 lb1
+nikita@nikita-Nitro-AN515-55:~/OS$ cd lb1
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ su owner
+Пароль: 
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ g++ programm10.cpp && ./a.out
+Введите полный путь до файла: /home/nikita/test_dir/secret.txt
+Hello world
+
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ ls -l programm10.cpp
+-rwsr--r-- 1 owner owner 452 мар  5 13:48 programm10.cpp
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ su robber
+Пароль: 
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ g++ programm10.cpp && ./a.out
+Введите полный путь до файла: /home/nikita/OS/lb1/secret.txt
+Не удалось открыть файл!
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ ls -l /home/nikita/test_dir/secret.txt
+-rws------ 1 owner owner 12 мар  5 13:22 /home/nikita/test_dir/secret.txt
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ su owner
+Пароль: 
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ chmod 4740 /home/nikita/test_dir/secret.txt
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ su robber
+Пароль: 
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ g++ programm10.cpp
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ ./a.out
+Введите полный путь до файла: /home/nikita/test_dir/secret.txt
+Hello world
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ su nikita
+Пароль: 
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ sudo deluser robber owner
+[sudo] пароль для nikita: 
+Удаляется пользователь «robber» из группы «owner» ...
+Готово.
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ sudo chown :nikita /home/nikita/test_dir/secret.txt
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ ls -l /home/nikita/test_dir/secret.txt
+-rwxr----- 1 owner nikita 12 мар  5 13:22 /home/nikita/test_dir/secret.txt
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ sudo chmod 4740 /home/nikita/test_dir/secret.txt
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ ls -l /home/nikita/test_dir/secret.txt
+-rwsr----- 1 owner nikita 12 мар  5 13:22 /home/nikita/test_dir/secret.txt
+nikita@nikita-Nitro-AN515-55:~/OS/lb1$ su robber
+Пароль: 
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ g++ programm10.cpp && ./a.out
+Введите полный путь до файла: /home/nikita/test_dir/secret.txt
+Не удалось открыть файл!
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ ls -l programm10.cpp
+-rwsr--r-- 1 owner owner 452 мар  5 13:48 programm10.cpp
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ su owner
+Пароль: 
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ chmod 4777 programm10.cpp
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ ls -l programm10.cpp
+-rwsrwxrwx 1 owner owner 452 мар  5 13:48 programm10.cpp
+owner@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ su robber
+Пароль: 
+robber@nikita-Nitro-AN515-55:/home/nikita/OS/lb1$ g++ programm10.cpp && ./a.out
+Введите полный путь до файла: /home/nikita/test_dir/secret.txt
+Не удалось открыть файл!
+
+
+Пункт 11
+Пункт 11.1
+findmnt — это команда в Linux, которая позволяет отобразить список всех смонтированных файловых систем.
+TARGET: Это точка монтирования, то есть каталог в файловой системе, где смонтирована файловая система.
+SOURCE: Это источник файловой системы, который может быть устройством (например, /dev/nvme0n1p5), сетевым ресурсом или другим типом источника.
+FSTYPE: Тип файловой системы.
+OPTIONS: Параметры монтирования, которые определяют, как файловая система будет работать (например, rw для чтения и записи, nosuid для игнорирования битов SUID и т.д.).
+nikita@nikita-Nitro-AN515-55:~/test_dir$ findmnt
+TARGET                                   SOURCE           FSTYPE  OPTIONS
+/                                        /dev/nvme0n1p5   ext4    rw,relatime,er
+├─/sys                                   sysfs            sysfs   rw,nosuid,node
+│ ├─/sys/kernel/security                 securityfs       securit rw,nosuid,node
+│ ├─/sys/fs/cgroup                       cgroup2          cgroup2 rw,nosuid,node
+│ ├─/sys/fs/pstore                       pstore           pstore  rw,nosuid,node
+│ ├─/sys/firmware/efi/efivars            efivarfs         efivarf rw,nosuid,node
+│ ├─/sys/fs/bpf                          bpf              bpf     rw,nosuid,node
+│ ├─/sys/kernel/debug                    debugfs          debugfs rw,nosuid,node
+│ ├─/sys/kernel/tracing                  tracefs          tracefs rw,nosuid,node
+│ ├─/sys/fs/fuse/connections             fusectl          fusectl rw,nosuid,node
+│ └─/sys/kernel/config                   configfs         configf rw,nosuid,node
+├─/proc                                  proc             proc    rw,nosuid,node
+│ └─/proc/sys/fs/binfmt_misc             systemd-1        autofs  rw,relatime,fd
+│   └─/proc/sys/fs/binfmt_misc           binfmt_misc      binfmt_ rw,nosuid,node
+├─/dev                                   udev             devtmpf rw,nosuid,rela
+│ ├─/dev/pts                             devpts           devpts  rw,nosuid,noex
+│ ├─/dev/shm                             tmpfs            tmpfs   rw,nosuid,node
+│ ├─/dev/mqueue                          mqueue           mqueue  rw,nosuid,node
+│ └─/dev/hugepages                       hugetlbfs        hugetlb rw,relatime,pa
+├─/run                                   tmpfs            tmpfs   rw,nosuid,node
+│ ├─/run/lock                            tmpfs            tmpfs   rw,nosuid,node
+│ ├─/run/credentials/systemd-sysusers.service
+│ │                                      ramfs            ramfs   ro,nosuid,node
+│ ├─/run/user/1000                       tmpfs            tmpfs   rw,nosuid,node
+│ │ ├─/run/user/1000/doc                 portal           fuse.po rw,nosuid,node
+│ │ └─/run/user/1000/gvfs                gvfsd-fuse       fuse.gv rw,nosuid,node
+│ └─/run/snapd/ns                        tmpfs[/snapd/ns] tmpfs   rw,nosuid,node
+│   ├─/run/snapd/ns/snapd-desktop-integration.mnt
+│   │                                    nsfs[mnt:[4026532792]]
+│   │                                                     nsfs    rw
+│   ├─/run/snapd/ns/snap-store.mnt       nsfs[mnt:[4026532795]]
+│   │                                                     nsfs    rw
+│   └─/run/snapd/ns/firefox.mnt          nsfs[mnt:[4026532659]]
+│                                                         nsfs    rw
+├─/snap/bare/5                           /dev/loop0       squashf ro,nodev,relat
+├─/snap/clion/274                        /dev/loop1       squashf ro,nodev,relat
+├─/snap/clion/275                        /dev/loop2       squashf ro,nodev,relat
+├─/snap/core18/2846                      /dev/loop3       squashf ro,nodev,relat
+├─/snap/core18/2855                      /dev/loop4       squashf ro,nodev,relat
+├─/snap/core20/2434                      /dev/loop5       squashf ro,nodev,relat
+├─/snap/core20/2496                      /dev/loop6       squashf ro,nodev,relat
+├─/snap/core22/1722                      /dev/loop7       squashf ro,nodev,relat
+├─/snap/core22/1748                      /dev/loop8       squashf ro,nodev,relat
+├─/snap/firefox/5361                     /dev/loop10      squashf ro,nodev,relat
+├─/snap/gnome-3-38-2004/143              /dev/loop11      squashf ro,nodev,relat
+├─/snap/gnome-42-2204/141                /dev/loop12      squashf ro,nodev,relat
+├─/snap/gnome-42-2204/176                /dev/loop13      squashf ro,nodev,relat
+├─/snap/gtk-common-themes/1535           /dev/loop14      squashf ro,nodev,relat
+├─/snap/pycharm-community/425            /dev/loop15      squashf ro,nodev,relat
+├─/snap/pycharm-community/439            /dev/loop16      squashf ro,nodev,relat
+├─/snap/snap-store/1113                  /dev/loop17      squashf ro,nodev,relat
+├─/snap/snap-store/1216                  /dev/loop18      squashf ro,nodev,relat
+├─/snap/snapd/23258                      /dev/loop19      squashf ro,nodev,relat
+├─/snap/snapd/23545                      /dev/loop20      squashf ro,nodev,relat
+├─/snap/snapd-desktop-integration/247    /dev/loop21      squashf ro,nodev,relat
+├─/snap/snapd-desktop-integration/253    /dev/loop22      squashf ro,nodev,relat
+├─/var/snap/firefox/common/host-hunspell /dev/nvme0n1p5[/usr/share/hunspell]
+│                                                         ext4    ro,noexec,noat
+├─/boot/efi                              /dev/nvme0n1p1   vfat    rw,relatime,fm
+└─/snap/firefox/5783                     /dev/loop23      squashf ro,nodev,relat
+df — команда, которая отображает информацию об использовании дискового пространства в файловой системе.
+nikita@nikita-Nitro-AN515-55:~$ df -hT
+Файл.система   Тип      Размер Использовано  Дост Использовано% Cмонтировано в
+tmpfs          tmpfs      778M         2,3M  775M            1% /run
+/dev/nvme0n1p5 ext4        72G          32G   36G           47% /
+tmpfs          tmpfs      3,8G         168M  3,7G            5% /dev/shm
+tmpfs          tmpfs      5,0M         4,0K  5,0M            1% /run/lock
+efivarfs       efivarfs   184K         120K   60K           67% /sys/firmware/efi/efivars
+/dev/nvme0n1p1 vfat        96M          60M   37M           63% /boot/efi
+tmpfs          tmpfs      778M         160K  777M            1% /run/user/1000
+Файл fstab - это текстовый файл, который содержит информацию о различных файловых системах и устройствах хранения информации в компьютере. Это файл, определяющий, как диск и/или раздел будут использоваться и как будут встроены в остальную систему.
+nikita@nikita-Nitro-AN515-55:~$ cat /etc/fstab
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p5 during installation
+UUID=7e263134-685d-49f1-9570-a8eaf3a099e8 /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/nvme0n1p1 during installation
+UUID=1E36-2042  /boot/efi       vfat    umask=0077      0       1
+/swapfile                                 none            swap    sw              0       0
+nikita@nikita-Nitro-AN515-55:~$ cat /etc/fstab | grep -v '^#'
+UUID=7e263134-685d-49f1-9570-a8eaf3a099e8 /               ext4    errors=remount-ro 0       1
+UUID=1E36-2042  /boot/efi       vfat    umask=0077      0       1
+/swapfile                                 none            swap    sw              0       0
+При загрузке система читает /etc/fstab и монтирует указанные разделы.
+
+Пункт 11.2
+Команда lsblk выводит информацию о блочных устройствах (таких как жесткие диски, SSD, USB-накопители и другие), а также об их разделах и точках монтирования.
+До подключения съемного носителя:
+nikita@nikita-Nitro-AN515-55:~$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0         7:0    0     4K  1 loop /snap/bare/5
+loop1         7:1    0   1,2G  1 loop /snap/clion/274
+loop2         7:2    0   1,2G  1 loop /snap/clion/275
+loop3         7:3    0  55,4M  1 loop /snap/core18/2846
+loop4         7:4    0  55,4M  1 loop /snap/core18/2855
+loop5         7:5    0  63,7M  1 loop /snap/core20/2434
+loop6         7:6    0  63,7M  1 loop /snap/core20/2496
+loop7         7:7    0  73,9M  1 loop /snap/core22/1722
+loop8         7:8    0  73,9M  1 loop /snap/core22/1748
+loop9         7:9    0   274M  1 loop /snap/firefox/5361
+loop10        7:10   0 257,9M  1 loop /snap/firefox/5783
+loop11        7:11   0 349,7M  1 loop /snap/gnome-3-38-2004/143
+loop12        7:12   0   497M  1 loop /snap/gnome-42-2204/141
+loop13        7:13   0 505,1M  1 loop /snap/gnome-42-2204/176
+loop14        7:14   0  91,7M  1 loop /snap/gtk-common-themes/1535
+loop15        7:15   0 689,4M  1 loop /snap/pycharm-community/425
+loop16        7:16   0 752,9M  1 loop /snap/pycharm-community/439
+loop17        7:17   0  12,9M  1 loop /snap/snap-store/1113
+loop18        7:18   0  12,2M  1 loop /snap/snap-store/1216
+loop19        7:19   0  44,3M  1 loop /snap/snapd/23258
+loop20        7:20   0  44,4M  1 loop /snap/snapd/23545
+loop21        7:21   0   564K  1 loop /snap/snapd-desktop-integration/247
+loop22        7:22   0   568K  1 loop /snap/snapd-desktop-integration/253
+nvme0n1     259:0    0 476,9G  0 disk 
+├─nvme0n1p1 259:1    0   100M  0 part /boot/efi
+├─nvme0n1p2 259:2    0    16M  0 part 
+├─nvme0n1p3 259:3    0 402,7G  0 part 
+├─nvme0n1p4 259:4    0     1G  0 part 
+└─nvme0n1p5 259:5    0  73,1G  0 part /var/snap/firefox/common/host-hunspell
+После:
+nikita@nikita-Nitro-AN515-55:~$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0         7:0    0     4K  1 loop /snap/bare/5
+loop1         7:1    0   1,2G  1 loop /snap/clion/274
+loop2         7:2    0   1,2G  1 loop /snap/clion/275
+loop3         7:3    0  55,4M  1 loop /snap/core18/2846
+loop4         7:4    0  55,4M  1 loop /snap/core18/2855
+loop5         7:5    0  63,7M  1 loop /snap/core20/2434
+loop6         7:6    0  63,7M  1 loop /snap/core20/2496
+loop7         7:7    0  73,9M  1 loop /snap/core22/1722
+loop8         7:8    0  73,9M  1 loop /snap/core22/1748
+loop9         7:9    0   274M  1 loop /snap/firefox/5361
+loop10        7:10   0 257,9M  1 loop /snap/firefox/5783
+loop11        7:11   0 349,7M  1 loop /snap/gnome-3-38-2004/143
+loop12        7:12   0   497M  1 loop /snap/gnome-42-2204/141
+loop13        7:13   0 505,1M  1 loop /snap/gnome-42-2204/176
+loop14        7:14   0  91,7M  1 loop /snap/gtk-common-themes/1535
+loop15        7:15   0 689,4M  1 loop /snap/pycharm-community/425
+loop16        7:16   0 752,9M  1 loop /snap/pycharm-community/439
+loop17        7:17   0  12,9M  1 loop /snap/snap-store/1113
+loop18        7:18   0  12,2M  1 loop /snap/snap-store/1216
+loop19        7:19   0  44,3M  1 loop /snap/snapd/23258
+loop20        7:20   0  44,4M  1 loop /snap/snapd/23545
+loop21        7:21   0   564K  1 loop /snap/snapd-desktop-integration/247
+loop22        7:22   0   568K  1 loop /snap/snapd-desktop-integration/253
+sda           8:0    1   3,7G  0 disk /media/nikita/SP UFD U2
+nvme0n1     259:0    0 476,9G  0 disk 
+├─nvme0n1p1 259:1    0   100M  0 part /boot/efi
+├─nvme0n1p2 259:2    0    16M  0 part 
+├─nvme0n1p3 259:3    0 402,7G  0 part 
+├─nvme0n1p4 259:4    0     1G  0 part 
+└─nvme0n1p5 259:5    0  73,1G  0 part /var/snap/firefox/common/host-hunspell
+nikita@nikita-Nitro-AN515-55:~$ lsblk -f
+NAME        FSTYPE   FSVER LABEL     UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+loop0       squashfs 4.0                                                        0   100% /snap/bare/5
+loop1       squashfs 4.0                                                        0   100% /snap/clion/274
+loop2       squashfs 4.0                                                        0   100% /snap/clion/275
+loop3       squashfs 4.0                                                        0   100% /snap/core18/2846
+loop4       squashfs 4.0                                                        0   100% /snap/core18/2855
+loop5       squashfs 4.0                                                        0   100% /snap/core20/2434
+loop6       squashfs 4.0                                                        0   100% /snap/core20/2496
+loop7       squashfs 4.0                                                        0   100% /snap/core22/1722
+loop8       squashfs 4.0                                                        0   100% /snap/core22/1748
+loop9       squashfs 4.0                                                        0   100% /snap/firefox/5361
+loop10      squashfs 4.0                                                        0   100% /snap/firefox/5783
+loop11      squashfs 4.0                                                        0   100% /snap/gnome-3-38-2004/143
+loop13      squashfs 4.0                                                        0   100% /snap/gnome-42-2204/176
+loop14      squashfs 4.0                                                        0   100% /snap/gtk-common-themes/1535
+loop15      squashfs 4.0                                                        0   100% /snap/pycharm-community/425
+loop16      squashfs 4.0                                                        0   100% /snap/pycharm-community/439
+loop17      squashfs 4.0                                                        0   100% /snap/snap-store/1113
+loop18      squashfs 4.0                                                        0   100% /snap/snap-store/1216
+loop19      squashfs 4.0                                                        0   100% /snap/snapd/23258
+loop20      squashfs 4.0                                                        0   100% /snap/snapd/23545
+loop21      squashfs 4.0                                                        0   100% /snap/snapd-desktop-integration/247
+loop22      squashfs 4.0                                                        0   100% /snap/snapd-desktop-integration/253
+loop23                                                                          0   100% /snap/gnome-42-2204/202
+sda         vfat     FAT32 SP UFD U2 0436-01DD                               2,7G    27% /media/nikita/SP UFD U2
+nvme0n1                                                                                  
+├─nvme0n1p1 vfat     FAT32 ESP       1E36-2042                              36,4M    62% /boot/efi
+├─nvme0n1p2                                                                              
+├─nvme0n1p3 ntfs           Acer      285436D05436A10C                                    
+├─nvme0n1p4 ntfs           Recovery  2A9A37859A374D17                                    
+└─nvme0n1p5 ext4     1.0             7e263134-685d-49f1-9570-a8eaf3a099e8     36G    44% /var/snap/firefox/common/host-hunspell
+NAME: Имя устройства.
+FSTYPE: Тип файловой системы.
+LABEL: Метка файловой системы.
+UUID: Уникальный идентификатор файловой системы.
+MOUNTPOINT: Точка монтирования.
+Подключенный съемный носитель:
+sda         vfat     FAT32 SP UFD U2 0436-01DD                               2,7G    27% /media/nikita/SP UFD U2
+
+Пункт 11.3
+nikita@nikita-Nitro-AN515-55:/$ sudo find . 2>/dev/null -type d -printf '%d\t%p\n' | sort -rn | head -n 1
+16	./home/nikita/.local/share/virtualenv/wheel/3.10/image/1/CopyPipInstall/pip-23.2.1-py3-none-any/pip/_vendor/urllib3/packages/backports
+nikita@nikita-Nitro-AN515-55:/$ cat /usr/include/linux/limits.h
+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+#ifndef _LINUX_LIMITS_H
+#define _LINUX_LIMITS_H
+
+#define NR_OPEN	        1024
+
+#define NGROUPS_MAX    65536	/* supplemental group IDs are available */
+#define ARG_MAX       131072	/* # bytes of args + environ for exec() */
+#define LINK_MAX         127	/* # links a file may have */
+#define MAX_CANON        255	/* size of the canonical input queue */
+#define MAX_INPUT        255	/* size of the type-ahead buffer */
+#define NAME_MAX         255	/* # chars in a file name */
+#define PATH_MAX        4096	/* # chars in a path name including nul */
+#define PIPE_BUF        4096	/* # bytes in atomic write to a pipe */
+#define XATTR_NAME_MAX   255	/* # chars in an extended attribute name */
+#define XATTR_SIZE_MAX 65536	/* size of an extended attribute value (64k) */
+#define XATTR_LIST_MAX 65536	/* size of extended attribute namelist (64k) */
+
+#define RTSIG_MAX	  32
+
+#endif
+NAME_MAX - Максимальная длина имени файла (включая расширение). Значение: 255 символов.
+PATH_MAX - Максимальная длина полного пути к файлу (включая завершающий нуль). Значение: 4096 символов.
+
+
+Пункт 12
+Утилита file определяет тип файла, анализируя его содержимое, а не полагаясь на расширение. Она использует комбинацию магических чисел (специфических последовательностей байт) и структурных проверок, описанных в специальных шаблонах (правилах) из базы данных magic. Эти шаблоны обычно хранятся в файлах вида /usr/share/file/magic.mgc, /usr/share/file/magic.
+Каждое правило в magic-файле имеет формат: <смещение> <тип_данных> <значение> <сообщение>. Когда утилита file анализирует файл, она сравнивает содержимое файла с правилами, чтобы определить тип файла.
+Пункт 12.1
+nikita@nikita-Nitro-AN515-55:~$ file pai1.png
+pai1.png: PNG image data, 500 x 266, 8-bit/color RGB, non-interlaced
+nikita@nikita-Nitro-AN515-55:~$ hexdump -C -n 8 pai1.png 
+00000000  89 50 4e 47 0d 0a 1a 0a                           |.PNG....|
+00000008
+nikita@nikita-Nitro-AN515-55:~$ touch pr.c
+nikita@nikita-Nitro-AN515-55:~$ echo "int main() { return 0; }" > pr.c
+nikita@nikita-Nitro-AN515-55:~$ gcc pr.c -o pr.elf
+nikita@nikita-Nitro-AN515-55:~$ file pr.elf
+pr.elf: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6585e795c4b9be98c6e0683cd691bb9a87051b11, for GNU/Linux 3.2.0, not stripped
+nikita@nikita-Nitro-AN515-55:~$ hexdump -C -n 4 pr.elf
+00000000  7f 45 4c 46                                       |.ELF|
+00000004
+nikita@nikita-Nitro-AN515-55:~$ hexdump -C -n 8 cw.zip
+00000000  50 4b 03 04 14 00 00 00                           |PK......|
+00000008
+nikita@nikita-Nitro-AN515-55:~$ hexdump -C -n 8 out.txt
+00000000  31 31 39 36 33 31 36 20                           |1196316 |
+00000008
+nikita@nikita-Nitro-AN515-55:~$ touch hello.txt
+nikita@nikita-Nitro-AN515-55:~$ echo "nikita">>hello.txt
+nikita@nikita-Nitro-AN515-55:~$ hexdump -C -n 8 hello.txt
+00000000  6e 69 6b 69 74 61 0a                              |nikita.|
+00000007
+nikita@nikita-Nitro-AN515-55:~$ hexdump -C -n 8 softlink1
+00000000  2d 72 77 2d 2d 2d 2d 2d                           |-rw-----|
+00000008
+
+Пункт 12.2
+nikita@nikita-Nitro-AN515-55:~$ file pai1.png
+pai1.png: PNG image data, 500 x 266, 8-bit/color RGB, non-interlaced
+nikita@nikita-Nitro-AN515-55:~$ touch file99.txt
+nikita@nikita-Nitro-AN515-55:~$ file file99.txt
+file99.txt: empty
+nikita@nikita-Nitro-AN515-55:~$ echo "hello world" >> file99.txt
+nikita@nikita-Nitro-AN515-55:~$ file file99.txt
+file99.txt: ASCII text
+nikita@nikita-Nitro-AN515-55:~$ file -i file99.txt
+file99.txt: text/plain; charset=us-ascii
+nikita@nikita-Nitro-AN515-55:~$ file -i pai1.png
+pai1.png: image/png; charset=binary
+nikita@nikita-Nitro-AN515-55:~$ file test_dir
+test_dir: directory
+nikita@nikita-Nitro-AN515-55:~$ file -i test_dir
+test_dir: inode/directory; charset=binary
+nikita@nikita-Nitro-AN515-55:~$ file softlink1
+softlink1: symbolic link to /home/nikita/OS/lb1/bashoutput1.txt
+nikita@nikita-Nitro-AN515-55:~$ file -L softlink1
+softlink1: Unicode text, UTF-8 text
+nikita@nikita-Nitro-AN515-55:~$ file -c softlink1
+cont	offset	type	opcode	mask	value	desc
+nikita@nikita-Nitro-AN515-55:~$ file -F " ----" file99.txt
+file99.txt ---- ASCII text
+nikita@nikita-Nitro-AN515-55:~$ file -s myblockdev
+myblockdev: Squashfs filesystem, little endian, version 4.0, xz compressed, 952 bytes, 29 inodes, blocksize: 131072 bytes, created: Wed Jul 26 06:54:03 2017
+nikita@nikita-Nitro-AN515-55:~$ file -b file99.txt
+ASCII text
+
+Пункт 12.3
+nikita@nikita-Nitro-AN515-55:~$ touch custom.mytype
+nikita@nikita-Nitro-AN515-55:~$ echo "HEADER">custom.mytype
+nikita@nikita-Nitro-AN515-55:~$ file custom.mytype
+custom.mytype: ASCII text
+nikita@nikita-Nitro-AN515-55:~$ sudo nano /etc/magic
+[sudo] пароль для nikita: 
+nikita@nikita-Nitro-AN515-55:~$ file custom.mytype
+custom.mytype: This is my type!
+nikita@nikita-Nitro-AN515-55:~$ cat /etc/magic
+# Magic local data for file(1) command.
+# Insert here your local magic data. Format is described in magic(5).
+0 string HEADER This is my type!
+nikita@nikita-Nitro-AN515-55:~$ echo "Hello world">>custom.mytype
+nikita@nikita-Nitro-AN515-55:~$ file custom.mytype
+custom.mytype: This is my type!
+nikita@nikita-Nitro-AN515-55:~$ cat custom.mytype
+HEADER
+Hello world

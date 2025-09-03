@@ -1,0 +1,48 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sched.h>
+#include <sys/wait.h>
+int pri[5] = {10, 99, 8, 20, 90};
+void setScheduler(size_t id) {
+    struct sched_param param;
+    param.sched_priority = pri[id];
+    if (sched_setscheduler(0, SCHED_RR, &param) == -1) {
+        exit(EXIT_FAILURE);
+    }
+}
+
+int main() {
+    cpu_set_t  mask;
+    CPU_ZERO(&mask);
+    CPU_SET(0, &mask);
+    if (sched_setaffinity(0, sizeof(mask), &mask) == -1){
+    	exit(EXIT_FAILURE);
+    }
+    
+    struct sched_param param;
+    param.sched_priority = 50;
+    if (sched_setscheduler(0, SCHED_RR, &param) == -1) {
+        exit(EXIT_FAILURE);
+    }
+   
+    for (int i = 0; i < 5; i++) {
+        pid_t pid = fork();
+        if (pid == 0) {
+            //setScheduler(i);
+           
+            for (int j = 0; j < 5; ++j) {
+        	//std::cout << "Процесс №" << i << " шаг " << j << "\n";
+        	for (int j=0; j<1000000000; ++j){}
+        	std::cout << i;
+        	std::cout.flush();
+        	//usleep(10);
+    	    }
+            exit(0);
+        }
+    }
+    
+    while (wait(nullptr) > 0);
+    return 0;
+}

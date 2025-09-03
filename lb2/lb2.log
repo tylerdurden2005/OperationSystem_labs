@@ -1,0 +1,2955 @@
+Выполнил Матвеев Никита Сергеевич гр. 3383
+
+nikita@nikita-Nitro-AN515-55:~$ date
+Вс 16 мар 2025 21:13:53 MSK
+nikita@nikita-Nitro-AN515-55:~$ who
+nikita   tty2         2025-03-16 12:52 (tty2)
+nikita@nikita-Nitro-AN515-55:~$ uname -a
+Linux nikita-Nitro-AN515-55 6.8.0-52-generic #53~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Jan 15 19:18:46 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+nikita@nikita-Nitro-AN515-55:~$ tty
+/dev/pts/0
+nikita@nikita-Nitro-AN515-55:~$ lscpu
+Архитектура:              x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          39 bits physical, 48 bits virtual
+  Порядок байт:           Little Endian
+CPU(s):                   8
+  On-line CPU(s) list:    0-7
+ID прроизводителя:        GenuineIntel
+  Имя модели:             Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+    Семейство ЦПУ:        6
+    Модель:               165
+    Потоков на ядро:      2
+    Ядер на сокет:        4
+    Сокетов:              1
+    Степпинг:             2
+    CPU max MHz:          4500,0000
+    CPU min MHz:          800,0000
+    BogoMIPS:             4999.90
+    Флаги:                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_per
+                          fmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic mov
+                          be popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fs
+                          gsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_windo
+                          w hwp_epp vnmi pku ospke md_clear flush_l1d arch_capabilities
+Virtualization features:  
+  Виртуализация:          VT-x
+Caches (sum of all):      
+  L1d:                    128 KiB (4 instances)
+  L1i:                    128 KiB (4 instances)
+  L2:                     1 MiB (4 instances)
+  L3:                     8 MiB (1 instance)
+NUMA:                     
+  NUMA node(s):           1
+  NUMA node0 CPU(s):      0-7
+Vulnerabilities:          
+  Gather data sampling:   Mitigation; Microcode
+  Itlb multihit:          KVM: Mitigation: VMX disabled
+  L1tf:                   Not affected
+  Mds:                    Not affected
+  Meltdown:               Not affected
+  Mmio stale data:        Mitigation; Clear CPU buffers; SMT vulnerable
+  Reg file data sampling: Not affected
+  Retbleed:               Mitigation; Enhanced IBRS
+  Spec rstack overflow:   Not affected
+  Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:             Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+  Srbds:                  Mitigation; Microcode
+  Tsx async abort:        Not affected
+
+Пункт 1
+
+Пункт 1.1
+nikita@nikita-Nitro-AN515-55:~$ ps
+    PID TTY          TIME CMD
+   6847 pts/0    00:00:00 bash
+   7649 pts/0    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ yes > /dev/null &
+[1] 7825
+nikita@nikita-Nitro-AN515-55:~$ ps
+    PID TTY          TIME CMD
+   6847 pts/0    00:00:00 bash
+   7825 pts/0    00:00:01 yes
+   7826 pts/0    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ jobs
+[1]+  Запущен          yes > /dev/null &
+nikita@nikita-Nitro-AN515-55:~$ kill %1
+nikita@nikita-Nitro-AN515-55:~$ jobs 1
+[1]+  Завершено      yes > /dev/null
+nikita@nikita-Nitro-AN515-55:~$ cat *.c > myprog & lpr myprog & lpr intro&
+[1] 10945
+[2] 10946
+[3] 10947
+nikita@nikita-Nitro-AN515-55:~$ lpr: Error - No default destination.
+lpr: Error - No default destination.
+jobs
+[1]   Завершён        cat *.c > myprog
+[2]-  Выход 1            lpr myprog
+[3]+  Выход 1            lpr intro
+nikita@nikita-Nitro-AN515-55:~$ ps
+    PID TTY          TIME CMD
+  10852 pts/0    00:00:00 bash
+  10962 pts/0    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ sleep 20 &
+[1] 11001
+nikita@nikita-Nitro-AN515-55:~$ wait %1 && notify-send "Job 1 done"
+[1]+  Завершён        sleep 20
+nikita@nikita-Nitro-AN515-55:~$ yes > /dev/null &
+[1] 11221
+nikita@nikita-Nitro-AN515-55:~$ sleep 100 &
+[2] 11222
+nikita@nikita-Nitro-AN515-55:~$ jobs
+[1]-  Запущен          yes > /dev/null &
+[2]+  Запущен          sleep 100 &
+nikita@nikita-Nitro-AN515-55:~$ fg %1
+yes > /dev/null
+^C
+nikita@nikita-Nitro-AN515-55:~$ jobs
+[2]+  Запущен          sleep 100 &
+nikita@nikita-Nitro-AN515-55:~$ sleep 100
+^Z
+[1]+  Остановлен    sleep 100
+nikita@nikita-Nitro-AN515-55:~$ bg %1
+[1]+ sleep 100 &
+nikita@nikita-Nitro-AN515-55:~$ jobs
+[1]+  Запущен          sleep 100 &
+nikita@nikita-Nitro-AN515-55:~$ 
+nikita@nikita-Nitro-AN515-55:~$ ps
+    PID TTY          TIME CMD
+  10852 pts/0    00:00:00 bash
+  11248 pts/0    00:00:00 sleep
+  11257 pts/0    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ kill %1
+nikita@nikita-Nitro-AN515-55:~$ jobs
+[1]+  Завершено      sleep 100
+
+Пункт 1.2
+nikita@nikita-Nitro-AN515-55:~$ sleep 3600 &
+[1] 11620
+nikita@nikita-Nitro-AN515-55:~$ ps
+    PID TTY          TIME CMD
+  11609 pts/2    00:00:00 bash
+  11620 pts/2    00:00:00 sleep
+  11622 pts/2    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ exit
+exit
+Снова заходим в терминал
+nikita@nikita-Nitro-AN515-55:~$ ps aux | grep sleep
+nikita     12294  0.0  0.0   9112  2432 pts/3    S+   13:47   0:00 grep --color=auto sleep
+nikita@nikita-Nitro-AN515-55:~$ nohup sleep 3600 > /dev/null 2>/dev/null &
+nikita@nikita-Nitro-AN515-55:~$ nohup sleep 3600 > /dev/null 2>/dev/null &
+[1] 12363
+nikita@nikita-Nitro-AN515-55:~$ ps
+    PID TTY          TIME CMD
+  12345 pts/0    00:00:00 bash
+  12363 pts/0    00:00:00 sleep
+  12364 pts/0    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ exit
+Снова заходим в терминал
+nikita@nikita-Nitro-AN515-55:~$ ps aux | grep sleep
+nikita     12363  0.0  0.0   8380  1920 ?        S    13:48   0:00 sleep 3600
+nikita     12418  0.0  0.0   9112  2432 pts/0    S+   13:49   0:00 grep --color=auto sleep
+
+Пункт 1.3
+nikita@nikita-Nitro-AN515-55:~$ id
+uid=1000(nikita) gid=1000(nikita) группы=1000(nikita),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),135(lxd),136(sambashare)
+nikita@nikita-Nitro-AN515-55:~$ ps -eo uid,pid,comm | sort -nk1 | head -n 1
+    0     100 kworker/R-acpi_
+nikita@nikita-Nitro-AN515-55:~$ ps -eo uid,pid,comm | sort -nk1 | tail -n 1
+ 1000    9929 yandex_browser
+nikita@nikita-Nitro-AN515-55:~$ ps -p 0
+ошибка: process ID out of range
+nikita@nikita-Nitro-AN515-55:~$ ps -p 1
+    PID TTY          TIME CMD
+      1 ?        00:00:01 systemd
+nikita@nikita-Nitro-AN515-55:~$ ps -e |sort -n | tail -1
+  17046 pts/0    00:00:00 tail
+nikita@nikita-Nitro-AN515-55:~$ cat /proc/sys/kernel/pid_max
+4194304
+
+Пункт 1.4
+nikita@nikita-Nitro-AN515-55:~$ ps -eo uid,pid,ppid,comm | awk '$1 == 0' | head -n 5
+    0       1       0 systemd
+    0       2       0 kthreadd
+    0       3       2 pool_workqueue_release
+    0       4       2 kworker/R-rcu_g
+    0       5       2 kworker/R-rcu_p
+nikita@nikita-Nitro-AN515-55:~$ ps -eo uid,pid,ppid,comm | awk '$1 <1000' | head -n 5
+    0       1       0 systemd
+    0       2       0 kthreadd
+    0       3       2 pool_workqueue_release
+    0       4       2 kworker/R-rcu_g
+    0       5       2 kworker/R-rcu_p
+nikita@nikita-Nitro-AN515-55:~$ ps -eo uid,pid,ppid,comm | awk '$3 <= 2' | head -n 5
+    0       1       0 systemd
+    0       2       0 kthreadd
+    0       3       2 pool_workqueue_release
+    0       4       2 kworker/R-rcu_g
+    0       5       2 kworker/R-rcu_p
+nikita@nikita-Nitro-AN515-55:~$ ps -eo pid,ppid,f,cmd | awk 'NR==1 || ($3 % 2 != 0)' | head -n 6
+    PID    PPID F CMD
+      2       0 1 [kthreadd]
+      3       2 1 [pool_workqueue_release]
+      4       2 1 [kworker/R-rcu_g]
+      5       2 1 [kworker/R-rcu_p]
+      6       2 1 [kworker/R-slub_]
+systemd	- главный менеджер служб, инициализация системы.
+kthreadd — корневой поток ядра, создающий другие системные потоки.
+pool_workqueue_release — часть подсистемы workqueues, отвечает за освобождение ресурсов после выполнения задач.
+kworker/R-rcu_g - управляет периодами ожидания (grace periods) в RCU.
+kworker/R-rcu_p - обрабатывает отложенные вызовы (callbacks) в RCU.
+
+Пункт 1.5
+nikita@nikita-Nitro-AN515-55:~$ pstree -s -p $$ 
+systemd(1)───systemd(1061)───gnome-terminal-(19200)───bash(19226)───pstree(19241)
+bash:
+nikita@nikita-Nitro-AN515-55:~$ cd /proc/19226
+nikita@nikita-Nitro-AN515-55:/proc/19226$ ls -l
+итого 0
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 arch_status
+dr-xr-xr-x  2 nikita nikita 0 мар 17 22:11 attr
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 autogroup
+-r--------  1 nikita nikita 0 мар 17 22:11 auxv
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 cgroup
+--w-------  1 nikita nikita 0 мар 17 22:11 clear_refs
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 cmdline
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 comm
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 coredump_filter
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 cpu_resctrl_groups
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 cpuset
+lrwxrwxrwx  1 nikita nikita 0 мар 17 22:11 cwd -> /proc/19226
+-r--------  1 nikita nikita 0 мар 17 22:11 environ
+lrwxrwxrwx  1 nikita nikita 0 мар 17 22:11 exe -> /usr/bin/bash
+dr-x------  2 nikita nikita 4 мар 17 22:11 fd
+dr-xr-xr-x  2 nikita nikita 0 мар 17 22:11 fdinfo
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 gid_map
+-r--------  1 nikita nikita 0 мар 17 22:11 io
+-r--------  1 nikita nikita 0 мар 17 22:11 ksm_merging_pages
+-r--------  1 nikita nikita 0 мар 17 22:11 ksm_stat
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 latency
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 limits
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 loginuid
+dr-x------  2 nikita nikita 0 мар 17 22:11 map_files
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 maps
+-rw-------  1 nikita nikita 0 мар 17 22:11 mem
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 mountinfo
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 mounts
+-r--------  1 nikita nikita 0 мар 17 22:11 mountstats
+dr-xr-xr-x 59 nikita nikita 0 мар 17 22:11 net
+dr-x--x--x  2 nikita nikita 0 мар 17 22:10 ns
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 numa_maps
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 oom_adj
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 oom_score
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 oom_score_adj
+-r--------  1 nikita nikita 0 мар 17 22:11 pagemap
+-r--------  1 nikita nikita 0 мар 17 22:11 patch_state
+-r--------  1 nikita nikita 0 мар 17 22:11 personality
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 projid_map
+lrwxrwxrwx  1 nikita nikita 0 мар 17 22:11 root -> /
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 sched
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 schedstat
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 sessionid
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 setgroups
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 smaps
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 smaps_rollup
+-r--------  1 nikita nikita 0 мар 17 22:11 stack
+-r--r--r--  1 nikita nikita 0 мар 17 22:10 stat
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 statm
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 status
+-r--------  1 nikita nikita 0 мар 17 22:11 syscall
+dr-xr-xr-x  3 nikita nikita 0 мар 17 22:10 task
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 timens_offsets
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 timers
+-rw-rw-rw-  1 nikita nikita 0 мар 17 22:11 timerslack_ns
+-rw-r--r--  1 nikita nikita 0 мар 17 22:11 uid_map
+-r--r--r--  1 nikita nikita 0 мар 17 22:11 wchan
+nikita@nikita-Nitro-AN515-55:/proc/19226$ cat limits
+Limit                     Soft Limit           Hard Limit           Units     
+Max cpu time              unlimited            unlimited            seconds   
+Max file size             unlimited            unlimited            bytes     
+Max data size             unlimited            unlimited            bytes     
+Max stack size            8388608              unlimited            bytes     
+Max core file size        0                    unlimited            bytes     
+Max resident set          unlimited            unlimited            bytes     
+Max processes             30773                30773                processes 
+Max open files            1024                 1048576              files     
+Max locked memory         1018519552           1018519552           bytes     
+Max address space         unlimited            unlimited            bytes     
+Max file locks            unlimited            unlimited            locks     
+Max pending signals       30773                30773                signals   
+Max msgqueue size         819200               819200               bytes     
+Max nice priority         0                    0                    
+Max realtime priority     0                    0                    
+Max realtime timeout      unlimited            unlimited            us  
+nikita@nikita-Nitro-AN515-55:/proc/19226$ cat comm
+bash
+nikita@nikita-Nitro-AN515-55:/proc/19226$ ls -l cwd
+lrwxrwxrwx 1 nikita nikita 0 мар 17 22:11 cwd -> /proc/19226
+nikita@nikita-Nitro-AN515-55:/proc/19226$ cat cmdline
+bash
+nikita@nikita-Nitro-AN515-55:/proc/19226$ ls -l fd
+итого 0
+lrwx------ 1 nikita nikita 64 мар 17 22:15 0 -> /dev/pts/0
+lrwx------ 1 nikita nikita 64 мар 17 22:15 1 -> /dev/pts/0
+lrwx------ 1 nikita nikita 64 мар 17 22:15 2 -> /dev/pts/0
+lrwx------ 1 nikita nikita 64 мар 17 22:15 255 -> /dev/pts/0
+nikita@nikita-Nitro-AN515-55:/proc/19226$ cat status
+Name:	bash
+Umask:	0002
+State:	S (sleeping)
+Tgid:	19226
+Ngid:	0
+Pid:	19226
+PPid:	19200
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	256
+Groups:	4 24 27 30 46 122 135 136 1000 
+NStgid:	19226
+NSpid:	19226
+NSpgid:	19226
+NSsid:	19226
+Kthread:	0
+VmPeak:	   11720 kB
+VmSize:	   11720 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    5504 kB
+VmRSS:	    5504 kB
+RssAnon:	    1664 kB
+RssFile:	    3840 kB
+RssShmem:	       0 kB
+VmData:	    1732 kB
+VmStk:	     132 kB
+VmExe:	     892 kB
+VmLib:	    1864 kB
+VmPTE:	      60 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	1
+SigQ:	0/30773
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000010000
+SigIgn:	0000000000384004
+SigCgt:	000000004b813efb
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	ff
+Cpus_allowed_list:	0-7
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	320
+nonvoluntary_ctxt_switches:	1
+x86_Thread_features:	
+x86_Thread_features_locked:
+nikita@nikita-Nitro-AN515-55:/proc/19226$ cat environ
+SYSTEMD_EXEC_PID=1225SSH_AUTH_SOCK=/run/user/1000/keyring/sshSESSION_MANAGER=local/nikita-Nitro-AN515-55:@/tmp/.ICE-unix/1189,unix/nikita-Nitro-AN515-55:/tmp/.ICE-unix/1189GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/82c430d2_b512_4523_a179_4546166b309dLANG=ru_RU.UTF-8XDG_CURRENT_DESKTOP=ubuntu:GNOMEPWD=/home/nikitaWAYLAND_DISPLAY=wayland-0DISPLAY=:0QT_IM_MODULE=ibusUSER=nikitaDESKTOP_SESSION=ubuntuXDG_MENU_PREFIX=gnome-HOME=/home/nikitaDBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/busSSH_AGENT_LAUNCHER=gnome-keyring_=/usr/bin/gnome-sessionXDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdgVTE_VERSION=6800XDG_SESSION_DESKTOP=ubuntuQT_ACCESSIBILITY=1GNOME_DESKTOP_SESSION_ID=this-is-deprecatedGNOME_SETUP_DISPLAY=:1GTK_MODULES=gail:atk-bridgeLOGNAME=nikitaGNOME_TERMINAL_SERVICE=:1.274GNOME_SHELL_SESSION_MODE=ubuntuXDG_RUNTIME_DIR=/run/user/1000XMODIFIERS=@im=ibusSHELL=/bin/bashXDG_SESSION_TYPE=waylandPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/binUSERNAME=nikitaCOLORTERM=truecolorXAUTHORITY=/run/user/1000/.mutter-Xwaylandauth.UURS32XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktopIM_CONFIG_PHASE=1TERM=xterm-256colorGDMSESSION=ubuntuXDG_SESSION_CLASS=user
+256colorGDMSESSION=ubuntuXDG_SESSION_CLASS=user
+nikita@nikita-Nitro-AN515-55:/proc/19226$ cat maps
+5bf1e6207000-5bf1e6236000 r--p 00000000 103:05 3539575                   /usr/bin/bash
+5bf1e6236000-5bf1e6315000 r-xp 0002f000 103:05 3539575                   /usr/bin/bash
+5bf1e6315000-5bf1e634f000 r--p 0010e000 103:05 3539575                   /usr/bin/bash
+5bf1e6350000-5bf1e6354000 r--p 00148000 103:05 3539575                   /usr/bin/bash
+5bf1e6354000-5bf1e635d000 rw-p 0014c000 103:05 3539575                   /usr/bin/bash
+5bf1e635d000-5bf1e6368000 rw-p 00000000 00:00 0 
+5bf1ff1da000-5bf1ff360000 rw-p 00000000 00:00 0                          [heap]
+7ce6bcc00000-7ce6bd175000 r--p 00000000 103:05 3544713                   /usr/lib/locale/locale-archive
+7ce6bd200000-7ce6bd228000 r--p 00000000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7ce6bd228000-7ce6bd3bd000 r-xp 00028000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7ce6bd3bd000-7ce6bd415000 r--p 001bd000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7ce6bd415000-7ce6bd416000 ---p 00215000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7ce6bd416000-7ce6bd41a000 r--p 00215000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7ce6bd41a000-7ce6bd41c000 rw-p 00219000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7ce6bd41c000-7ce6bd429000 rw-p 00000000 00:00 0 
+7ce6bd4fe000-7ce6bd51e000 r--p 00000000 103:05 3935722                   /usr/share/locale-langpack/ru/LC_MESSAGES/bash.mo
+7ce6bd51e000-7ce6bd54c000 r--p 00000000 103:05 3935823                   /usr/share/locale-langpack/ru/LC_MESSAGES/libc.mo
+7ce6bd54c000-7ce6bd54f000 rw-p 00000000 00:00 0 
+7ce6bd54f000-7ce6bd55d000 r--p 00000000 103:05 3567222                   /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3
+7ce6bd55d000-7ce6bd56e000 r-xp 0000e000 103:05 3567222                   /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3
+7ce6bd56e000-7ce6bd57c000 r--p 0001f000 103:05 3567222                   /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3
+7ce6bd57c000-7ce6bd580000 r--p 0002c000 103:05 3567222                   /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3
+7ce6bd580000-7ce6bd581000 rw-p 00030000 103:05 3567222                   /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3
+7ce6bd58d000-7ce6bd594000 r--s 00000000 103:05 3558115                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7ce6bd594000-7ce6bd596000 rw-p 00000000 00:00 0 
+7ce6bd596000-7ce6bd598000 r--p 00000000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ce6bd598000-7ce6bd5c2000 r-xp 00002000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ce6bd5c2000-7ce6bd5cd000 r--p 0002c000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ce6bd5ce000-7ce6bd5d0000 r--p 00037000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ce6bd5d0000-7ce6bd5d2000 rw-p 00039000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffce529a000-7ffce52bb000 rw-p 00000000 00:00 0                          [stack]
+7ffce5364000-7ffce5368000 r--p 00000000 00:00 0                          [vvar]
+7ffce5368000-7ffce536a000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+systemd(1061):
+nikita@nikita-Nitro-AN515-55:/proc$ cd 1061
+nikita@nikita-Nitro-AN515-55:/proc/1061$ ls -l
+итого 0
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 arch_status
+dr-xr-xr-x  2 nikita nikita  0 мар 17 10:36 attr
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 autogroup
+-r--------  1 nikita nikita  0 мар 17 22:04 auxv
+-r--r--r--  1 nikita nikita  0 мар 17 10:36 cgroup
+--w-------  1 nikita nikita  0 мар 17 22:04 clear_refs
+-r--r--r--  1 nikita nikita  0 мар 17 10:36 cmdline
+-rw-r--r--  1 nikita nikita  0 мар 17 10:36 comm
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 coredump_filter
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 cpu_resctrl_groups
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 cpuset
+lrwxrwxrwx  1 nikita nikita  0 мар 17 22:04 cwd -> /
+-r--------  1 nikita nikita  0 мар 17 22:04 environ
+lrwxrwxrwx  1 nikita nikita  0 мар 17 10:36 exe -> /usr/lib/systemd/systemd
+dr-x------  2 nikita nikita 36 мар 17 10:36 fd
+dr-xr-xr-x  2 nikita nikita  0 мар 17 22:04 fdinfo
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 gid_map
+-r--------  1 nikita nikita  0 мар 17 22:04 io
+-r--------  1 nikita nikita  0 мар 17 22:04 ksm_merging_pages
+-r--------  1 nikita nikita  0 мар 17 22:04 ksm_stat
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 latency
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 limits
+-rw-r--r--  1 nikita nikita  0 мар 17 10:36 loginuid
+dr-x------  2 nikita nikita  0 мар 17 22:04 map_files
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 maps
+-rw-------  1 nikita nikita  0 мар 17 22:04 mem
+-r--r--r--  1 nikita nikita  0 мар 17 10:36 mountinfo
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 mounts
+-r--------  1 nikita nikita  0 мар 17 22:04 mountstats
+dr-xr-xr-x 59 nikita nikita  0 мар 17 10:36 net
+dr-x--x--x  2 nikita nikita  0 мар 17 10:36 ns
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 numa_maps
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 oom_adj
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 oom_score
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 oom_score_adj
+-r--------  1 nikita nikita  0 мар 17 22:04 pagemap
+-r--------  1 nikita nikita  0 мар 17 22:04 patch_state
+-r--------  1 nikita nikita  0 мар 17 22:04 personality
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 projid_map
+lrwxrwxrwx  1 nikita nikita  0 мар 17 22:04 root -> /
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 sched
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 schedstat
+-r--r--r--  1 nikita nikita  0 мар 17 10:36 sessionid
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 setgroups
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 smaps
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 smaps_rollup
+-r--------  1 nikita nikita  0 мар 17 22:04 stack
+-r--r--r--  1 nikita nikita  0 мар 17 10:36 stat
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 statm
+-r--r--r--  1 nikita nikita  0 мар 17 10:36 status
+-r--------  1 nikita nikita  0 мар 17 22:04 syscall
+dr-xr-xr-x  3 nikita nikita  0 мар 17 21:17 task
+-rw-r--r--  1 nikita nikita  0 мар 17 22:04 timens_offsets
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 timers
+-rw-rw-rw-  1 nikita nikita  0 мар 17 22:04 timerslack_ns
+-rw-r--r--  1 nikita nikita  0 мар 17 10:36 uid_map
+-r--r--r--  1 nikita nikita  0 мар 17 22:04 wchan
+nikita@nikita-Nitro-AN515-55:/proc/1061$ cat comm
+systemd
+nikita@nikita-Nitro-AN515-55:/proc/1061$ cat cmdline
+/lib/systemd/systemd--usernikita@nikita-Nitro-AN515-55:/proc/1061$ ls -l fd
+итого 0
+lr-x------ 1 nikita nikita 64 мар 17 10:36 0 -> /dev/null
+lrwx------ 1 nikita nikita 64 мар 17 10:36 1 -> 'socket:[7888]'
+lr-x------ 1 nikita nikita 64 мар 17 22:31 10 -> /proc/1061/mountinfo
+lr-x------ 1 nikita nikita 64 мар 17 22:31 11 -> anon_inode:inotify
+lr-x------ 1 nikita nikita 64 мар 17 10:36 12 -> anon_inode:inotify
+lr-x------ 1 nikita nikita 64 мар 17 22:31 13 -> anon_inode:inotify
+lr-x------ 1 nikita nikita 64 мар 17 22:31 14 -> /proc/swaps
+lrwx------ 1 nikita nikita 64 мар 17 22:31 15 -> 'socket:[7912]'
+lrwx------ 1 nikita nikita 64 мар 17 22:31 16 -> 'socket:[7915]'
+lrwx------ 1 nikita nikita 64 мар 17 22:31 17 -> 'socket:[7916]'
+lrwx------ 1 nikita nikita 64 мар 17 22:31 18 -> 'socket:[7917]'
+lrwx------ 1 nikita nikita 64 мар 17 22:31 19 -> 'socket:[7918]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 2 -> 'socket:[7888]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 20 -> 'socket:[7920]'
+lrwx------ 1 nikita nikita 64 мар 17 22:31 21 -> 'anon_inode:[timerfd]'
+lrwx------ 1 nikita nikita 64 мар 17 22:31 26 -> 'socket:[7924]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 27 -> 'socket:[7926]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 28 -> 'socket:[7928]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 29 -> 'socket:[7930]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 3 -> 'socket:[7908]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 30 -> 'socket:[7932]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 31 -> 'socket:[7934]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 32 -> 'socket:[7936]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 33 -> 'socket:[7938]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 34 -> 'socket:[7940]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 35 -> 'socket:[7942]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 36 -> 'socket:[7944]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 37 -> 'socket:[7971]'
+lr-x------ 1 nikita nikita 64 мар 17 22:31 38 -> anon_inode:inotify
+lr-x------ 1 nikita nikita 64 мар 17 22:31 39 -> anon_inode:inotify
+lrwx------ 1 nikita nikita 64 мар 17 22:31 4 -> 'anon_inode:[eventpoll]'
+lrwx------ 1 nikita nikita 64 мар 17 22:31 5 -> 'anon_inode:[signalfd]'
+lr-x------ 1 nikita nikita 64 мар 17 22:31 6 -> anon_inode:inotify
+lr-x------ 1 nikita nikita 64 мар 17 22:31 7 -> /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service
+lrwx------ 1 nikita nikita 64 мар 17 22:31 8 -> 'anon_inode:[timerfd]'
+lrwx------ 1 nikita nikita 64 мар 17 10:36 9 -> 'anon_inode:[eventpoll]'
+nikita@nikita-Nitro-AN515-55:/proc/1061$ ls -l cwd
+lrwxrwxrwx 1 nikita nikita 0 мар 17 22:04 cwd -> /
+nikita@nikita-Nitro-AN515-55:/proc/1061$ cat limits
+Limit                     Soft Limit           Hard Limit           Units     
+Max cpu time              unlimited            unlimited            seconds   
+Max file size             unlimited            unlimited            bytes     
+Max data size             unlimited            unlimited            bytes     
+Max stack size            8388608              unlimited            bytes     
+Max core file size        0                    unlimited            bytes     
+Max resident set          unlimited            unlimited            bytes     
+Max processes             30773                30773                processes 
+Max open files            1048576              1048576              files     
+Max locked memory         1018519552           1018519552           bytes     
+Max address space         unlimited            unlimited            bytes     
+Max file locks            unlimited            unlimited            locks     
+Max pending signals       30773                30773                signals   
+Max msgqueue size         819200               819200               bytes     
+Max nice priority         0                    0                    
+Max realtime priority     0                    0                    
+Max realtime timeout      unlimited            unlimited            us        
+nikita@nikita-Nitro-AN515-55:/proc/1061$ cat maps
+5962f9fab000-5962f9fe1000 r--p 00000000 103:05 3552566                   /usr/lib/systemd/systemd
+5962f9fe1000-5962fa0c1000 r-xp 00036000 103:05 3552566                   /usr/lib/systemd/systemd
+5962fa0c1000-5962fa120000 r--p 00116000 103:05 3552566                   /usr/lib/systemd/systemd
+5962fa120000-5962fa16f000 r--p 00174000 103:05 3552566                   /usr/lib/systemd/systemd
+5962fa16f000-5962fa170000 rw-p 001c3000 103:05 3552566                   /usr/lib/systemd/systemd
+5962fa170000-5962fa172000 rw-p 00000000 00:00 0 
+596326b16000-596326cc8000 rw-p 00000000 00:00 0                          [heap]
+70b76cf69000-70b76cf6b000 r--p 00000000 103:05 3566952                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4
+70b76cf6b000-70b76cfd6000 r-xp 00002000 103:05 3566952                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4
+70b76cfd6000-70b76cffe000 r--p 0006d000 103:05 3566952                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4
+70b76cffe000-70b76cfff000 r--p 00094000 103:05 3566952                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4
+70b76cfff000-70b76d000000 rw-p 00095000 103:05 3566952                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4
+70b76d000000-70b76d0b2000 r--p 00000000 103:05 3542826                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+70b76d0b2000-70b76d311000 r-xp 000b2000 103:05 3542826                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+70b76d311000-70b76d3e3000 r--p 00311000 103:05 3542826                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+70b76d3e3000-70b76d43e000 r--p 003e2000 103:05 3542826                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+70b76d43e000-70b76d441000 rw-p 0043d000 103:05 3542826                   /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+70b76d441000-70b76d444000 rw-p 00000000 00:00 0 
+70b76d492000-70b76d494000 rw-p 00000000 00:00 0 
+70b76d494000-70b76d498000 r--p 00000000 103:05 3566487                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.32.1
+70b76d498000-70b76d4ae000 r-xp 00004000 103:05 3566487                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.32.1
+70b76d4ae000-70b76d4b8000 r--p 0001a000 103:05 3566487                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.32.1
+70b76d4b8000-70b76d4b9000 r--p 00023000 103:05 3566487                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.32.1
+70b76d4b9000-70b76d4ba000 rw-p 00024000 103:05 3566487                   /usr/lib/x86_64-linux-gnu/libgpg-error.so.0.32.1
+70b76d4ba000-70b76d4bc000 r--p 00000000 103:05 3566114                   /usr/lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+70b76d4bc000-70b76d4bf000 r-xp 00002000 103:05 3566114                   /usr/lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+70b76d4bf000-70b76d4c0000 r--p 00005000 103:05 3566114                   /usr/lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+70b76d4c0000-70b76d4c1000 r--p 00005000 103:05 3566114                   /usr/lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+70b76d4c1000-70b76d4c2000 rw-p 00006000 103:05 3566114                   /usr/lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+70b76d4c2000-70b76d4d1000 r--p 00000000 103:05 3566405                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4
+70b76d4d1000-70b76d5b7000 r-xp 0000f000 103:05 3566405                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4
+70b76d5b7000-70b76d5f5000 r--p 000f5000 103:05 3566405                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4
+70b76d5f5000-70b76d5f6000 ---p 00133000 103:05 3566405                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4
+70b76d5f6000-70b76d5f9000 r--p 00133000 103:05 3566405                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4
+70b76d5f9000-70b76d5ff000 rw-p 00136000 103:05 3566405                   /usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4
+70b76d5ff000-70b76d600000 rw-p 00000000 00:00 0 
+70b76d600000-70b76d628000 r--p 00000000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+70b76d628000-70b76d7bd000 r-xp 00028000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+70b76d7bd000-70b76d815000 r--p 001bd000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+70b76d815000-70b76d816000 ---p 00215000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+70b76d816000-70b76d81a000 r--p 00215000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+70b76d81a000-70b76d81c000 rw-p 00219000 103:05 3541107                   /usr/lib/x86_64-linux-gnu/libc.so.6
+70b76d81c000-70b76d829000 rw-p 00000000 00:00 0 
+70b76d829000-70b76d82d000 rw-p 00000000 00:00 0 
+70b76d82d000-70b76d830000 r--p 00000000 103:05 3566741                   /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5
+70b76d830000-70b76d84b000 r-xp 00003000 103:05 3566741                   /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5
+70b76d84b000-70b76d856000 r--p 0001e000 103:05 3566741                   /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5
+70b76d856000-70b76d857000 r--p 00028000 103:05 3566741                   /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5
+70b76d857000-70b76d858000 rw-p 00029000 103:05 3566741                   /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5
+70b76d858000-70b76d862000 r--p 00000000 103:05 3567458                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8
+70b76d862000-70b76d914000 r-xp 0000a000 103:05 3567458                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8
+70b76d914000-70b76d925000 r--p 000bc000 103:05 3567458                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8
+70b76d925000-70b76d926000 r--p 000cc000 103:05 3567458                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8
+70b76d926000-70b76d927000 rw-p 000cd000 103:05 3567458                   /usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8
+70b76d927000-70b76d929000 rw-p 00000000 00:00 0 
+70b76d929000-70b76d92b000 r--p 00000000 103:05 3566739                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3
+70b76d92b000-70b76d944000 r-xp 00002000 103:05 3566739                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3
+70b76d944000-70b76d946000 r--p 0001b000 103:05 3566739                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3
+70b76d946000-70b76d947000 ---p 0001d000 103:05 3566739                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3
+70b76d947000-70b76d948000 r--p 0001d000 103:05 3566739                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3
+70b76d948000-70b76d949000 rw-p 0001e000 103:05 3566739                   /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3
+70b76d949000-70b76d94b000 r--p 00000000 103:05 3544032                   /usr/lib/x86_64-linux-gnu/libip4tc.so.2.0.0
+70b76d94b000-70b76d94f000 r-xp 00002000 103:05 3544032                   /usr/lib/x86_64-linux-gnu/libip4tc.so.2.0.0
+70b76d94f000-70b76d951000 r--p 00006000 103:05 3544032                   /usr/lib/x86_64-linux-gnu/libip4tc.so.2.0.0
+70b76d951000-70b76d952000 r--p 00007000 103:05 3544032                   /usr/lib/x86_64-linux-gnu/libip4tc.so.2.0.0
+70b76d952000-70b76d953000 rw-p 00008000 103:05 3544032                   /usr/lib/x86_64-linux-gnu/libip4tc.so.2.0.0
+70b76d953000-70b76d955000 r--p 00000000 103:05 3566173                   /usr/lib/x86_64-linux-gnu/libcrypt.so.1.1.0
+70b76d955000-70b76d969000 r-xp 00002000 103:05 3566173                   /usr/lib/x86_64-linux-gnu/libcrypt.so.1.1.0
+70b76d969000-70b76d982000 r--p 00016000 103:05 3566173                   /usr/lib/x86_64-linux-gnu/libcrypt.so.1.1.0
+70b76d982000-70b76d983000 ---p 0002f000 103:05 3566173                   /usr/lib/x86_64-linux-gnu/libcrypt.so.1.1.0
+70b76d983000-70b76d984000 r--p 0002f000 103:05 3566173                   /usr/lib/x86_64-linux-gnu/libcrypt.so.1.1.0
+70b76d984000-70b76d985000 rw-p 00030000 103:05 3566173                   /usr/lib/x86_64-linux-gnu/libcrypt.so.1.1.0
+70b76d985000-70b76d98d000 rw-p 00000000 00:00 0 
+70b76d98d000-70b76d990000 r--p 00000000 103:05 3539798                   /usr/lib/x86_64-linux-gnu/libcap.so.2.44
+70b76d990000-70b76d994000 r-xp 00003000 103:05 3539798                   /usr/lib/x86_64-linux-gnu/libcap.so.2.44
+70b76d994000-70b76d996000 r--p 00007000 103:05 3539798                   /usr/lib/x86_64-linux-gnu/libcap.so.2.44
+70b76d996000-70b76d997000 r--p 00008000 103:05 3539798                   /usr/lib/x86_64-linux-gnu/libcap.so.2.44
+70b76d997000-70b76d998000 rw-p 00009000 103:05 3539798                   /usr/lib/x86_64-linux-gnu/libcap.so.2.44
+70b76d998000-70b76d99f000 r--p 00000000 103:05 3541376                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+70b76d99f000-70b76d9bf000 r-xp 00007000 103:05 3541376                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+70b76d9bf000-70b76d9c8000 r--p 00027000 103:05 3541376                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+70b76d9c8000-70b76d9c9000 ---p 00030000 103:05 3541376                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+70b76d9c9000-70b76d9ce000 r--p 00030000 103:05 3541376                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+70b76d9ce000-70b76d9cf000 rw-p 00035000 103:05 3541376                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+70b76d9cf000-70b76d9d2000 r--p 00000000 103:05 3539622                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.8.2
+70b76d9d2000-70b76d9db000 r-xp 00003000 103:05 3539622                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.8.2
+70b76d9db000-70b76d9e2000 r--p 0000c000 103:05 3539622                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.8.2
+70b76d9e2000-70b76d9e3000 r--p 00012000 103:05 3539622                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.8.2
+70b76d9e3000-70b76d9e4000 rw-p 00013000 103:05 3539622                   /usr/lib/x86_64-linux-gnu/libapparmor.so.1.8.2
+70b76d9e4000-70b76d9e8000 r--p 00000000 103:05 3566704                   /usr/lib/x86_64-linux-gnu/libkmod.so.2.3.7
+70b76d9e8000-70b76d9f9000 r-xp 00004000 103:05 3566704                   /usr/lib/x86_64-linux-gnu/libkmod.so.2.3.7
+70b76d9f9000-70b76d9fe000 r--p 00015000 103:05 3566704                   /usr/lib/x86_64-linux-gnu/libkmod.so.2.3.7
+70b76d9fe000-70b76d9ff000 r--p 00019000 103:05 3566704                   /usr/lib/x86_64-linux-gnu/libkmod.so.2.3.7
+70b76d9ff000-70b76da00000 rw-p 0001a000 103:05 3566704                   /usr/lib/x86_64-linux-gnu/libkmod.so.2.3.7
+70b76da00000-70b76da51000 r--p 00000000 103:05 3539837                   /usr/lib/systemd/libsystemd-shared-249.so
+70b76da51000-70b76dbfa000 r-xp 00051000 103:05 3539837                   /usr/lib/systemd/libsystemd-shared-249.so
+70b76dbfa000-70b76dca2000 r--p 001fa000 103:05 3539837                   /usr/lib/systemd/libsystemd-shared-249.so
+70b76dca2000-70b76dcb5000 r--p 002a1000 103:05 3539837                   /usr/lib/systemd/libsystemd-shared-249.so
+70b76dcb5000-70b76dcb6000 rw-p 002b4000 103:05 3539837                   /usr/lib/systemd/libsystemd-shared-249.so
+70b76dcb6000-70b76dcba000 rw-p 00000000 00:00 0 
+70b76dcba000-70b76dcbc000 r--p 00000000 103:05 3565973                   /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2301
+70b76dcbc000-70b76dcc0000 r-xp 00002000 103:05 3565973                   /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2301
+70b76dcc0000-70b76dcc1000 r--p 00006000 103:05 3565973                   /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2301
+70b76dcc1000-70b76dcc2000 ---p 00007000 103:05 3565973                   /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2301
+70b76dcc2000-70b76dcc3000 r--p 00007000 103:05 3565973                   /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2301
+70b76dcc3000-70b76dcc4000 rw-p 00008000 103:05 3565973                   /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2301
+70b76dcc4000-70b76dcc7000 r--p 00000000 103:05 3566019                   /usr/lib/x86_64-linux-gnu/libaudit.so.1.0.0
+70b76dcc7000-70b76dccf000 r-xp 00003000 103:05 3566019                   /usr/lib/x86_64-linux-gnu/libaudit.so.1.0.0
+70b76dccf000-70b76dce4000 r--p 0000b000 103:05 3566019                   /usr/lib/x86_64-linux-gnu/libaudit.so.1.0.0
+70b76dce4000-70b76dce5000 r--p 0001f000 103:05 3566019                   /usr/lib/x86_64-linux-gnu/libaudit.so.1.0.0
+70b76dce5000-70b76dce6000 rw-p 00020000 103:05 3566019                   /usr/lib/x86_64-linux-gnu/libaudit.so.1.0.0
+70b76dce6000-70b76dcf4000 rw-p 00000000 00:00 0 
+70b76dcf4000-70b76dcf7000 r--p 00000000 103:05 3541087                   /usr/lib/x86_64-linux-gnu/libpam.so.0.85.1
+70b76dcf7000-70b76dd00000 r-xp 00003000 103:05 3541087                   /usr/lib/x86_64-linux-gnu/libpam.so.0.85.1
+70b76dd00000-70b76dd04000 r--p 0000c000 103:05 3541087                   /usr/lib/x86_64-linux-gnu/libpam.so.0.85.1
+70b76dd04000-70b76dd05000 r--p 0000f000 103:05 3541087                   /usr/lib/x86_64-linux-gnu/libpam.so.0.85.1
+70b76dd05000-70b76dd06000 rw-p 00010000 103:05 3541087                   /usr/lib/x86_64-linux-gnu/libpam.so.0.85.1
+70b76dd06000-70b76dd0e000 r--p 00000000 103:05 3539427                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+70b76dd0e000-70b76dd3a000 r-xp 00008000 103:05 3539427                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+70b76dd3a000-70b76dd47000 r--p 00034000 103:05 3539427                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+70b76dd47000-70b76dd48000 ---p 00041000 103:05 3539427                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+70b76dd48000-70b76dd49000 r--p 00041000 103:05 3539427                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+70b76dd49000-70b76dd4a000 rw-p 00042000 103:05 3539427                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+70b76dd4a000-70b76dd50000 r--p 00000000 103:05 3567104                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+70b76dd50000-70b76dd6a000 r-xp 00006000 103:05 3567104                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+70b76dd6a000-70b76dd71000 r--p 00020000 103:05 3567104                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+70b76dd71000-70b76dd72000 ---p 00027000 103:05 3567104                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+70b76dd72000-70b76dd73000 r--p 00027000 103:05 3567104                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+70b76dd73000-70b76dd74000 rw-p 00028000 103:05 3567104                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+70b76dd74000-70b76dd76000 rw-p 00000000 00:00 0 
+70b76dd76000-70b76dd78000 r--p 00000000 103:05 3567101                   /usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3
+70b76dd78000-70b76dd86000 r-xp 00002000 103:05 3567101                   /usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3
+70b76dd86000-70b76dd93000 r--p 00010000 103:05 3567101                   /usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3
+70b76dd93000-70b76dd94000 ---p 0001d000 103:05 3567101                   /usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3
+70b76dd94000-70b76dd95000 r--p 0001d000 103:05 3567101                   /usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3
+70b76dd95000-70b76dd96000 rw-p 0001e000 103:05 3567101                   /usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3
+70b76dda9000-70b76ddab000 rw-p 00000000 00:00 0 
+70b76ddab000-70b76ddad000 r--p 00000000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+70b76ddad000-70b76ddd7000 r-xp 00002000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+70b76ddd7000-70b76dde2000 r--p 0002c000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+70b76dde3000-70b76dde5000 r--p 00037000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+70b76dde5000-70b76dde7000 rw-p 00039000 103:05 3541097                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffd74c26000-7ffd74c47000 rw-p 00000000 00:00 0                          [stack]
+7ffd74c89000-7ffd74c8d000 r--p 00000000 00:00 0                          [vvar]
+7ffd74c8d000-7ffd74c8f000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+nikita@nikita-Nitro-AN515-55:/proc/1061$ cat status
+Name:	systemd
+Umask:	0002
+State:	S (sleeping)
+Tgid:	1061
+Ngid:	0
+Pid:	1061
+PPid:	1
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	128
+Groups:	4 24 27 30 46 122 135 136 1000 
+NStgid:	1061
+NSpid:	1061
+NSpgid:	1061
+NSsid:	1061
+Kthread:	0
+VmPeak:	   18392 kB
+VmSize:	   18160 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   10752 kB
+VmRSS:	   10752 kB
+RssAnon:	    2688 kB
+RssFile:	    8064 kB
+RssShmem:	       0 kB
+VmData:	    2096 kB
+VmStk:	     132 kB
+VmExe:	     896 kB
+VmLib:	    9056 kB
+VmPTE:	      80 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	1
+SigQ:	0/30773
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	7be3c0fe28014a03
+SigIgn:	0000000000001000
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	ff
+Cpus_allowed_list:	0-7
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	920
+nonvoluntary_ctxt_switches:	150
+x86_Thread_features:	
+x86_Thread_features_locked:
+nikita@nikita-Nitro-AN515-55:/proc/1061$ cat environ
+LANG=ru_RU.UTF-8PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/binNOTIFY_SOCKET=/run/systemd/notifyHOME=/home/nikitaLOGNAME=nikitaUSER=nikitaSHELL=/bin/bashINVOCATION_ID=93867de9f1044bd2bb2c3a352622608cJOURNAL_STREAM=8:7888SYSTEMD_EXEC_PID=1061XDG_RUNTIME_DIR=/run/user/1000
+
+cmd - сама команда
+cmdline - список аргументов процесса
+cwd - символическая ссылка на текущий рабочий каталог процесса
+environ - переменные среды процесса
+fd - подкаталог, содержащий ссылки на файлы, открытые процессом
+maps - адресное пространство, выделенное процессу
+status - статистическая информация о процессе 
+limits - cодержит информацию о лимитах ресурсов для процесса
+
+Пункт 2
+Пункт 2.1
+nikita@nikita-Nitro-AN515-55:~$ g++ 2_1_1.cpp
+nikita@nikita-Nitro-AN515-55:~$ ./a.out
+Родитель: pid=12641 ppid=11936
+Родитель изменил k: 1045
+Final k = 1045 s = 0
+Process pid=12641 finish!!!
+Дочерний процесс: pid=12642 ppid=12641
+Дочерний изменил s: 45
+Final k = 1000 s = 45
+Process pid=12642 finish!!!
+родительский процесс приостанавливается до завершения потомка:
+nikita@nikita-Nitro-AN515-55:~$ g++ 2_1_1.cpp
+nikita@nikita-Nitro-AN515-55:~$ ./a.out
+Родитель: pid=12618 ppid=11936
+Дочерний процесс: pid=12619 ppid=12618
+Дочерний изменил s: 45
+Final k = 1000 s = 45
+Process pid=12619 finish!!!
+Родитель изменил k: 1045
+Final k = 1045 s = 0
+Process pid=12618 finish!!!
+используя циклы:
+nikita@nikita-Nitro-AN515-55:~$ g++ 2_1_2.cpp
+nikita@nikita-Nitro-AN515-55:~$ ./a.out
+Родитель: pid=13433 ppid=11936
+Дочерний процесс: pid=13434 ppid=13433
+Родительский процесс....	k: 1000
+Дочерний процесс.....		s: 0
+Родительский процесс....	k: 1001
+Дочерний процесс.....		s: 1
+Родительский процесс....	k: 1003
+Дочерний процесс.....		s: 3
+Родительский процесс....	k: 1006
+Дочерний процесс.....		s: 6
+Родительский процесс....	k: 1010
+Дочерний процесс.....		s: 10
+Родительский процесс....	k: 1015
+Дочерний процесс.....		s: 15
+Родительский процесс....	k: 1021
+Дочерний процесс.....		s: 21
+Родительский процесс....	k: 1028
+Дочерний процесс.....		s: 28
+Дочерний процесс.....		s: 36
+Родительский процесс....	k: 1036
+Дочерний процесс.....		s: 45
+Final k = 1000 s = 45
+Process pid=13434 finish!!!
+Родительский процесс....	k: 1045
+Final k = 1045 s = 0
+Process pid=13433 finish!!!
+2_1_2 если родительский процесс приостанавливается:
+nikita@nikita-Nitro-AN515-55:~$ g++ 2_1_2.cpp
+nikita@nikita-Nitro-AN515-55:~$ ./a.out
+Дочерний процесс: pid=14079 ppid=14078
+Дочерний процесс.....		s: 0
+Дочерний процесс.....		s: 1
+Дочерний процесс.....		s: 3
+Дочерний процесс.....		s: 6
+Дочерний процесс.....		s: 10
+Дочерний процесс.....		s: 15
+Дочерний процесс.....		s: 21
+Дочерний процесс.....		s: 28
+Дочерний процесс.....		s: 36
+Дочерний процесс.....		s: 45
+Final k = 1000 s = 45
+Process pid=14079 finish!!!
+Родитель: pid=14078 ppid=11936
+Родительский процесс....	k: 1000
+Родительский процесс....	k: 1001
+Родительский процесс....	k: 1003
+Родительский процесс....	k: 1006
+Родительский процесс....	k: 1010
+Родительский процесс....	k: 1015
+Родительский процесс....	k: 1021
+Родительский процесс....	k: 1028
+Родительский процесс....	k: 1036
+Родительский процесс....	k: 1045
+Final k = 1045 s = 0
+Process pid=14078 finish!!!
+nikita@nikita-Nitro-AN515-55:~$ g++ 2_1_3.cpp
+nikita@nikita-Nitro-AN515-55:~$ ./a.out
+Родитель: pid=13941 ppid=11936
+Дочерний процесс: pid=13942 ppid=13941
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний процесс: pid=13942 ppid=13941
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель: pid=13941 ppid=11936
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Дочерний в цикле....
+Final k = 1000 s = 45
+Process pid=13942 finish!!!
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Родитель в цикле....
+Final k = 1045 s = 0
+Process pid=13941 finish!!!
+Каждый процесс работает независимо друг от друга и имеет свое собственное исполнение и управление своим адресным пространством.
+Однако, при работе с циклами можно наблюдать конкуренцию процессов за процессорный ресурс. При помощи функции wait() это можно избежать.
+
+Пункт 2.2
+nikita@nikita-Nitro-AN515-55:~$ g++ son.cpp -o son
+nikita@nikita-Nitro-AN515-55:~$ g++ father.cpp -o father
+nikita@nikita-Nitro-AN515-55:~$ ./father
+Родитель: pid=30276 ppid=21931
+Дочерний процесс: pid=30277 ppid=30276
+Дочерний процесс завершился со статусом: 256
+используя ps -f:
+nikita@nikita-Nitro-AN515-55:~$ cat father_son.txt
+UID          PID    PPID  C STIME TTY          TIME CMD
+nikita     21931   21893  0 21:45 pts/0    00:00:00 bash
+nikita     30276   21931  0 23:36 pts/0    00:00:00 ./father
+nikita     30277   30276  0 23:36 pts/0    00:00:00 son
+nikita     30278   30276  0 23:36 pts/0    00:00:00 sh -c ps -f > father_son.txt
+nikita     30279   30278  0 23:36 pts/0    00:00:00 ps -f
+используя ps -xf:
+  21931 pts/0    Ss     0:00  |   \_ bash
+  30276 pts/0    S+     0:00  |       \_ ./father
+  30277 pts/0    S+     0:00  |           \_ son
+  30280 pts/0    S+     0:00  |           \_ sh -c ps -xf > father_son2.txt
+  30281 pts/0    R+     0:00  |               \_ ps -xf
+  30252 ?        SNsl   0:00  \_ /usr/libexec/tracker-extract-3
+используя ps -c:
+nikita@nikita-Nitro-AN515-55:~$ g++ father.cpp -o father
+nikita@nikita-Nitro-AN515-55:~$ ./father
+Родитель: pid=30429 ppid=21931
+Дочерний процесс: pid=30430 ppid=30429
+Дочерний процесс завершился со статусом: 256
+nikita@nikita-Nitro-AN515-55:~$ cat father_son.txt
+  UID     PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+ 1000    1096 0000000000000000 0000000000000000 0000000000001000 0000000100014000 Ssl+ tty2       0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+ 1000    1112 0000000000000000 0000000000000000 0000000000001000 0000000100004002 Sl+  tty2       0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+ 1000   21931 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/0      0:00 bash
+ 1000   30429 0000000000000000 0000000000010000 0000000000000006 0000000000000000 S+   pts/0      0:00 ./father
+ 1000   30430 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/0      0:00 son
+ 1000   30431 0000000000000000 0000000000000000 0000000180000000 0000000000010002 S+   pts/0      0:00 sh -c ps -s > father_son.txt
+ 1000   30432 0000000000000000 0000000000000000 0000000180000000 0000000073d1fef9 R+   pts/0      0:00 ps -s
+используя ps -l:
+nikita@nikita-Nitro-AN515-55:~$ cat father_son2.txt
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   21931   21893  0  80   0 -  2852 do_wai pts/0    00:00:00 bash
+0 S  1000   30429   21931  0  80   0 -  1514 do_wai pts/0    00:00:00 father
+0 S  1000   30430   30429  0  80   0 -  1514 hrtime pts/0    00:00:00 son
+0 S  1000   30433   30429  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+4 R  1000   30434   30433  0  80   0 -  3178 -      pts/0    00:00:00 ps
+используя ps -H:
+nikita@nikita-Nitro-AN515-55:~$ cat father_son.txt
+    PID TTY          TIME CMD
+  21931 pts/0    00:00:00 bash
+  30495 pts/0    00:00:00   father
+  30496 pts/0    00:00:00     son
+  30497 pts/0    00:00:00     sh
+  30498 pts/0    00:00:00       ps
+используя ps -j:
+nikita@nikita-Nitro-AN515-55:~$ cat father_son2.txt
+    PID    PGID     SID TTY          TIME CMD
+  21931   21931   21931 pts/0    00:00:00 bash
+  30495   30495   21931 pts/0    00:00:00 father
+  30496   30495   21931 pts/0    00:00:00 son
+  30499   30495   21931 pts/0    00:00:00 sh
+  30500   30495   21931 pts/0    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ g++ father.cpp -o father
+nikita@nikita-Nitro-AN515-55:~$ ./father &
+[1] 30610
+nikita@nikita-Nitro-AN515-55:~$ Родитель: pid=30610 ppid=21931
+Дочерний процесс: pid=30611 ppid=30610
+Дочерний процесс завершился со статусом: 256
+cat father_son.txt
+UID          PID    PPID  C STIME TTY          TIME CMD
+nikita     21931   21893  0 21:45 pts/0    00:00:00 bash
+nikita     30610   21931  0 23:47 pts/0    00:00:00 ./father
+nikita     30611   30610  0 23:47 pts/0    00:00:00 son
+nikita     30612   30610  0 23:47 pts/0    00:00:00 sh -c ps -f > father_son.txt
+nikita     30613   30612  0 23:47 pts/0    00:00:00 ps -f
+[1]+  Завершён        ./father
+nikita@nikita-Nitro-AN515-55:~$ cat father_son2.txt
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   21931   21893  0  80   0 -  2852 do_sel pts/0    00:00:00 bash
+0 S  1000   30610   21931  0  80   0 -  1514 do_wai pts/0    00:00:00 father
+0 S  1000   30611   30610  0  80   0 -  1514 hrtime pts/0    00:00:00 son
+0 S  1000   30614   30610  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+4 R  1000   30615   30614  0  80   0 -  3178 -      pts/0    00:00:00 ps
+ps -xf:
+  21931 pts/0    Ss+    0:00  |   \_ bash
+  30743 pts/0    S      0:00  |       \_ ./father
+  30744 pts/0    S      0:00  |           \_ son
+  30745 pts/0    S      0:00  |           \_ sh -c ps -xf > father_son.txt
+  30746 pts/0    R      0:00  |               \_ ps -xf
+  30730 ?        SNsl   0:00  \_ /usr/libexec/tracker-extract-3
+[1]+  Завершён        ./father
+
+ПУнкт 2.3
+nikita@nikita-Nitro-AN515-55:~/task2_3$ g++ 2_3_son.cpp -o 2_3son
+nikita@nikita-Nitro-AN515-55:~/task2_3$ g++ 2_3_father.cpp -o 2_3father
+nikita@nikita-Nitro-AN515-55:~/task2_3$ ./2_3father 1
+Родитель: pid=14724 ppid=13999
+Был выбран execl.
+Дочерний процесс: pid=14725 ppid=14724
+Аргументы команды: 2_3son arg1 arg2
+Переменные окружения: SHELL=/bin/bash SESSION_MANAGER=local/nikita-Nitro-AN515-55:@/tmp/.ICE-unix/1206,unix/nikita-Nitro-AN515-55:/tmp/.ICE-unix/1206 QT_ACCESSIBILITY=1 COLORTERM=truecolor XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+
+Дочерний процесс завершился со статусом: 0
+nikita@nikita-Nitro-AN515-55:~/task2_3$ ./2_3father 2
+Родитель: pid=14726 ppid=13999
+Был выбран execv.
+Дочерний процесс: pid=14727 ppid=14726
+Аргументы команды: 2_3son arg1 arg2
+Переменные окружения: SHELL=/bin/bash SESSION_MANAGER=local/nikita-Nitro-AN515-55:@/tmp/.ICE-unix/1206,unix/nikita-Nitro-AN515-55:/tmp/.ICE-unix/1206 QT_ACCESSIBILITY=1 COLORTERM=truecolor XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+
+Дочерний процесс завершился со статусом: 0
+nikita@nikita-Nitro-AN515-55:~/task2_3$ ./2_3father 3
+Родитель: pid=14728 ppid=13999
+Был выбран execle.
+Дочерний процесс: pid=14729 ppid=14728
+Аргументы команды: 2_3son arg1 arg2
+Переменные окружения: CUSTOM_VAR1=HELLO CUSTOM_VAR2=WORLD! CUSTOM_VAR3=FROM NIKITA! LANGUAGE=RUSSIAN 
+Дочерний процесс завершился со статусом: 0
+nikita@nikita-Nitro-AN515-55:~/task2_3$ ./2_3father 4
+Родитель: pid=14730 ppid=13999
+Был выбран execve.
+Дочерний процесс: pid=14731 ppid=14730
+Аргументы команды: 2_3son arg1 arg2
+Переменные окружения: CUSTOM_VAR1=HELLO CUSTOM_VAR2=WORLD! CUSTOM_VAR3=FROM NIKITA! LANGUAGE=RUSSIAN 
+Дочерний процесс завершился со статусом: 0
+nikita@nikita-Nitro-AN515-55:~/task2_3$ ./2_3father 5
+Родитель: pid=14732 ppid=13999
+Был выбран execlp.
+Дочерний процесс: pid=14733 ppid=14732
+Аргументы команды: 2_3son arg1 arg2
+Переменные окружения: SHELL=/bin/bash SESSION_MANAGER=local/nikita-Nitro-AN515-55:@/tmp/.ICE-unix/1206,unix/nikita-Nitro-AN515-55:/tmp/.ICE-unix/1206 QT_ACCESSIBILITY=1 COLORTERM=truecolor XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+
+Дочерний процесс завершился со статусом: 0
+nikita@nikita-Nitro-AN515-55:~/task2_3$ ./2_3father 6
+Родитель: pid=14734 ppid=13999
+Был выбран execvp.
+Дочерний процесс: pid=14735 ppid=14734
+Аргументы команды: 2_3son arg1 arg2
+Переменные окружения: SHELL=/bin/bash SESSION_MANAGER=local/nikita-Nitro-AN515-55:@/tmp/.ICE-unix/1206,unix/nikita-Nitro-AN515-55:/tmp/.ICE-unix/1206 QT_ACCESSIBILITY=1 COLORTERM=truecolor XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+
+Дочерний процесс завершился со статусом: 0
+nikita@nikita-Nitro-AN515-55:~/task2_3$ ./2_3father 7
+Родитель: pid=14736 ppid=13999
+Был выбран execvpe.
+Дочерний процесс: pid=14737 ppid=14736
+Аргументы команды: 2_3son arg1 arg2
+Переменные окружения: CUSTOM_VAR1=HELLO CUSTOM_VAR2=WORLD! CUSTOM_VAR3=FROM NIKITA! LANGUAGE=RUSSIAN 
+Дочерний процесс завершился со статусом: 0
+
+Пункт 2.4
+nikita@nikita-Nitro-AN515-55:~$ g++ 2_4.cpp -o 2_4
+nikita@nikita-Nitro-AN515-55:~$ ./2_4
+Ситуация a)
+Родитель: pid=26580
+Дочерний процесс: pid=26581 ppid=26580
+Дочерний процесс завершился: pid=26581
+Родитель завершился.
+Ситуация б)
+Родитель: pid=26586
+Родитель завершился.
+Дочерний процесс: pid=26587 ppid=26586
+Дочерний процесс завершился: pid=26587 ppid=1081
+Ситуация c)
+Родитель: pid=26580
+Дочерний процесс: pid=26602 ppid=26580
+Дочерний процесс завершился: pid=26602 ppid=26580
+Родитель завершился.
+nikita@nikita-Nitro-AN515-55:~$ cat father_sonB.txt
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   25465   25439  0  80   0 -  2852 do_wai pts/0    00:00:00 bash
+0 S  1000   26580   25465  0  80   0 -  1514 do_wai pts/0    00:00:00 2_4
+1 S  1000   26586   26580  0  80   0 -  1514 do_wai pts/0    00:00:00 2_4
+1 S  1000   26587   26586  0  80   0 -  1514 hrtime pts/0    00:00:00 2_4
+0 S  1000   26588   26586  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+4 R  1000   26589   26588  0  80   0 -  3178 -      pts/0    00:00:00 ps
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   25465   25439  0  80   0 -  2852 do_wai pts/0    00:00:00 bash
+0 S  1000   26580   25465  0  80   0 -  1514 hrtime pts/0    00:00:00 2_4
+1 S  1000   26587    1081  0  80   0 -  1514 do_wai pts/0    00:00:00 2_4
+0 S  1000   26597   26587  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+4 R  1000   26598   26597  0  80   0 -  3178 -      pts/0    00:00:00 ps
+nikita@nikita-Nitro-AN515-55:~$ cat father_sonC.txt
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   25465   25439  0  80   0 -  2852 do_wai pts/0    00:00:00 bash
+0 S  1000   26580   25465  0  80   0 -  1514 hrtime pts/0    00:00:00 2_4
+1 S  1000   26602   26580  0  80   0 -  1514 do_wai pts/0    00:00:00 2_4
+0 S  1000   26603   26602  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+4 R  1000   26604   26603  0  80   0 -  3178 -      pts/0    00:00:00 ps
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   25465   25439  0  80   0 -  2852 do_wai pts/0    00:00:00 bash
+0 S  1000   26580   25465  0  80   0 -  1514 do_wai pts/0    00:00:00 2_4
+1 Z  1000   26602   26580  0  80   0 -     0 -      pts/0    00:00:00 2_4 <defunct>
+0 S  1000   26610   26580  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+4 R  1000   26611   26610  0  80   0 -  3178 -      pts/0    00:00:00 ps
+
+
+Пункт 3
+Пункт 3.1
+nikita@nikita-Nitro-AN515-55:~$ g++ 3_1son1.cpp -o son1
+nikita@nikita-Nitro-AN515-55:~$ g++ 3_1son2.cpp -o son2
+nikita@nikita-Nitro-AN515-55:~$ g++ 3_1son3.cpp -o son3
+nikita@nikita-Nitro-AN515-55:~$ g++ 3_1father.cpp -o father3
+nikita@nikita-Nitro-AN515-55:~$ ./father3
+Родитель: pid=10190 ppid=10018
+son1 pid=10191 отреагировал на сигнал по умолчанию!
+son2 pid=10192 проигнорировал сигнал!
+son3 pid=10193 перехватывает сигнал:  Сигнал обработан по умолчанию!
+nikita@nikita-Nitro-AN515-55:~$ cat 3_1before.txt
+  UID     PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+ 1000    1089 0000000000000000 0000000000000000 0000000000001000 0000000100014000 Ssl+ tty2       0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+ 1000    1104 0000000000000000 0000000000000000 0000000000001000 0000000100004002 Sl+  tty2       0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+ 1000   10018 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/0      0:00 bash
+ 1000   10190 0000000000000000 0000000000010000 0000000000000006 0000000000000000 S+   pts/0      0:00 ./father3
+ 1000   10191 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/0      0:00 son1
+ 1000   10192 0000000000000000 0000000000000000 0000000000000200 0000000000000000 S+   pts/0      0:00 son2
+ 1000   10193 0000000000000000 0000000000000000 0000000000000000 0000000000000200 S+   pts/0      0:00 son3
+ 1000   10194 0000000000000000 0000000000000000 0000000180000000 0000000000010002 S+   pts/0      0:00 sh -c ps -s > 3_1before.txt
+ 1000   10195 0000000000000000 0000000000000000 0000000180000000 0000000073d1fef9 R+   pts/0      0:00 ps -s
+nikita@nikita-Nitro-AN515-55:~$ cat 3_1after.txt
+  UID     PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+ 1000    1089 0000000000000000 0000000000000000 0000000000001000 0000000100014000 Ssl+ tty2       0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+ 1000    1104 0000000000000000 0000000000000000 0000000000001000 0000000100004002 Sl+  tty2       0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+ 1000   10018 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/0      0:00 bash
+ 1000   10190 0000000000010000 0000000000010000 0000000000000006 0000000000000000 S+   pts/0      0:00 ./father3
+ 1000   10191 0000000000000200 0000000000000000 0000000000000000 0000000000000000 Z+   pts/0      0:00 [son1] <defunct>
+ 1000   10192 0000000000000000 0000000000000000 0000000000000200 0000000000000000 S+   pts/0      0:00 son2
+ 1000   10193 0000000000000000 0000000000000000 0000000000000000 0000000000000000 Z+   pts/0      0:00 [son3] <defunct>
+ 1000   10196 0000000000000000 0000000000000000 0000000180000000 0000000000010002 S+   pts/0      0:00 sh -c ps -s > 3_1after.txt
+ 1000   10197 0000000000000000 0000000000000000 0000000180000000 0000000073d1fef9 R+   pts/0      0:00 ps -s
+
+Пункт 3.2
+nikita@nikita-Nitro-AN515-55:~$ g++ 3_2.cpp -o 3_2
+nikita@nikita-Nitro-AN515-55:~$ ./3_2
+Родитель: pid=32686 ppid=28304
+Дочерний процесс №0 pid=32687 ppid=32686
+Дочерний процесс №1 pid=32688 ppid=32686
+Дочерний процесс №2 pid=32689 ppid=32686
+Дочерний процесс №3 pid=32690 ppid=32686
+Дочерний процесс №4 pid=32691 ppid=32686
+Дочерний процесс №0 pid=32687 ppid=28304 завершился с exit status: 1
+Дочерний процесс №1 pid=32688 ppid=28304 завершился с exit status: 2
+Дочерний процесс №2 pid=32689 ppid=28304 завершился с exit status: 3
+Дочерний процесс №3 pid=32690 ppid=28304 завершился с exit status: 4
+Дочерний процесс №4 pid=32691 ppid=28304 завершился с exit status: 5
+nikita@nikita-Nitro-AN515-55:~$ cat 3_2info.txt
+  UID     PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+ 1000    1107 0000000000000000 0000000000000000 0000000000001000 0000000100014000 Ssl+ tty2       0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+ 1000    1117 0000000000000000 0000000000000000 0000000000001000 0000000100004002 Sl+  tty2       0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+ 1000   28304 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/1      0:00 bash
+ 1000   32686 0000000000000000 0000000000010000 0000000000000006 0000000000000000 S+   pts/1      0:00 ./3_2
+ 1000   32687 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/1      0:00 ./3_2
+ 1000   32688 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/1      0:00 ./3_2
+ 1000   32689 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/1      0:00 ./3_2
+ 1000   32690 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/1      0:00 ./3_2
+ 1000   32691 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/1      0:00 ./3_2
+ 1000   32692 0000000000000000 0000000000000000 0000000180000000 0000000000010002 S+   pts/1      0:00 sh -c ps -s > 3_2info.txt
+ 1000   32693 0000000000000000 0000000000000000 0000000180000000 0000000073d1fef9 R+   pts/1      0:00 ps -s
+
+Пункт 4
+Пункт 4.1
+nikita@nikita-Nitro-AN515-55:~$ g++ 4_1.cpp -o 4_1
+nikita@nikita-Nitro-AN515-55:~$ ./4_1
+Создание потоков при помощи pthrea_create():
+
+Hello World! I am thread №1 my tid = 6829
+Hello World! I am thread №2 my tid = 6830
+Hello World! I am thread №3 my tid = 6831
+Hello World! I am thread №4 my tid = 6832
+Hello World! I am thread №5 my tid = 6833
+
+
+Создание потоков при помощи clone():
+
+Hello World from CLONE №1 tid = 6842
+Hello World from CLONE №2 tid = 6843
+Hello World from CLONE №3 tid = 6844
+Hello World from CLONE №4 tid = 6845
+Hello World from CLONE №5 tid = 6846
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1before.txt
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+nikita      6674    6648    6674  0    1 13:50 pts/0    00:00:00 bash
+nikita      6823    6674    6823  0    1 13:53 pts/0    00:00:00 ./4_1
+nikita      6824    6823    6824  0    1 13:53 pts/0    00:00:00 sh -c ps -Lf > 4_1before.txt
+nikita      6825    6824    6825  0    1 13:53 pts/0    00:00:00 ps -Lf
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1after.txt
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+nikita      6674    6648    6674  0    1 13:50 pts/0    00:00:00 bash
+nikita      6823    6674    6823  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6829  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6830  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6831  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6832  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6833  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6834    6823    6834  0    1 13:53 pts/0    00:00:00 sh -c ps -Lf > 4_1after.txt
+nikita      6835    6834    6835  0    1 13:53 pts/0    00:00:00 ps -Lf
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1beforeclone.txt
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+nikita      6674    6648    6674  0    1 13:50 pts/0    00:00:00 bash
+nikita      6823    6674    6823  0    1 13:53 pts/0    00:00:00 ./4_1
+nikita      6838    6823    6838  0    1 13:53 pts/0    00:00:00 sh -c ps -Lf > 4_1beforeclone.txt
+nikita      6839    6838    6839  0    1 13:53 pts/0    00:00:00 ps -Lf
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1afterclone.txt
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+nikita      6674    6648    6674  0    1 13:50 pts/0    00:00:00 bash
+nikita      6823    6674    6823  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6842  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6843  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6844  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6845  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6823    6674    6846  0    6 13:53 pts/0    00:00:00 ./4_1
+nikita      6847    6823    6847  0    1 13:53 pts/0    00:00:00 sh -c ps -Lf > 4_1afterclone.txt
+nikita      6848    6847    6848  0    1 13:53 pts/0    00:00:00 ps -Lf
+
+Пункт 4.2
+pstree:
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1before.txt
+4_1(7138)---sh(7139)---pstree(7140)
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1after.txt
+4_1(7138)-+-sh(7151)---pstree(7152)
+          |-{4_1}(7145)
+          |-{4_1}(7146)
+          |-{4_1}(7147)
+          |-{4_1}(7149)
+          `-{4_1}(7150)
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+nikita      6674    6648    6674  0    1 13:50 pts/0    00:00:00 bash
+nikita      7138    6674    7138  0    6 14:08 pts/0    00:00:00 ./4_1
+nikita      7138    6674    7145  0    6 14:08 pts/0    00:00:00 ./4_1
+nikita      7138    6674    7146  0    6 14:08 pts/0    00:00:00 ./4_1
+nikita      7138    6674    7147  0    6 14:08 pts/0    00:00:00 ./4_1
+nikita      7138    6674    7149  0    6 14:08 pts/0    00:00:00 ./4_1
+nikita      7138    6674    7150  0    6 14:08 pts/0    00:00:00 ./4_1
+nikita      7153    7138    7153  0    1 14:08 pts/0    00:00:00 sh -c ps -Lf >> 4_1after.txt
+nikita      7154    7153    7154  0    1 14:08 pts/0    00:00:00 ps -Lf
+proc/pid/status и proc/pid/task
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1before.txt
+Name:	4_1
+Umask:	0002
+State:	S (sleeping)
+Tgid:	7532
+Ngid:	0
+Pid:	7532
+PPid:	6674
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	256
+Groups:	4 24 27 30 46 122 135 136 1000 
+NStgid:	7532
+NSpid:	7532
+NSpgid:	7532
+NSsid:	6674
+Kthread:	0
+VmPeak:	    6100 kB
+VmSize:	    6064 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    3456 kB
+VmRSS:	    3456 kB
+RssAnon:	     128 kB
+RssFile:	    3328 kB
+RssShmem:	       0 kB
+VmData:	     260 kB
+VmStk:	     132 kB
+VmExe:	       8 kB
+VmLib:	    3476 kB
+VmPTE:	      56 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	1
+SigQ:	0/30773
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000010000
+SigIgn:	0000000000000006
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	ff
+Cpus_allowed_list:	0-7
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	2
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+7532
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1after.txt
+Name:	4_1
+Umask:	0002
+State:	S (sleeping)
+Tgid:	7532
+Ngid:	0
+Pid:	7532
+PPid:	6674
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	256
+Groups:	4 24 27 30 46 122 135 136 1000 
+NStgid:	7532
+NSpid:	7532
+NSpgid:	7532
+NSsid:	6674
+Kthread:	0
+VmPeak:	   47080 kB
+VmSize:	   47044 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    3456 kB
+VmRSS:	    3456 kB
+RssAnon:	     128 kB
+RssFile:	    3328 kB
+RssShmem:	       0 kB
+VmData:	   41220 kB
+VmStk:	     132 kB
+VmExe:	       8 kB
+VmLib:	    3476 kB
+VmPTE:	      96 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	6
+SigQ:	0/30773
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000010000
+SigIgn:	0000000000000006
+SigCgt:	0000000100000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	ff
+Cpus_allowed_list:	0-7
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	11
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+7532
+7541
+7542
+7544
+7545
+7546
+в task появились новые файлы для каждого потока
+разница в status: Количество потоков: с 1 до 6, VmPeak (пиковое использование виртуальной памяти): с 6100 kB до 47080 kB, VmData (размер сегмента данных): с 260 kB до 41220 kB, voluntary_ctxt_switches (добровольные переключения): с 2 до 11 (Потоки активно уступают CPU) 
+
+/proc/pid/environ:
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1before.txt
+SHELL=/bin/bashSESSION_MANAGER=local/nikita-Nitro-AN515-55:@/tmp/.ICE-unix/1209,unix/nikita-Nitro-AN515-55:/tmp/.ICE-unix/1209QT_ACCESSIBILITY=1COLORTERM=truecolorXDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdgSSH_AGENT_LAUNCHER=gnome-keyringXDG_MENU_PREFIX=gnome-GNOME_DESKTOP_SESSION_ID=this-is-deprecatedGNOME_SHELL_SESSION_MODE=ubuntuSSH_AUTH_SOCK=/run/user/1000/keyring/sshXMODIFIERS=@im=ibusDESKTOP_SESSION=ubuntuGTK_MODULES=gail:atk-bridgePWD=/home/nikitaLOGNAME=nikitaXDG_SESSION_DESKTOP=ubuntuXDG_SESSION_TYPE=waylandSYSTEMD_EXEC_PID=1245XAUTHORITY=/run/user/1000/.mutter-Xwaylandauth.YBYE32HOME=/home/nikitaUSERNAME=nikitaIM_CONFIG_PHASE=1LANG=ru_RU.UTF-8LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:XDG_CURRENT_DESKTOP=ubuntu:GNOMEVTE_VERSION=6800WAYLAND_DISPLAY=wayland-0GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/15d7ade1_1659_414b_92e3_00147930efebGNOME_SETUP_DISPLAY=:1LESSCLOSE=/usr/bin/lesspipe %s %sXDG_SESSION_CLASS=userTERM=xterm-256colorLESSOPEN=| /usr/bin/lesspipe %sUSER=nikitaGNOME_TERMINAL_SERVICE=:1.140DISPLAY=:0SHLVL=1QT_IM_MODULE=ibusXDG_RUNTIME_DIR=/run/user/1000XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktopPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/binGDMSESSION=ubuntuDBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus_=./4_1nikita@nikita-Nitro-AN515-55:~$ cat 4_1after.txt
+SHELL=/bin/bashSESSION_MANAGER=local/nikita-Nitro-AN515-55:@/tmp/.ICE-unix/1209,unix/nikita-Nitro-AN515-55:/tmp/.ICE-unix/1209QT_ACCESSIBILITY=1COLORTERM=truecolorXDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdgSSH_AGENT_LAUNCHER=gnome-keyringXDG_MENU_PREFIX=gnome-GNOME_DESKTOP_SESSION_ID=this-is-deprecatedGNOME_SHELL_SESSION_MODE=ubuntuSSH_AUTH_SOCK=/run/user/1000/keyring/sshXMODIFIERS=@im=ibusDESKTOP_SESSION=ubuntuGTK_MODULES=gail:atk-bridgePWD=/home/nikitaLOGNAME=nikitaXDG_SESSION_DESKTOP=ubuntuXDG_SESSION_TYPE=waylandSYSTEMD_EXEC_PID=1245XAUTHORITY=/run/user/1000/.mutter-Xwaylandauth.YBYE32HOME=/home/nikitaUSERNAME=nikitaIM_CONFIG_PHASE=1LANG=ru_RU.UTF-8LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:XDG_CURRENT_DESKTOP=ubuntu:GNOMEVTE_VERSION=6800WAYLAND_DISPLAY=wayland-0GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/15d7ade1_1659_414b_92e3_00147930efebGNOME_SETUP_DISPLAY=:1LESSCLOSE=/usr/bin/lesspipe %s %sXDG_SESSION_CLASS=userTERM=xterm-256colorLESSOPEN=| /usr/bin/lesspipe %sUSER=nikitaGNOME_TERMINAL_SERVICE=:1.140DISPLAY=:0SHLVL=1QT_IM_MODULE=ibusXDG_RUNTIME_DIR=/run/user/1000XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktopPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/binGDMSESSION=ubuntuDBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus_=./4_1
+
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1before.txt
+    PID     TID    PGID     SID  NI
+  10600   10600   10600    9415   0
+nikita@nikita-Nitro-AN515-55:~$ cat 4_1after.txt
+    PID     TID    PGID     SID  NI
+  10600   10600   10600    9415   0
+  10600   10606   10600    9415   0
+  10600   10607   10600    9415   0
+  10600   10608   10600    9415   0
+  10600   10609   10600    9415   0
+  10600   10610   10600    9415   0
+
+strace:
+nikita@nikita-Nitro-AN515-55:~$ g++ 4_1.cpp -o 4_1
+nikita@nikita-Nitro-AN515-55:~$ strace -f -e trace=process ./4_1
+execve("./4_1", ["./4_1"], 0x7ffc6b4bcc18 /* 44 vars */) = 0
+Создание потоков при помощи pthrea_create():
+
+clone3({flags=CLONE_VM|CLONE_VFORK, exit_signal=SIGCHLD, stack=0x7293468e6000, stack_size=0x9000}, 88strace: Process 11231 attached
+ <unfinished ...>
+[pid 11231] execve("/bin/sh", ["sh", "-c", "> 4_1after.txt"], 0x7ffe043f0168 /* 44 vars */ <unfinished ...>
+[pid 11230] <... clone3 resumed>)       = 11231
+[pid 11230] wait4(11231,  <unfinished ...>
+[pid 11231] <... execve resumed>)       = 0
+[pid 11231] exit_group(0)               = ?
+[pid 11231] +++ exited with 0 +++
+<... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 11231
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11231, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x729346000910, parent_tid=0x729346000910, exit_signal=0, stack=0x729345800000, stack_size=0x7fff00, tls=0x729346000640}strace: Process 11240 attached
+ => {parent_tid=[11240]}, 88) = 11240
+Hello World! I am thread №1 my tid = 11240
+[pid 11230] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x729345600910, parent_tid=0x729345600910, exit_signal=0, stack=0x729344e00000, stack_size=0x7fff00, tls=0x729345600640} => {parent_tid=[11241]}, 88) = 11241
+strace: Process 11241 attached
+Hello World! I am thread №2 my tid = 11241
+[pid 11230] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x729344c00910, parent_tid=0x729344c00910, exit_signal=0, stack=0x729344400000, stack_size=0x7fff00, tls=0x729344c00640} => {parent_tid=[11242]}, 88) = 11242
+strace: Process 11242 attached
+Hello World! I am thread №3 my tid = 11242
+[pid 11230] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x729344200910, parent_tid=0x729344200910, exit_signal=0, stack=0x729343a00000, stack_size=0x7fff00, tls=0x729344200640}strace: Process 11243 attached
+ => {parent_tid=[11243]}, 88) = 11243
+Hello World! I am thread №4 my tid = 11243
+[pid 11230] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x729343800910, parent_tid=0x729343800910, exit_signal=0, stack=0x729343000000, stack_size=0x7fff00, tls=0x729343800640} => {parent_tid=[11244]}, 88) = 11244
+strace: Process 11244 attached
+Hello World! I am thread №5 my tid = 11244
+[pid 11240] exit(0)                     = ?
+[pid 11240] +++ exited with 0 +++
+[pid 11241] exit(0)                     = ?
+[pid 11241] +++ exited with 0 +++
+[pid 11242] exit(0)                     = ?
+[pid 11242] +++ exited with 0 +++
+[pid 11243] exit(0)                     = ?
+[pid 11243] +++ exited with 0 +++
+[pid 11244] exit(0)                     = ?
+[pid 11244] +++ exited with 0 +++
+
+
+Создание потоков при помощи clone():
+
+clone3({flags=CLONE_VM|CLONE_VFORK, exit_signal=SIGCHLD, stack=0x7293468e6000, stack_size=0x9000}, 88strace: Process 11248 attached
+ <unfinished ...>
+[pid 11248] execve("/bin/sh", ["sh", "-c", "ps -Lf > 4_1beforeclone.txt"], 0x7ffe043f0168 /* 44 vars */ <unfinished ...>
+[pid 11230] <... clone3 resumed>)       = 11248
+[pid 11248] <... execve resumed>)       = 0
+[pid 11230] wait4(11248,  <unfinished ...>
+[pid 11248] vfork(strace: Process 11249 attached
+ <unfinished ...>
+[pid 11249] execve("/usr/bin/ps", ["ps", "-Lf"], 0x6068dd8a7cf8 /* 44 vars */ <unfinished ...>
+[pid 11248] <... vfork resumed>)        = 11249
+[pid 11248] wait4(-1,  <unfinished ...>
+[pid 11249] <... execve resumed>)       = 0
+[pid 11249] exit_group(0)               = ?
+[pid 11249] +++ exited with 0 +++
+[pid 11248] <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 11249
+[pid 11248] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11249, si_uid=1000, si_status=0, si_utime=0, si_stime=2} ---
+[pid 11248] wait4(-1, 0x7ffd8f36d2ac, WNOHANG, NULL) = -1 ECHILD (Нет дочерних процессов)
+[pid 11248] exit_group(0)               = ?
+[pid 11248] +++ exited with 0 +++
+<... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 11248
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11248, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+clone(child_stack=0x7293461ff000, flags=CLONE_VM|CLONE_SIGHAND|CLONE_THREADstrace: Process 11258 attached
+) = 11258
+Hello World from CLONE №1 tid = 11258
+[pid 11230] clone(child_stack=0x7293461ff000, flags=CLONE_VM|CLONE_SIGHAND|CLONE_THREADstrace: Process 11259 attached
+) = 11259
+Hello World from CLONE №2 tid = 11259
+[pid 11230] clone(child_stack=0x7293461ff000, flags=CLONE_VM|CLONE_SIGHAND|CLONE_THREADstrace: Process 11260 attached
+) = 11260
+Hello World from CLONE №3 tid = 11260
+[pid 11230] clone(child_stack=0x7293461ff000, flags=CLONE_VM|CLONE_SIGHAND|CLONE_THREADstrace: Process 11261 attached
+) = 11261
+Hello World from CLONE №4 tid = 11261
+[pid 11230] clone(child_stack=0x7293461ff000, flags=CLONE_VM|CLONE_SIGHAND|CLONE_THREADstrace: Process 11262 attached
+) = 11262
+Hello World from CLONE №5 tid = 11262
+[pid 11230] clone3({flags=CLONE_VM|CLONE_VFORK, exit_signal=SIGCHLD, stack=0x7293468e6000, stack_size=0x9000}, 88strace: Process 11263 attached
+ <unfinished ...>
+[pid 11263] execve("/bin/sh", ["sh", "-c", "ps -Lf > 4_1afterclone.txt"], 0x7ffe043f0168 /* 44 vars */ <unfinished ...>
+[pid 11230] <... clone3 resumed>)       = 11263
+[pid 11230] wait4(11263,  <unfinished ...>
+[pid 11263] <... execve resumed>)       = 0
+[pid 11263] vfork(strace: Process 11264 attached
+ <unfinished ...>
+[pid 11264] execve("/usr/bin/ps", ["ps", "-Lf"], 0x61c96fd5fcf8 /* 44 vars */ <unfinished ...>
+[pid 11263] <... vfork resumed>)        = 11264
+[pid 11263] wait4(-1,  <unfinished ...>
+[pid 11264] <... execve resumed>)       = 0
+[pid 11264] exit_group(0)               = ?
+[pid 11264] +++ exited with 0 +++
+[pid 11263] <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 11264
+[pid 11263] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11264, si_uid=1000, si_status=0, si_utime=0, si_stime=2} ---
+[pid 11263] wait4(-1, 0x7ffd25f1b6fc, WNOHANG, NULL) = -1 ECHILD (Нет дочерних процессов)
+[pid 11263] exit_group(0)               = ?
+[pid 11263] +++ exited with 0 +++
+[pid 11230] <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 11263
+[pid 11258] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11263, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+[pid 11230] wait4(11258, NULL, 0, NULL) = -1 ECHILD (Нет дочерних процессов)
+[pid 11230] wait4(11259, NULL, 0, NULL) = -1 ECHILD (Нет дочерних процессов)
+[pid 11230] wait4(11260, NULL, 0, NULL) = -1 ECHILD (Нет дочерних процессов)
+[pid 11230] wait4(11261, NULL, 0, NULL) = -1 ECHILD (Нет дочерних процессов)
+[pid 11230] wait4(11262, NULL, 0, NULL) = -1 ECHILD (Нет дочерних процессов)
+[pid 11230] exit_group(0)               = ?
+[pid 11262] +++ exited with 0 +++
+[pid 11261] +++ exited with 0 +++
+[pid 11260] +++ exited with 0 +++
+[pid 11259] +++ exited with 0 +++
+[pid 11258] +++ exited with 0 +++
++++ exited with 0 +++
+
+Пункт 4.3
+nikita@nikita-Nitro-AN515-55:~$ g++ 4_3.cpp -o 4_3
+nikita@nikita-Nitro-AN515-55:~$ ./4_3
+Hello World! I am thread №1 my tid = 14782
+Адрес локальной переменной потока: 0x7e43a1fffd64
+Hello World! I am thread №2 my tid = 14783
+Адрес локальной переменной потока: 0x7e43a15ffd64
+Global: 20000
+Heap: 20000
+nikita@nikita-Nitro-AN515-55:~$ cat 4_3.txt
+Hello World! I am thread №1 my tid = 14782
+Hello World! I am thread №2 my tid = 14783
+Адресное пространство: Глобальные переменные и динамическая память (куча) доступны всем потокам.
+Файловые дескрипторы: Открытые файлы, сокеты и другие дескрипторы разделяются между потоками.
+Идентификаторы процесса: Все потоки имеют одинаковый PID, но уникальные TID.
+Стек каждого потока: Локальные переменные функции хранятся в отдельном стеке.
+
+Пункт 4.4
+nikita@nikita-Nitro-AN515-55:~$ g++ 4_4.cpp -o 4_4
+nikita@nikita-Nitro-AN515-55:~$ ./4_4
+Hello World! I am thread №1 my tid = 13014
+Hello World! I am thread №2 my tid = 13015
+Сигнал SIGTERM отправлен потоку.
+Поток получил SIGTERM. Завершаюсь...
+nikita@nikita-Nitro-AN515-55:~$ cat 4_4before.txt
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+nikita     11141   11115   11141  0    1 15:27 pts/0    00:00:00 bash
+nikita     13013   11141   13013  0    3 16:06 pts/0    00:00:00 ./4_4
+nikita     13013   11141   13014  0    3 16:06 pts/0    00:00:00 ./4_4
+nikita     13013   11141   13015  0    3 16:06 pts/0    00:00:00 ./4_4
+nikita     13016   13013   13016  0    1 16:06 pts/0    00:00:00 sh -c ps -Lf > 4_4before.txt
+nikita     13017   13016   13017  0    1 16:06 pts/0    00:00:00 ps -Lf
+nikita@nikita-Nitro-AN515-55:~$ cat 4_4after.txt
+UID          PID    PPID     LWP  C NLWP STIME TTY          TIME CMD
+nikita     11141   11115   11141  0    1 15:27 pts/0    00:00:00 bash
+nikita     13013   11141   13013  0    2 16:06 pts/0    00:00:00 ./4_4
+nikita     13013   11141   13015  0    2 16:06 pts/0    00:00:00 ./4_4
+nikita     13018   13013   13018  0    1 16:06 pts/0    00:00:00 sh -c ps -Lf > 4_4after.txt
+nikita     13019   13018   13019  0    1 16:06 pts/0    00:00:00 ps -Lf
+
+Пункт 5
+Пункт 5.1
+nikita@nikita-Nitro-AN515-55:~$ ps -eo pid,comm,ni,policy
+    PID COMMAND          NI POL
+      1 systemd           0 TS
+      2 kthreadd          0 TS
+      3 pool_workqueue_   0 TS
+      4 kworker/R-rcu_g -20 TS
+      5 kworker/R-rcu_p -20 TS
+      6 kworker/R-slub_ -20 TS
+      7 kworker/R-netns -20 TS
+      9 kworker/0:0H-ev -20 TS
+     12 kworker/R-mm_pe -20 TS
+     13 rcu_tasks_kthre   0 TS
+     14 rcu_tasks_rude_   0 TS
+     15 rcu_tasks_trace   0 TS
+     16 ksoftirqd/0       0 TS
+     17 rcu_preempt       0 TS
+     18 migration/0       - FF
+     19 idle_inject/0     - FF
+     20 cpuhp/0           0 TS
+     21 cpuhp/1           0 TS
+     22 idle_inject/1     - FF
+     23 migration/1       - FF
+     24 ksoftirqd/1       0 TS
+     26 kworker/1:0H-ev -20 TS
+     27 cpuhp/2           0 TS
+     28 idle_inject/2     - FF
+     29 migration/2       - FF
+     30 ksoftirqd/2       0 TS
+     32 kworker/2:0H-ev -20 TS
+     33 cpuhp/3           0 TS
+     34 idle_inject/3     - FF
+     35 migration/3       - FF
+     36 ksoftirqd/3       0 TS
+     38 kworker/3:0H-ev -20 TS
+     39 cpuhp/4           0 TS
+     40 idle_inject/4     - FF
+     41 migration/4       - FF
+     42 ksoftirqd/4       0 TS
+     44 kworker/4:0H-ev -20 TS
+     45 cpuhp/5           0 TS
+     46 idle_inject/5     - FF
+     47 migration/5       - FF
+     48 ksoftirqd/5       0 TS
+     50 kworker/5:0H-ev -20 TS
+     51 cpuhp/6           0 TS
+     52 idle_inject/6     - FF
+     53 migration/6       - FF
+     54 ksoftirqd/6       0 TS
+     56 kworker/6:0H-ev -20 TS
+     57 cpuhp/7           0 TS
+     58 idle_inject/7     - FF
+     59 migration/7       - FF
+     60 ksoftirqd/7       0 TS
+     62 kworker/7:0H-ev -20 TS
+     63 kdevtmpfs         0 TS
+     64 kworker/R-inet_ -20 TS
+     66 kauditd           0 TS
+     67 khungtaskd        0 TS
+     68 oom_reaper        0 TS
+     70 kworker/R-write -20 TS
+     71 kcompactd0        0 TS
+     72 ksmd              5 TS
+     73 khugepaged       19 TS
+     74 kworker/R-kinte -20 TS
+     75 kworker/R-kbloc -20 TS
+     76 kworker/R-blkcg -20 TS
+     77 irq/9-acpi        - FF
+     80 kworker/R-tpm_d -20 TS
+     81 kworker/R-ata_s -20 TS
+     82 kworker/R-md    -20 TS
+     83 kworker/R-md_bi -20 TS
+     84 kworker/R-edac- -20 TS
+     85 kworker/R-devfr -20 TS
+     86 watchdogd         - FF
+     87 kworker/0:1H-kb -20 TS
+     89 kswapd0           0 TS
+     90 ecryptfs-kthrea   0 TS
+     91 kworker/R-kthro -20 TS
+     92 irq/123-aerdrv    - FF
+     93 irq/123-pcie-dp   - FF
+     94 irq/124-aerdrv    - FF
+     95 irq/124-pcie-dp   - FF
+    100 kworker/R-acpi_ -20 TS
+    101 hwrng             0 TS
+    102 kworker/R-mld   -20 TS
+    103 kworker/4:1H-ev -20 TS
+    104 kworker/R-ipv6_ -20 TS
+    111 kworker/R-kstrp -20 TS
+    127 kworker/R-charg -20 TS
+    146 kworker/5:1H-kb -20 TS
+    150 kworker/7:1H-kb -20 TS
+    162 kworker/3:1H-ev -20 TS
+    163 kworker/2:1H-ev -20 TS
+    164 kworker/6:1H-ev -20 TS
+    165 kworker/1:1H-kb -20 TS
+    210 scsi_eh_0         0 TS
+    211 kworker/R-scsi_ -20 TS
+    212 kworker/R-nvme- -20 TS
+    213 kworker/R-nvme- -20 TS
+    214 kworker/R-nvme- -20 TS
+    215 kworker/R-nvme- -20 TS
+    218 irq/135-ELAN050   - FF
+    242 jbd2/nvme0n1p5-   0 TS
+    243 kworker/R-ext4- -20 TS
+    283 systemd-journal  -1 TS
+    316 systemd-udevd     0 TS
+    417 kworker/R-cfg80 -20 TS
+    422 irq/145-mei_me    - FF
+    445 irq/146-iwlwifi   - FF
+    446 irq/147-iwlwifi   - FF
+    447 irq/148-iwlwifi   - FF
+    448 irq/149-iwlwifi   - FF
+    449 irq/150-iwlwifi   - FF
+    450 irq/151-iwlwifi   - FF
+    451 irq/152-iwlwifi   - FF
+    452 irq/153-iwlwifi   - FF
+    453 irq/154-iwlwifi   - FF
+    454 irq/155-iwlwifi   - FF
+    462 kworker/R-crypt -20 TS
+    541 systemd-oomd      0 TS
+    544 systemd-resolve   0 TS
+    553 systemd-timesyn   0 TS
+    565 kworker/R-ttm   -20 TS
+    570 card1-crtc0       - FF
+    571 card1-crtc1       - FF
+    572 card1-crtc2       - FF
+    618 accounts-daemon   0 TS
+    620 acpid             0 TS
+    624 avahi-daemon      0 TS
+    626 bluetoothd        0 TS
+    630 cron              0 TS
+    632 dbus-daemon       0 TS
+    633 NetworkManager    0 TS
+    638 irqbalance        0 TS
+    640 networkd-dispat   0 TS
+    643 polkitd           0 TS
+    645 power-profiles-   0 TS
+    647 rsyslogd          0 TS
+    655 snapd             0 TS
+    656 switcheroo-cont   0 TS
+    662 systemd-logind    0 TS
+    663 thermald          0 TS
+    664 udisksd           0 TS
+    665 wpa_supplicant    0 TS
+    668 atd               0 TS
+    687 avahi-daemon      0 TS
+    700 ModemManager      0 TS
+    738 kworker/R-nvkm- -20 TS
+    748 unattended-upgr   0 TS
+    752 kworker/R-ttm   -20 TS
+    753 card2-crtc0       - FF
+    754 card2-crtc1       - FF
+    755 card2-crtc2       - FF
+    756 card2-crtc3       - FF
+    762 colord            0 TS
+    796 cupsd             0 TS
+    827 upowerd           0 TS
+   1056 cups-browsed      0 TS
+   1059 kerneloops        0 TS
+   1062 kerneloops        0 TS
+   1070 gdm3              0 TS
+   1075 gdm-session-wor   0 TS
+   1080 systemd           0 TS
+   1081 (sd-pam)          0 TS
+   1087 pipewire        -11 TS
+   1088 pipewire-media-   0 TS
+   1089 pulseaudio      -11 TS
+   1090 snapd-desktop-i   0 TS
+   1098 gnome-keyring-d   0 TS
+   1103 gdm-wayland-ses   0 TS
+   1104 rtkit-daemon      1 TS
+   1115 dbus-daemon       0 TS
+   1120 gnome-session-b   0 TS
+   1159 xdg-document-po   0 TS
+   1162 xdg-permission-   0 TS
+   1175 fusermount3       0 TS
+   1189 gnome-session-c   0 TS
+   1199 gvfsd             0 TS
+   1207 gvfsd-fuse        0 TS
+   1209 gnome-session-b   0 TS
+   1234 at-spi-bus-laun   0 TS
+   1241 dbus-daemon       0 TS
+   1245 gnome-shell       0 TS
+   1307 krfcommd        -10 TS
+   1332 snapd-desktop-i   0 TS
+   1335 gnome-shell-cal   0 TS
+   1341 evolution-sourc   0 TS
+   1363 goa-daemon        0 TS
+   1364 dconf-service     0 TS
+   1367 gvfs-udisks2-vo   0 TS
+   1370 evolution-calen   0 TS
+   1380 goa-identity-se   0 TS
+   1391 gvfs-afc-volume   0 TS
+   1400 gvfs-gphoto2-vo   0 TS
+   1405 evolution-addre   0 TS
+   1409 gvfs-goa-volume   0 TS
+   1415 gvfs-mtp-volume   0 TS
+   1427 packagekitd       0 TS
+   1434 gvfsd-trash       0 TS
+   1445 gjs               0 TS
+   1447 at-spi2-registr   0 TS
+   1462 sh                0 TS
+   1463 gsd-a11y-settin   0 TS
+   1465 ibus-daemon       0 TS
+   1466 gsd-color         0 TS
+   1468 gsd-datetime      0 TS
+   1469 gsd-housekeepin   0 TS
+   1472 gsd-keyboard      0 TS
+   1474 gsd-media-keys    0 TS
+   1475 gsd-power         0 TS
+   1476 gsd-print-notif   0 TS
+   1484 gsd-rfkill        0 TS
+   1485 gsd-screensaver   0 TS
+   1487 gsd-sharing       0 TS
+   1488 gsd-smartcard     0 TS
+   1493 gsd-sound         0 TS
+   1500 gsd-wacom         0 TS
+   1546 ibus-memconf      0 TS
+   1548 ibus-extension-   0 TS
+   1552 gsd-disk-utilit   0 TS
+   1554 ibus-portal       0 TS
+   1582 evolution-alarm   0 TS
+   1584 gsd-printer       0 TS
+   1625 snap-store        0 TS
+   1640 ibus-engine-sim   0 TS
+   1735 xdg-desktop-por   0 TS
+   1736 tracker-miner-f   - IDL
+   1746 xdg-desktop-por   0 TS
+   1782 gjs               0 TS
+   1805 xdg-desktop-por   0 TS
+   1810 gjs               0 TS
+   1870 gvfsd-metadata    0 TS
+   2045 update-notifier   0 TS
+   3178 Xwayland          0 TS
+   3272 gsd-xsettings     0 TS
+   3309 ibus-x11          0 TS
+   4575 gedit             0 TS
+   4620 firefox           0 TS
+   4831 Socket Process    0 TS
+   4845 Privileged Cont   0 TS
+   4851 RDD Process       0 TS
+   4897 snap              0 TS
+   5004 WebExtensions     0 TS
+   5134 Utility Process   0 TS
+   5142 Isolated Web Co   0 TS
+   5145 Isolated Web Co   0 TS
+   5149 Isolated Web Co   0 TS
+   5232 Isolated Web Co   0 TS
+   5308 Web Content       0 TS
+   5467 Web Content       0 TS
+   5497 yandex_browser    0 TS
+   5504 cat               0 TS
+   5505 cat               0 TS
+   5507 chrome_crashpad   0 TS
+   5509 chrome_crashpad   0 TS
+   5515 yandex_browser    0 TS
+   5516 yandex_browser    0 TS
+   5518 yandex_browser    0 TS
+   5542 yandex_browser    0 TS
+   5544 yandex_browser    0 TS
+   5588 yandex_browser    0 TS
+   5657 yandex_browser    0 TS
+   5663 yandex_browser    0 TS
+   5679 yandex_browser    0 TS
+   5680 yandex_browser    0 TS
+   6083 yandex_browser    0 TS
+   6135 nautilus          0 TS
+   6183 gvfsd-network     0 TS
+   6199 gvfsd-dnssd       0 TS
+   6405 yandex_browser    0 TS
+   7698 yandex_browser    0 TS
+   7724 yandex_browser    0 TS
+  10324 atop            -20 TS
+  10325 atopacctd       -20 TS
+  11115 gnome-terminal-   0 TS
+  11141 bash              0 TS
+  11337 java              0 TS
+  11513 fsnotifier        0 TS
+  11529 ion.clangd.main   0 TS
+  11854 kworker/7:0-mm_   0 TS
+  12166 yandex_browser    0 TS
+  12400 yandex_browser    0 TS
+  12514 yandex_browser    0 TS
+  12549 yandex_browser    0 TS
+  12562 yandex_browser    0 TS
+  12597 yandex_browser    0 TS
+  12619 yandex_browser    0 TS
+  12636 yandex_browser    0 TS
+  12662 yandex_browser    0 TS
+  12668 yandex_browser    0 TS
+  13457 Web Content       0 TS
+  13494 yandex_browser    0 TS
+  13536 yandex_browser    0 TS
+  13553 kworker/3:1-i91   0 TS
+  13561 yandex_browser    0 TS
+  13635 yandex_browser    0 TS
+  13870 kworker/7:2-cgr   0 TS
+  13968 kworker/6:0-eve   0 TS
+  14113 kworker/u16:3-e   0 TS
+  14132 kworker/1:1-eve   0 TS
+  14151 kworker/u17:0-r -20 TS
+  14157 yandex_browser    0 TS
+  14193 yandex_browser    0 TS
+  14229 yandex_browser    0 TS
+  14249 yandex_browser    0 TS
+  14278 yandex_browser    0 TS
+  14350 yandex_browser    0 TS
+  14369 yandex_browser    0 TS
+  14474 kworker/3:2       0 TS
+  14486 kworker/5:1-eve   0 TS
+  14535 kworker/0:2-eve   0 TS
+  14631 kworker/2:0-eve   0 TS
+  14742 kworker/4:0-eve   0 TS
+  14748 kworker/6:2-eve   0 TS
+  14788 kworker/u16:2-e   0 TS
+  14838 kworker/1:0-eve   0 TS
+  14862 kworker/4:2-eve   0 TS
+  14872 kworker/5:0       0 TS
+  14874 kworker/0:1-eve   0 TS
+  14887 kworker/1:2       0 TS
+  14894 kworker/u16:0-e   0 TS
+  14903 yandex_browser    0 TS
+  14929 kworker/u17:2+i -20 TS
+  14939 yandex_browser    0 TS
+  14971 kworker/2:2-eve   0 TS
+  14973 kworker/4:1-eve   0 TS
+  14989 yandex_browser    0 TS
+  15028 kworker/0:0-mm_   0 TS
+  15032 kworker/6:1-eve   0 TS
+  15043 kworker/u16:1-e   0 TS
+  15063 kworker/2:1       0 TS
+  15066 ps                0 TS
+nikita@nikita-Nitro-AN515-55:~$ ps -o pid,comm,ni,policy
+    PID COMMAND          NI POL
+  11141 bash              0 TS
+  15491 ps                0 TS
+nikita@nikita-Nitro-AN515-55:~$ yes > /dev/null &
+[1] 15493
+nikita@nikita-Nitro-AN515-55:~$ ps -o pid,comm,ni,policy
+    PID COMMAND          NI POL
+  11141 bash              0 TS
+  15493 yes               0 TS
+  15494 ps                0 TS
+по умолчанию: SCHED_OTHER nice=0
+
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_1_1.cpp -o 5_1_1
+nikita@nikita-Nitro-AN515-55:~$ ./5_1_1
+Планирование по умолчанию: SCHED_OTHER
+Приоритет: 0 nice = 0
+
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_1_2.cpp -o 5_1_2
+nikita@nikita-Nitro-AN515-55:~$ ./5_1_2
+Потоки:
+ABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABCABC
+Процессы:
+123123123123123123123123123123
+
+ПУнкт 5.2
+nikita@nikita-Nitro-AN515-55:~$ ps -eo pid,comm,user,nice,policy --sort nice
+    PID COMMAND         USER      NI POL
+      4 kworker/R-rcu_g root     -20 TS
+      5 kworker/R-rcu_p root     -20 TS
+      6 kworker/R-slub_ root     -20 TS
+      7 kworker/R-netns root     -20 TS
+      9 kworker/0:0H-ev root     -20 TS
+     12 kworker/R-mm_pe root     -20 TS
+     26 kworker/1:0H-ev root     -20 TS
+     32 kworker/2:0H-ev root     -20 TS
+     38 kworker/3:0H-ev root     -20 TS
+     44 kworker/4:0H-ev root     -20 TS
+     50 kworker/5:0H-ev root     -20 TS
+     56 kworker/6:0H-ev root     -20 TS
+     62 kworker/7:0H-ev root     -20 TS
+     64 kworker/R-inet_ root     -20 TS
+     70 kworker/R-write root     -20 TS
+     74 kworker/R-kinte root     -20 TS
+     75 kworker/R-kbloc root     -20 TS
+     76 kworker/R-blkcg root     -20 TS
+     80 kworker/R-tpm_d root     -20 TS
+     81 kworker/R-ata_s root     -20 TS
+     82 kworker/R-md    root     -20 TS
+     83 kworker/R-md_bi root     -20 TS
+     84 kworker/R-edac- root     -20 TS
+     85 kworker/R-devfr root     -20 TS
+     87 kworker/0:1H-kb root     -20 TS
+     91 kworker/R-kthro root     -20 TS
+    100 kworker/R-acpi_ root     -20 TS
+    102 kworker/R-mld   root     -20 TS
+    103 kworker/4:1H-kb root     -20 TS
+    104 kworker/R-ipv6_ root     -20 TS
+    111 kworker/R-kstrp root     -20 TS
+    127 kworker/R-charg root     -20 TS
+    146 kworker/5:1H-ev root     -20 TS
+    150 kworker/7:1H-kb root     -20 TS
+    162 kworker/3:1H-ev root     -20 TS
+    163 kworker/2:1H-kb root     -20 TS
+    164 kworker/6:1H-kb root     -20 TS
+    165 kworker/1:1H-kb root     -20 TS
+    211 kworker/R-scsi_ root     -20 TS
+    212 kworker/R-nvme- root     -20 TS
+    213 kworker/R-nvme- root     -20 TS
+    214 kworker/R-nvme- root     -20 TS
+    215 kworker/R-nvme- root     -20 TS
+    243 kworker/R-ext4- root     -20 TS
+    417 kworker/R-cfg80 root     -20 TS
+    462 kworker/R-crypt root     -20 TS
+    565 kworker/R-ttm   root     -20 TS
+    738 kworker/R-nvkm- root     -20 TS
+    752 kworker/R-ttm   root     -20 TS
+  10324 atop            root     -20 TS
+  10325 atopacctd       root     -20 TS
+  21526 kworker/u17:2-i root     -20 TS
+  21849 kworker/u17:3-r root     -20 TS
+  22926 kworker/u17:0-i root     -20 TS
+  21442 5_2             root     -19 TS
+  21456 sh              root     -19 TS
+  21457 top             root     -19 TS
+  21472 5_2             root     -19 TS
+  21485 sh              root     -19 TS
+  21486 top             root     -19 TS
+   1087 pipewire        nikita   -11 TS
+   1089 pulseaudio      nikita   -11 TS
+   1307 krfcommd        root     -10 TS
+    283 systemd-journal root      -1 TS
+      1 systemd         root       0 TS
+      2 kthreadd        root       0 TS
+      3 pool_workqueue_ root       0 TS
+     13 rcu_tasks_kthre root       0 TS
+     14 rcu_tasks_rude_ root       0 TS
+     15 rcu_tasks_trace root       0 TS
+     16 ksoftirqd/0     root       0 TS
+     17 rcu_preempt     root       0 TS
+     18 migration/0     root       - FF
+     19 idle_inject/0   root       - FF
+     20 cpuhp/0         root       0 TS
+     21 cpuhp/1         root       0 TS
+     22 idle_inject/1   root       - FF
+     23 migration/1     root       - FF
+     24 ksoftirqd/1     root       0 TS
+     27 cpuhp/2         root       0 TS
+     28 idle_inject/2   root       - FF
+     29 migration/2     root       - FF
+     30 ksoftirqd/2     root       0 TS
+     33 cpuhp/3         root       0 TS
+     34 idle_inject/3   root       - FF
+     35 migration/3     root       - FF
+     36 ksoftirqd/3     root       0 TS
+     39 cpuhp/4         root       0 TS
+     40 idle_inject/4   root       - FF
+     41 migration/4     root       - FF
+     42 ksoftirqd/4     root       0 TS
+     45 cpuhp/5         root       0 TS
+     46 idle_inject/5   root       - FF
+     47 migration/5     root       - FF
+     48 ksoftirqd/5     root       0 TS
+     51 cpuhp/6         root       0 TS
+     52 idle_inject/6   root       - FF
+     53 migration/6     root       - FF
+     54 ksoftirqd/6     root       0 TS
+     57 cpuhp/7         root       0 TS
+     58 idle_inject/7   root       - FF
+     59 migration/7     root       - FF
+     60 ksoftirqd/7     root       0 TS
+     63 kdevtmpfs       root       0 TS
+     66 kauditd         root       0 TS
+     67 khungtaskd      root       0 TS
+     68 oom_reaper      root       0 TS
+     71 kcompactd0      root       0 TS
+     77 irq/9-acpi      root       - FF
+     86 watchdogd       root       - FF
+     89 kswapd0         root       0 TS
+     90 ecryptfs-kthrea root       0 TS
+     92 irq/123-aerdrv  root       - FF
+     93 irq/123-pcie-dp root       - FF
+     94 irq/124-aerdrv  root       - FF
+     95 irq/124-pcie-dp root       - FF
+    101 hwrng           root       0 TS
+    210 scsi_eh_0       root       0 TS
+    218 irq/135-ELAN050 root       - FF
+    242 jbd2/nvme0n1p5- root       0 TS
+    316 systemd-udevd   root       0 TS
+    422 irq/145-mei_me  root       - FF
+    445 irq/146-iwlwifi root       - FF
+    446 irq/147-iwlwifi root       - FF
+    447 irq/148-iwlwifi root       - FF
+    448 irq/149-iwlwifi root       - FF
+    449 irq/150-iwlwifi root       - FF
+    450 irq/151-iwlwifi root       - FF
+    451 irq/152-iwlwifi root       - FF
+    452 irq/153-iwlwifi root       - FF
+    453 irq/154-iwlwifi root       - FF
+    454 irq/155-iwlwifi root       - FF
+    544 systemd-resolve systemd+   0 TS
+    553 systemd-timesyn systemd+   0 TS
+    570 card1-crtc0     root       - FF
+    571 card1-crtc1     root       - FF
+    572 card1-crtc2     root       - FF
+    618 accounts-daemon root       0 TS
+    620 acpid           root       0 TS
+    624 avahi-daemon    avahi      0 TS
+    626 bluetoothd      root       0 TS
+    630 cron            root       0 TS
+    632 dbus-daemon     message+   0 TS
+    633 NetworkManager  root       0 TS
+    638 irqbalance      root       0 TS
+    640 networkd-dispat root       0 TS
+    643 polkitd         root       0 TS
+    645 power-profiles- root       0 TS
+    647 rsyslogd        syslog     0 TS
+    655 snapd           root       0 TS
+    656 switcheroo-cont root       0 TS
+    662 systemd-logind  root       0 TS
+    663 thermald        root       0 TS
+    664 udisksd         root       0 TS
+    665 wpa_supplicant  root       0 TS
+    668 atd             daemon     0 TS
+    687 avahi-daemon    avahi      0 TS
+    700 ModemManager    root       0 TS
+    748 unattended-upgr root       0 TS
+    753 card2-crtc0     root       - FF
+    754 card2-crtc1     root       - FF
+    755 card2-crtc2     root       - FF
+    756 card2-crtc3     root       - FF
+    762 colord          colord     0 TS
+    796 cupsd           root       0 TS
+    827 upowerd         root       0 TS
+   1056 cups-browsed    root       0 TS
+   1059 kerneloops      kernoops   0 TS
+   1062 kerneloops      kernoops   0 TS
+   1070 gdm3            root       0 TS
+   1075 gdm-session-wor root       0 TS
+   1080 systemd         nikita     0 TS
+   1081 (sd-pam)        nikita     0 TS
+   1088 pipewire-media- nikita     0 TS
+   1090 snapd-desktop-i nikita     0 TS
+   1098 gnome-keyring-d nikita     0 TS
+   1103 gdm-wayland-ses nikita     0 TS
+   1115 dbus-daemon     nikita     0 TS
+   1120 gnome-session-b nikita     0 TS
+   1159 xdg-document-po nikita     0 TS
+   1162 xdg-permission- nikita     0 TS
+   1175 fusermount3     root       0 TS
+   1189 gnome-session-c nikita     0 TS
+   1199 gvfsd           nikita     0 TS
+   1207 gvfsd-fuse      nikita     0 TS
+   1209 gnome-session-b nikita     0 TS
+   1234 at-spi-bus-laun nikita     0 TS
+   1241 dbus-daemon     nikita     0 TS
+   1245 gnome-shell     nikita     0 TS
+   1332 snapd-desktop-i nikita     0 TS
+   1335 gnome-shell-cal nikita     0 TS
+   1341 evolution-sourc nikita     0 TS
+   1363 goa-daemon      nikita     0 TS
+   1364 dconf-service   nikita     0 TS
+   1367 gvfs-udisks2-vo nikita     0 TS
+   1370 evolution-calen nikita     0 TS
+   1380 goa-identity-se nikita     0 TS
+   1391 gvfs-afc-volume nikita     0 TS
+   1400 gvfs-gphoto2-vo nikita     0 TS
+   1405 evolution-addre nikita     0 TS
+   1409 gvfs-goa-volume nikita     0 TS
+   1415 gvfs-mtp-volume nikita     0 TS
+   1427 packagekitd     root       0 TS
+   1434 gvfsd-trash     nikita     0 TS
+   1445 gjs             nikita     0 TS
+   1447 at-spi2-registr nikita     0 TS
+   1462 sh              nikita     0 TS
+   1463 gsd-a11y-settin nikita     0 TS
+   1465 ibus-daemon     nikita     0 TS
+   1466 gsd-color       nikita     0 TS
+   1468 gsd-datetime    nikita     0 TS
+   1469 gsd-housekeepin nikita     0 TS
+   1472 gsd-keyboard    nikita     0 TS
+   1474 gsd-media-keys  nikita     0 TS
+   1475 gsd-power       nikita     0 TS
+   1476 gsd-print-notif nikita     0 TS
+   1484 gsd-rfkill      nikita     0 TS
+   1485 gsd-screensaver nikita     0 TS
+   1487 gsd-sharing     nikita     0 TS
+   1488 gsd-smartcard   nikita     0 TS
+   1493 gsd-sound       nikita     0 TS
+   1500 gsd-wacom       nikita     0 TS
+   1546 ibus-memconf    nikita     0 TS
+   1548 ibus-extension- nikita     0 TS
+   1552 gsd-disk-utilit nikita     0 TS
+   1554 ibus-portal     nikita     0 TS
+   1582 evolution-alarm nikita     0 TS
+   1584 gsd-printer     nikita     0 TS
+   1625 snap-store      nikita     0 TS
+   1640 ibus-engine-sim nikita     0 TS
+   1735 xdg-desktop-por nikita     0 TS
+   1746 xdg-desktop-por nikita     0 TS
+   1782 gjs             nikita     0 TS
+   1805 xdg-desktop-por nikita     0 TS
+   1870 gvfsd-metadata  nikita     0 TS
+   2045 update-notifier nikita     0 TS
+   3178 Xwayland        nikita     0 TS
+   3272 gsd-xsettings   nikita     0 TS
+   3309 ibus-x11        nikita     0 TS
+   4575 gedit           nikita     0 TS
+   4620 firefox         nikita     0 TS
+   4831 Socket Process  nikita     0 TS
+   4845 Privileged Cont nikita     0 TS
+   4851 RDD Process     nikita     0 TS
+   4897 snap            nikita     0 TS
+   5004 WebExtensions   nikita     0 TS
+   5134 Utility Process nikita     0 TS
+   5142 Isolated Web Co nikita     0 TS
+   5145 Isolated Web Co nikita     0 TS
+   5149 Isolated Web Co nikita     0 TS
+   5232 Isolated Web Co nikita     0 TS
+   5308 Web Content     nikita     0 TS
+   5467 Web Content     nikita     0 TS
+   5497 yandex_browser  nikita     0 TS
+   5504 cat             nikita     0 TS
+   5505 cat             nikita     0 TS
+   5507 chrome_crashpad nikita     0 TS
+   5509 chrome_crashpad nikita     0 TS
+   5515 yandex_browser  nikita     0 TS
+   5516 yandex_browser  nikita     0 TS
+   5518 yandex_browser  nikita     0 TS
+   5542 yandex_browser  nikita     0 TS
+   5544 yandex_browser  nikita     0 TS
+   5588 yandex_browser  nikita     0 TS
+   5657 yandex_browser  nikita     0 TS
+   5663 yandex_browser  nikita     0 TS
+   5679 yandex_browser  nikita     0 TS
+   5680 yandex_browser  nikita     0 TS
+   6083 yandex_browser  nikita     0 TS
+   6135 nautilus        nikita     0 TS
+   6183 gvfsd-network   nikita     0 TS
+   6199 gvfsd-dnssd     nikita     0 TS
+   6405 yandex_browser  nikita     0 TS
+   7698 yandex_browser  nikita     0 TS
+   7724 yandex_browser  nikita     0 TS
+  11115 gnome-terminal- nikita     0 TS
+  11141 bash            nikita     0 TS
+  11337 java            nikita     0 TS
+  11513 fsnotifier      nikita     0 TS
+  11529 ion.clangd.main nikita     0 TS
+  12166 yandex_browser  nikita     0 TS
+  12400 yandex_browser  nikita     0 TS
+  12514 yandex_browser  nikita     0 TS
+  12549 yandex_browser  nikita     0 TS
+  12562 yandex_browser  nikita     0 TS
+  12597 yandex_browser  nikita     0 TS
+  12619 yandex_browser  nikita     0 TS
+  12636 yandex_browser  nikita     0 TS
+  12662 yandex_browser  nikita     0 TS
+  12668 yandex_browser  nikita     0 TS
+  13457 Web Content     nikita     0 TS
+  13494 yandex_browser  nikita     0 TS
+  13536 yandex_browser  nikita     0 TS
+  13561 yandex_browser  nikita     0 TS
+  13635 yandex_browser  nikita     0 TS
+  14157 yandex_browser  nikita     0 TS
+  14193 yandex_browser  nikita     0 TS
+  14229 yandex_browser  nikita     0 TS
+  14249 yandex_browser  nikita     0 TS
+  14278 yandex_browser  nikita     0 TS
+  14350 yandex_browser  nikita     0 TS
+  14369 yandex_browser  nikita     0 TS
+  14903 yandex_browser  nikita     0 TS
+  14939 yandex_browser  nikita     0 TS
+  16042 yandex_browser  nikita     0 TS
+  16058 yandex_browser  nikita     0 TS
+  16520 kworker/4:2-eve root       0 TS
+  16769 kworker/2:1-eve root       0 TS
+  16829 kworker/0:0-eve root       0 TS
+  16997 os2             nikita     0 TS
+  16998 os2             nikita     0 TS
+  17026 os2             nikita     0 TS
+  17027 os2             nikita     0 TS
+  17046 os2             nikita     0 TS
+  17047 os2             nikita     0 TS
+  17066 os2             nikita     0 TS
+  17067 os2             nikita     0 TS
+  17085 os2             nikita     0 TS
+  17086 os2             nikita     0 TS
+  17109 os2             nikita     0 TS
+  17110 os2             nikita     0 TS
+  17111 os2             nikita     0 TS
+  17131 os2             nikita     0 TS
+  17132 os2             nikita     0 TS
+  17133 os2             nikita     0 TS
+  17134 os2             nikita     0 TS
+  17143 os2             nikita     0 TS
+  17144 os2             nikita     0 TS
+  17145 os2             nikita     0 TS
+  17146 os2             nikita     0 TS
+  17232 kworker/3:0-i91 root       0 TS
+  18058 gjs             nikita     0 TS
+  19280 yandex_browser  nikita     0 TS
+  19295 yandex_browser  nikita     0 TS
+  19371 yandex_browser  nikita     0 TS
+  19504 kworker/u16:0-i root       0 TS
+  19514 kworker/6:2-eve root       0 TS
+  19784 usbmuxd         usbmux     0 TS
+  19825 gvfsd-gphoto2   nikita     0 TS
+  19895 kworker/7:1-eve root       0 TS
+  20126 kworker/5:1-eve root       0 TS
+  20251 yandex_browser  nikita     0 TS
+  20387 yandex_browser  nikita     0 TS
+  20399 yandex_browser  nikita     0 TS
+  20423 kworker/1:1-eve root       0 TS
+  21010 kworker/u16:4-i root       0 TS
+  21029 kworker/1:0-eve root       0 TS
+  21076 kworker/u16:5-e root       0 TS
+  21440 sudo            root       0 TS
+  21441 sudo            root       0 TS
+  21470 sudo            root       0 TS
+  21471 sudo            root       0 TS
+  21502 kworker/0:2     root       0 TS
+  21516 kworker/5:2-i91 root       0 TS
+  21524 kworker/3:1-i91 root       0 TS
+  21689 kworker/1:2     root       0 TS
+  21690 kworker/u16:1-f root       0 TS
+  21747 kworker/2:0-rcu root       0 TS
+  21748 telegram-deskto nikita     0 TS
+  21846 kworker/6:1-cgr root       0 TS
+  21856 kworker/4:0-mm_ root       0 TS
+  21904 kworker/7:2-eve root       0 TS
+  22627 kworker/0:1     root       0 TS
+  22875 kworker/3:2     root       0 TS
+  22877 kworker/u16:2-i root       0 TS
+  22934 kworker/7:0-eve root       0 TS
+  22962 kworker/6:0     root       0 TS
+  22963 systemd-oomd    systemd+   0 TS
+  22967 ps              nikita     0 TS
+   1104 rtkit-daemon    rtkit      1 TS
+     72 ksmd            root       5 TS
+     73 khugepaged      root      19 TS
+   1736 tracker-miner-f nikita     - IDL
+
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_2.cpp -o 5_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_2
+Текущий приоритет: 0
+Приоритет изменен на -19
+getpriority() = -19
+Приоритет изменен на 19
+getpriority() = 19
+nikita@nikita-Nitro-AN515-55:~$ cat 5_2.txt
+ NI     PID COMMAND
+  0   21660 5_2
+ NI     PID COMMAND
+-19   21660 5_2
+ NI     PID COMMAND
+ 19   21660 5_2
+
+Пункт 5.3
+Пункт 5.3.1
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_3_1.cpp -o 5_3_1
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_3_1
+Процесс №0 шаг 0
+Процесс №0 шаг 1
+Процесс №0 шаг 2
+Процесс №0 шаг 3
+Процесс №0 шаг 4
+Процесс №1 шаг 0
+Процесс №1 шаг 1
+Процесс №1 шаг 2
+Процесс №1 шаг 3
+Процесс №1 шаг 4
+Процесс №2 шаг 0
+Процесс №2 шаг 1
+Процесс №2 шаг 2
+Процесс №2 шаг 3
+Процесс №2 шаг 4
+Процесс №3 шаг 0
+Процесс №3 шаг 1
+Процесс №3 шаг 2
+Процесс №3 шаг 3
+Процесс №3 шаг 4
+Процесс №4 шаг 0
+Процесс №4 шаг 1
+Процесс №4 шаг 2
+Процесс №4 шаг 3
+Процесс №4 шаг 4
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_3_1.cpp -o 5_3_1
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_3_1
+0000011111222223333344444
+Выполняются поcледовательно.
+
+Пункт 5.3.2
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_3_2.cpp -o 5_3_2
+nikita@nikita-Nitro-AN515-55:~$ ./5_3_2
+Диапазон SCHED_FIFO: 1 - 99
+Диапазон SCHED_RR: 1 - 99
+Диапазон SCHED_OTHER: 0 - 0
+Диапазон nice: -20 - 19
+Ошибка SHED_FIFO: приоритет ниже минимума
+Ошибка SHED_FIFO: приоритет выше максимума
+Ошибка SHED_RR: приоритет ниже минимума
+Ошибка SHED_RR: приоритет выше максимума
+Ошибка SHED_OTHER: приоритет ниже минимума
+Ошибка SHED_OTHER: приоритет выше максимума
+
+Пункт 5.3.3
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_3_3.cpp -o 5_3_3
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_3_3
+Процесс №1 приоритет = 99 шаг 0
+Процесс №1 приоритет = 99 шаг 1
+Процесс №1 приоритет = 99 шаг 2
+Процесс №1 приоритет = 99 шаг 3
+Процесс №1 приоритет = 99 шаг 4
+Процесс №4 приоритет = 90 шаг 0
+Процесс №4 приоритет = 90 шаг 1
+Процесс №4 приоритет = 90 шаг 2
+Процесс №4 приоритет = 90 шаг 3
+Процесс №4 приоритет = 90 шаг 4
+Процесс №3 приоритет = 20 шаг 0
+Процесс №3 приоритет = 20 шаг 1
+Процесс №3 приоритет = 20 шаг 2
+Процесс №3 приоритет = 20 шаг 3
+Процесс №3 приоритет = 20 шаг 4
+Процесс №0 приоритет = 10 шаг 0
+Процесс №0 приоритет = 10 шаг 1
+Процесс №0 приоритет = 10 шаг 2
+Процесс №0 приоритет = 10 шаг 3
+Процесс №0 приоритет = 10 шаг 4
+Процесс №2 приоритет = 8 шаг 0
+Процесс №2 приоритет = 8 шаг 1
+Процесс №2 приоритет = 8 шаг 2
+Процесс №2 приоритет = 8 шаг 3
+Процесс №2 приоритет = 8 шаг 4
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_3_3.cpp -o 5_3_3
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_3_3
+1111144444333330000022222
+
+Пункт 5.4
+Пункт 5.4.1
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_4_1.cpp -o 5_4_1
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_4_1
+Процесс №2 шаг 0
+Процесс №3 шаг 0
+Процесс №0 шаг 0
+Процесс №1 шаг 0
+Процесс №4 шаг 0
+Процесс №1 шаг 1
+Процесс №2 шаг 1
+Процесс №3 шаг 1
+Процесс №4 шаг 1
+Процесс №0 шаг 1
+Процесс №0 шаг 2
+Процесс №1 шаг 2
+Процесс №2 шаг 2
+Процесс №3 шаг 2
+Процесс №4 шаг 2
+Процесс №2 шаг 3
+Процесс №0 шаг 3
+Процесс №1 шаг 3
+Процесс №3 шаг 3
+Процесс №4 шаг 3
+Процесс №2 шаг 4
+Процесс №3 шаг 4
+Процесс №0 шаг 4
+Процесс №1 шаг 4
+Процесс №4 шаг 4
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_4_1.cpp -o 5_4_1
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_4_1
+0123412034012340123401234
+чередуются
+
+Пункт 5.4.2
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_4_2.cpp -o 5_4_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_4_2
+Процесс №1 шаг 0
+Процесс №1 шаг 1
+Процесс №1 шаг 2
+Процесс №1 шаг 3
+Процесс №1 шаг 4
+Процесс №4 шаг 0
+Процесс №4 шаг 1
+Процесс №4 шаг 2
+Процесс №4 шаг 3
+Процесс №4 шаг 4
+Процесс №3 шаг 0
+Процесс №3 шаг 1
+Процесс №3 шаг 2
+Процесс №3 шаг 3
+Процесс №3 шаг 4
+Процесс №2 шаг 0
+Процесс №2 шаг 1
+Процесс №2 шаг 2
+Процесс №2 шаг 3
+Процесс №2 шаг 4
+Процесс №0 шаг 0
+Процесс №0 шаг 1
+Процесс №0 шаг 2
+Процесс №0 шаг 3
+Процесс №0 шаг 4
+
+Пункт 5.4.3
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_4_3.cpp -o 5_4_3
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_4_3
+SCHED_RR quantum: 0.10000000 секунд 100000000 наносекунд
+Или примерно: 100.000 миллисекунд
+
+Пункт 5.4.4
+используя sched_yield() и приоритет одинаковый:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_4_4.cpp -o 5_4_4
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_4_4
+Процесс №0 шаг 0
+Процесс №1 шаг 0
+Процесс №2 шаг 0
+Процесс №3 шаг 0
+Процесс №4 шаг 0
+Процесс №0 шаг 1
+Процесс №1 шаг 1
+Процесс №2 шаг 1
+Процесс №3 шаг 1
+Процесс №4 шаг 1
+Процесс №0 шаг 2
+Процесс №1 шаг 2
+Процесс №2 шаг 2
+Процесс №3 шаг 2
+Процесс №4 шаг 2
+Процесс №0 шаг 3
+Процесс №1 шаг 3
+Процесс №2 шаг 3
+Процесс №3 шаг 3
+Процесс №4 шаг 3
+Процесс №0 шаг 4
+Процесс №1 шаг 4
+Процесс №2 шаг 4
+Процесс №3 шаг 4
+Процесс №4 шаг 4
+без:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_4_4.cpp -o 5_4_4
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_4_4
+Процесс №0 шаг 0
+Процесс №0 шаг 1
+Процесс №0 шаг 2
+Процесс №0 шаг 3
+Процесс №0 шаг 4
+Процесс №1 шаг 0
+Процесс №1 шаг 1
+Процесс №1 шаг 2
+Процесс №1 шаг 3
+Процесс №1 шаг 4
+Процесс №2 шаг 0
+Процесс №2 шаг 1
+Процесс №2 шаг 2
+Процесс №2 шаг 3
+Процесс №2 шаг 4
+Процесс №3 шаг 0
+Процесс №3 шаг 1
+Процесс №3 шаг 2
+Процесс №3 шаг 3
+Процесс №3 шаг 4
+Процесс №4 шаг 0
+Процесс №4 шаг 1
+Процесс №4 шаг 2
+Процесс №4 шаг 3
+Процесс №4 шаг 4
+используя sched_yield() и приоритет разный:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_4_4.cpp -o 5_4_4
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_4_4
+Процесс №1 шаг 0
+Процесс №1 шаг 1
+Процесс №1 шаг 2
+Процесс №1 шаг 3
+Процесс №1 шаг 4
+Процесс №4 шаг 0
+Процесс №4 шаг 1
+Процесс №4 шаг 2
+Процесс №4 шаг 3
+Процесс №4 шаг 4
+Процесс №3 шаг 0
+Процесс №3 шаг 1
+Процесс №3 шаг 2
+Процесс №3 шаг 3
+Процесс №3 шаг 4
+Процесс №2 шаг 0
+Процесс №2 шаг 1
+Процесс №2 шаг 2
+Процесс №2 шаг 3
+Процесс №2 шаг 4
+Процесс №0 шаг 0
+Процесс №0 шаг 1
+Процесс №0 шаг 2
+Процесс №0 шаг 3
+Процесс №0 шаг 4
+nikita@nikita-Nitro
+выполняет в соответ. с приоритетом.
+
+Пункт 5.5
+Сначала создался rr
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_5.cpp -o 5_5
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_5
+Процесс №1 шаг 0
+Процесс №1 шаг 1
+Процесс №1 шаг 2
+Процесс №1 шаг 3
+Процесс №1 шаг 4
+Процесс №2 шаг 0
+Процесс №2 шаг 1
+Процесс №2 шаг 2
+Процесс №2 шаг 3
+Процесс №2 шаг 4
+Процесс №3 шаг 0
+Процесс №3 шаг 1
+Процесс №3 шаг 2
+Процесс №3 шаг 3
+Процесс №3 шаг 4
+сначала создался fifo
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_5.cpp -o 5_5
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_5
+Процесс №1 шаг 0
+Процесс №1 шаг 1
+Процесс №1 шаг 2
+Процесс №1 шаг 3
+Процесс №1 шаг 4
+Процесс №2 шаг 0
+Процесс №2 шаг 1
+Процесс №2 шаг 2
+Процесс №2 шаг 3
+Процесс №2 шаг 4
+Процесс №3 шаг 0
+Процесс №3 шаг 1
+Процесс №3 шаг 2
+Процесс №3 шаг 3
+Процесс №3 шаг 4
+other всегда в конце
+
+если приоритет разный:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_5.cpp -o 5_5
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_5
+Процесс №2 шаг 0
+Процесс №2 шаг 1
+Процесс №2 шаг 2
+Процесс №2 шаг 3
+Процесс №2 шаг 4
+Процесс №1 шаг 0
+Процесс №1 шаг 1
+Процесс №1 шаг 2
+Процесс №1 шаг 3
+Процесс №1 шаг 4
+Процесс №3 шаг 0
+Процесс №3 шаг 1
+Процесс №3 шаг 2
+Процесс №3 шаг 3
+Процесс №3 шаг 4
+
+Пункт 5.6
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6.cpp -o 5_6
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6
+Планирование по умолчанию: SCHED_OTHER
+Приоритет: 0 nice = 0
+
+Пункт 5.6.1
+2, 3 поток RR; 1 - other:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_1.cpp -o 5_6_1_1
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_1
+Поток №2 шаг 0
+Поток №2 шаг 1
+Поток №3 шаг 0
+Поток №2 шаг 2
+Поток №3 шаг 1
+Поток №2 шаг 3
+Поток №3 шаг 2
+Поток №2 шаг 4
+Поток №3 шаг 3
+Поток №3 шаг 4
+Поток №1 шаг 0
+Поток №1 шаг 1
+Поток №1 шаг 2
+Поток №1 шаг 3
+Поток №1 шаг 4
+все потоки RR:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_1.cpp -o 5_6_1_1
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_1
+Поток №1 шаг 0
+Поток №2 шаг 0
+Поток №3 шаг 0
+Поток №1 шаг 1
+Поток №2 шаг 1
+Поток №3 шаг 1
+Поток №1 шаг 2
+Поток №2 шаг 2
+Поток №3 шаг 2
+Поток №1 шаг 3
+Поток №2 шаг 3
+Поток №3 шаг 3
+Поток №1 шаг 4
+Поток №3 шаг 4
+Поток №2 шаг 4
+все fifo:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_2.cpp -o 5_6_1_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_2
+Поток №1 шаг 0
+Поток №1 шаг 1
+Поток №1 шаг 2
+Поток №1 шаг 3
+Поток №1 шаг 4
+Поток №2 шаг 0
+Поток №2 шаг 1
+Поток №2 шаг 2
+Поток №2 шаг 3
+Поток №2 шаг 4
+Поток №3 шаг 0
+Поток №3 шаг 1
+Поток №3 шаг 2
+Поток №3 шаг 3
+Поток №3 шаг 4
+1, 3 - fifo; 2 - other:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_2.cpp -o 5_6_1_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_2
+Поток №1 шаг 0
+Поток №1 шаг 1
+Поток №1 шаг 2
+Поток №1 шаг 3
+Поток №1 шаг 4
+Поток №3 шаг 0
+Поток №3 шаг 1
+Поток №3 шаг 2
+Поток №3 шаг 3
+Поток №3 шаг 4
+Поток №2 шаг 0
+Поток №2 шаг 1
+Поток №2 шаг 2
+Поток №2 шаг 3
+Поток №2 шаг 4
+3 - fifo; 1, 2 - other:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_2.cpp -o 5_6_1_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_2
+Поток №3 шаг 0
+Поток №3 шаг 1
+Поток №3 шаг 2
+Поток №3 шаг 3
+Поток №3 шаг 4
+Поток №2 шаг 0
+Поток №1 шаг 0
+Поток №1 шаг 1
+Поток №2 шаг 1
+Поток №1 шаг 2
+Поток №2 шаг 2
+Поток №1 шаг 3
+Поток №2 шаг 3
+Поток №1 шаг 4
+Поток №2 шаг 4
+все 3 other:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_2.cpp -o 5_6_1_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_2
+Поток №2 шаг 0
+Поток №3 шаг 0
+Поток №1 шаг 0
+Поток №2 шаг 1
+Поток №1 шаг 1
+Поток №3 шаг 1
+Поток №3 шаг 2
+Поток №2 шаг 2
+Поток №1 шаг 2
+Поток №2 шаг 3
+Поток №3 шаг 3
+Поток №1 шаг 3
+Поток №2 шаг 4
+Поток №3 шаг 4
+Поток №1 шаг 4
+1, 3 - RR; 2 - fifo:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_3.cpp -o 5_6_1_3
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_3
+Поток №2 шаг 0
+Поток №2 шаг 1
+Поток №2 шаг 2
+Поток №2 шаг 3
+Поток №2 шаг 4
+Поток №1 шаг 0
+Поток №3 шаг 0
+Поток №1 шаг 1
+Поток №3 шаг 1
+Поток №1 шаг 2
+Поток №3 шаг 2
+Поток №1 шаг 3
+Поток №3 шаг 3
+Поток №1 шаг 4
+Поток №3 шаг 4
+2, 3 fifo; 1 - RR
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_3.cpp -o 5_6_1_3
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_3
+Поток №2 шаг 0
+Поток №2 шаг 1
+Поток №2 шаг 2
+Поток №2 шаг 3
+Поток №2 шаг 4
+Поток №3 шаг 0
+Поток №3 шаг 1
+Поток №3 шаг 2
+Поток №3 шаг 3
+Поток №3 шаг 4
+Поток №1 шаг 0
+Поток №1 шаг 1
+Поток №1 шаг 2
+Поток №1 шаг 3
+Поток №1 шаг 4
+1-rr; 2-other; 3-fifo:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_1_3.cpp -o 5_6_1_3
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_1_3
+[sudo] пароль для nikita: 
+Поток №3 шаг 0
+Поток №3 шаг 1
+Поток №3 шаг 2
+Поток №3 шаг 3
+Поток №3 шаг 4
+Поток №1 шаг 0
+Поток №1 шаг 1
+Поток №1 шаг 2
+Поток №1 шаг 3
+Поток №1 шаг 4
+Поток №2 шаг 0
+Поток №2 шаг 1
+Поток №2 шаг 2
+Поток №2 шаг 3
+Поток №2 шаг 4
+
+Пункт 5.6.2
+fifo разные приоритеты:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_2.cpp -o 5_6_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_2
+Поток №3 приоритет=90 шаг 0
+Поток №3 приоритет=90 шаг 1
+Поток №3 приоритет=90 шаг 2
+Поток №3 приоритет=90 шаг 3
+Поток №3 приоритет=90 шаг 4
+Поток №2 приоритет=10 шаг 0
+Поток №2 приоритет=10 шаг 1
+Поток №2 приоритет=10 шаг 2
+Поток №2 приоритет=10 шаг 3
+Поток №2 приоритет=10 шаг 4
+Поток №1 приоритет=1 шаг 0
+Поток №1 приоритет=1 шаг 1
+Поток №1 приоритет=1 шаг 2
+Поток №1 приоритет=1 шаг 3
+Поток №1 приоритет=1 шаг 4
+rr разные приоритеты:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_2.cpp -o 5_6_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_2
+Поток №1 приоритет=99 шаг 0
+Поток №1 приоритет=99 шаг 1
+Поток №1 приоритет=99 шаг 2
+Поток №1 приоритет=99 шаг 3
+Поток №1 приоритет=99 шаг 4
+Поток №3 приоритет=90 шаг 0
+Поток №3 приоритет=90 шаг 1
+Поток №3 приоритет=90 шаг 2
+Поток №3 приоритет=90 шаг 3
+Поток №3 приоритет=90 шаг 4
+Поток №2 приоритет=10 шаг 0
+Поток №2 приоритет=10 шаг 1
+Поток №2 приоритет=10 шаг 2
+Поток №2 приоритет=10 шаг 3
+Поток №2 приоритет=10 шаг 4
+3 - fifo; 1, 2 - rr
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_2.cpp -o 5_6_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_2
+Поток №3 приоритет=99 шаг 0
+Поток №3 приоритет=99 шаг 1
+Поток №3 приоритет=99 шаг 2
+Поток №3 приоритет=99 шаг 3
+Поток №3 приоритет=99 шаг 4
+Поток №1 приоритет=80 шаг 0
+Поток №1 приоритет=80 шаг 1
+Поток №1 приоритет=80 шаг 2
+Поток №1 приоритет=80 шаг 3
+Поток №1 приоритет=80 шаг 4
+Поток №2 приоритет=10 шаг 0
+Поток №2 приоритет=10 шаг 1
+Поток №2 приоритет=10 шаг 2
+Поток №2 приоритет=10 шаг 3
+Поток №2 приоритет=10 шаг 4
+
+other разыне nice:
+nikita@nikita-Nitro-AN515-55:~$ g++ 5_6_2_2.cpp -o 5_6_2_2
+nikita@nikita-Nitro-AN515-55:~$ sudo ./5_6_2_2
+Поток №3 nice=-19 шаг 0
+Поток №3 nice=-19 шаг 1
+Поток №3 nice=-19 шаг 2
+Поток №3 nice=-19 шаг 3
+Поток №3 nice=-19 шаг 4
+Поток №2 nice=-10 шаг 0
+Поток №2 nice=-10 шаг 1
+Поток №2 nice=-10 шаг 2
+Поток №2 nice=-10 шаг 3
+Поток №2 nice=-10 шаг 4
+Поток №1 nice=1 шаг 0
+Поток №1 nice=1 шаг 1
+Поток №1 nice=1 шаг 2
+Поток №1 nice=1 шаг 3
+Поток №1 nice=1 шаг 4
+
+Пункт 6
+Пункт 6.1
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_1f.cpp -o 6_1f
+nikita@nikita-Nitro-AN515-55:~$ sudo ./6_1f
+nikita@nikita-Nitro-AN515-55:~$ cat 6_1res.txt
+Родитель записан
+Ребёнок №1 записан
+Ребёнок №2 записан
+Ребёнок №3 записан
+используя execl:
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_1c.cpp -o 6_1c
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_1f.cpp -o 6_1f
+nikita@nikita-Nitro-AN515-55:~$ sudo ./6_1f
+nikita@nikita-Nitro-AN515-55:~$ cat 6_1res.txt
+Родитель записан
+ Ребенок execl №1
+ Ребенок execl №2
+ Ребенок execl №3
+
+Пункт 6.2
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_2c.cpp -o 6_2c
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_2f.cpp -o 6_2f
+nikita@nikita-Nitro-AN515-55:~$ sudo ./6_2f
+ Ребенок execl №1 политика: SCHED_FIFO приоритет = 50
+ Ребенок execl №2 политика: SCHED_FIFO приоритет = 50
+ Ребенок execl №3 политика: SCHED_FIFO приоритет = 50
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_2f.cpp -o 6_2f
+nikita@nikita-Nitro-AN515-55:~$ sudo ./6_2f
+ Ребенок execl №1 политика: SCHED_RR приоритет = 99
+ Ребенок execl №2 политика: SCHED_RR приоритет = 99
+ Ребенок execl №3 политика: SCHED_RR приоритет = 99
+
+Пункт 6.3
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_3.cpp -o 6_3
+nikita@nikita-Nitro-AN515-55:~$ ./6_3 &
+[1] 16673
+nikita@nikita-Nitro-AN515-55:~$ Родитель pid = 16673
+Ребенок pid = 16674 ppid = 16673
+Ребенок pid = 16675 ppid = 16673
+Ребенок pid = 16676 ppid = 16673
+kill -SIGUSR2 16673
+nikita@nikita-Nitro-AN515-55:~$ Процесс pid = 16673 ppid = 16651 поймал сигнал: SIGUSR2
+ps f
+    PID TTY      STAT   TIME COMMAND
+  16651 pts/0    Ss     0:00 bash
+  16673 pts/0    S      0:00  \_ ./6_3
+  16674 pts/0    S      0:00  |   \_ ./6_3
+  16675 pts/0    S      0:00  |   \_ ./6_3
+  16676 pts/0    S      0:00  |   \_ ./6_3
+  16680 pts/0    R+     0:00  \_ ps f
+   1124 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   1140 tty2     Sl+    0:00  \_ /usr/libexec/gnome-session-binary --session=ubuntu
+nikita@nikita-Nitro-AN515-55:~$ kill -SIGUSR2 16674
+Процесс pid = 16674 ppid = 16673 поймал сигнал: SIGUSR2
+nikita@nikita-Nitro-AN515-55:~$ ps f
+    PID TTY      STAT   TIME COMMAND
+  16651 pts/0    Ss     0:00 bash
+  16673 pts/0    S      0:00  \_ ./6_3
+  16675 pts/0    S      0:00  |   \_ ./6_3
+  16676 pts/0    S      0:00  |   \_ ./6_3
+  16681 pts/0    R+     0:00  \_ ps f
+   1124 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   1140 tty2     Sl+    0:00  \_ /usr/libexec/gnome-session-binary --session=ubuntu
+nikita@nikita-Nitro-AN515-55:~$ kill -SIGUSR2 16675
+nikita@nikita-Nitro-AN515-55:~$ Процесс pid = 16675 ppid = 16673 поймал сигнал: SIGUSR2
+ps f
+    PID TTY      STAT   TIME COMMAND
+  16651 pts/0    Ss     0:00 bash
+  16673 pts/0    S      0:00  \_ ./6_3
+  16676 pts/0    S      0:00  |   \_ ./6_3
+  16687 pts/0    R+     0:00  \_ ps f
+   1124 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   1140 tty2     Sl+    0:00  \_ /usr/libexec/gnome-session-binary --session=ubuntu
+nikita@nikita-Nitro-AN515-55:~$ kill -SIGUSR2 16676
+nikita@nikita-Nitro-AN515-55:~$ Процесс pid = 16676 ppid = 16673 поймал сигнал: SIGUSR2
+ps f
+    PID TTY      STAT   TIME COMMAND
+  16651 pts/0    Ss     0:00 bash
+  16673 pts/0    S      0:00  \_ ./6_3
+  16689 pts/0    R+     0:00  \_ ps f
+   1124 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   1140 tty2     Sl+    0:00  \_ /usr/libexec/gnome-session-binary --session=ubuntu
+При отправке сигнала разным процессам, результат совпадает, потомок использует тот же обработчик, что свидетельствует о наследовании.
+
+Пункт 6.4
+nikita@nikita-Nitro-AN515-55:~$ g++ 6_4.cpp -o 6_4
+nikita@nikita-Nitro-AN515-55:~$ sudo ./6_4
+Hello World from CLONE №1 polyci = SCHED_RR prioritet = 99
+Hello World from CLONE №2 polyci = SCHED_RR prioritet = 99
+Hello World from CLONE №3 polyci = SCHED_RR prioritet = 99
+
+
+
+
